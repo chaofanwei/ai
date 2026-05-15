@@ -1,0 +1,22 @@
+# Local agent/runtime state
+.claude/
+.playwright-mcp/
+.codex
+**/.codex
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Logs and temporary output
+*.log
+tmp/
+temp/
+.cache/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
