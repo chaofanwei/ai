@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "fill": "node scripts/fill_release_apply.js",
+    "fill:cdp": "node scripts/fill_release_apply_cdp.js"
+  },
+  "dependencies": {
+    "playwright-core": "^1.59.1"
+  }
+}

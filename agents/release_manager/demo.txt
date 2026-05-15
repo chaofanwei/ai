@@ -1,0 +1,42 @@
+VRS上线(v202604W4v1)，以下需求/优化测试完成，申请上线：
+
+代码修改：
+1. 【DASH】【非中心化】支持下发云盘地址码流信息供短视频主态播放使用：http://pms.qiyi.domain/browse/VIDEODEV-5756
+开发：魏超凡   Review：刘贺,李珍,王兰惠    上线：刘贺
+
+2. 【DASH】PCW支持返回有杜比音效：http://pms.qiyi.domain/browse/VIDEODEV-5747
+开发：魏超凡   Review：刘贺,李珍,王兰惠    上线：刘贺
+
+3. 【DASH】开播加速增加调度前地址返回：http://pms.qiyi.domain/browse/VIDEODEV-5746
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+4. 【DASH】访问后端方式改为qsm主+service ip备的方式：http://pms.qiyi.domain/browse/VIDEODEV-5764
+开发：魏超凡   Review：刘贺,李珍,王兰惠    上线：刘贺
+
+5. 【BVD】支持非中心化云盘码流落库：http://pms.qiyi.domain/browse/VIDEODEV-5757
+开发：侯超昆   Review：刘贺,王兰惠    上线：侯超昆
+
+6. 【DASH】UWP端跟PCA端配置对齐：http://pms.qiyi.domain/browse/VIDEODEV-5773
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+7. 【直播】访问后端方式改为qsm主+service ip备的方式：http://pms.qiyi.domain/browse/VIDEODEV-5772
+开发：魏超凡   Review：刘贺,李珍,王兰惠    上线：刘贺
+
+运维：
+8. 【DASH】DRM版权方策略配置从group6中移除：http://pms.qiyi.domain/browse/VIDEODEV-5752
+开发：李珍   Review：魏超凡,王兰惠    上线：李珍
+
+9. 【VRS】香港QLB迁移替换：http://pms.qiyi.domain/browse/VIDEODEV-5759
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+10. 【VRS】国际站后端服务接入QSM：http://pms.qiyi.domain/browse/VIDEODEV-5765
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+
+以下是上线操作计划：
+1. 4.24（周五） 上线预发布环境，线上回测
+2. 4.27（周一） 上线狗粮环境，线上验证
+3. 4.28（周二） 上线保定徐水电信小站机器，上线国际站华为机房1台服务器
+4. 4.29（周三） 上线保定徐水其他机器，上线OTT保定徐水机房，上线国际站华为机房4台服务器
+5. 5.6（周三） 上线武汉临空港联通+移动小站，上线OTT武汉机房，上线国际站华为机房8台服务器
+6. 5.7（周四） 全量上线

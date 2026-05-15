@@ -1,0 +1,39 @@
+VRS上线(v202605W2v1)，以下需求/优化测试完成，申请上线：
+
+代码修改：
+1. 【DASH】DRM版权配置的兜底机制优化：http://pms.qiyi.domain/browse/VIDEODEV-5791
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+2. 【DASH】O1增加PCW白名单配置：http://pms.qiyi.domain/browse/VIDEODEV-5808
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+3. 【DASH】【非中心化】快速码流不加入到707降级里面：http://pms.qiyi.domain/browse/VIDEODEV-5776
+开发：魏超凡   Review：王兰惠,李珍,刘贺    上线：刘贺
+
+4. 【DASH】【TV】支持屏蔽 4K_sdr10_inter：http://pms.qiyi.domain/browse/VIDEODEV-5780
+开发：魏超凡   Review：王兰惠,李珍,刘贺    上线：刘贺
+
+5. 【星图】DRM巡检机制优化：覆盖国际站4K及阈值调整：http://pms.qiyi.domain/browse/VIDEODEV-5787
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+6. 【星图】增加固定Case的测试机制：http://pms.qiyi.domain/browse/VIDEODEV-5797
+开发：魏超凡   Review：王兰惠,李珍,刘贺    上线：魏超凡
+
+7. 【BVD】去除HiKV写读依赖：http://pms.qiyi.domain/browse/VIDEODEV-5793
+开发：刘贺   Review：王兰惠,侯超昆    上线：刘贺
+
+运维：
+8. 【直播】国际站新建qpaas的预发布两个环境：http://pms.qiyi.domain/browse/VIDEODEV-5810
+开发：魏超凡   Review：王兰惠,李珍,刘贺    上线：刘贺
+
+9. 【直播】点直播国际站预发布环境的pre环境加入到预发布部署里面，last环境加入到线上部署的最后环节：http://pms.qiyi.domain/browse/VIDEODEV-5811
+开发：魏超凡   Review：王兰惠,李珍,刘贺    上线：刘贺
+
+
+以下是上线操作计划：
+1. 5.15（周五） 上线预发布环境，线上回测
+2. 5.18（周一） 上线狗粮环境，线上验证
+3. 5.19（周二） 上线保定徐水电信小站机器，上线国际站华为机房1台服务器
+4. 5.20（周三） 上线保定徐水其他机器，上线OTT保定徐水机房，上线国际站华为机房4台服务器
+5. 5.21（周四） 上线武汉临空港联通+移动小站，上线OTT武汉机房，上线国际站华为机房8台服务器
+6. 5.25（周一） 全量上线

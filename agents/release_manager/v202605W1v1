@@ -1,0 +1,60 @@
+VRS上线(v202605W1v1)，以下需求/优化测试完成，申请上线：
+
+代码修改：
+1. 【Dash】加载月神配置数据文件顺序优化：http://pms.qiyi.domain/browse/VIDEODEV-5763
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+2. 【Dash】IP解析增加格式兼容：http://pms.qiyi.domain/browse/VIDEODEV-5774
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+3. 【DASH】O1支持Widevine/Playready露出：http://pms.qiyi.domain/browse/VIDEODEV-5493
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+4. 【Dash】TV 放开 SDR10bit 1080P：http://pms.qiyi.domain/browse/VIDEODEV-5749
+开发：魏超凡   Review：王兰惠,李珍,刘贺    上线：刘贺
+
+5. 【Live】加载月神配置数据文件顺序优化：http://pms.qiyi.domain/browse/VIDEODEV-5771
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+6. 【Live】IP解析增加格式兼容：http://pms.qiyi.domain/browse/VIDEODEV-5775
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+7. 【直播】清理group6中配置1080p_free_tvids：http://pms.qiyi.domain/browse/VIDEODEV-5761
+开发：李珍   Review：魏超凡,王兰惠,刘贺    上线：刘贺
+
+8. 【DRM】O1支持Widevine/Playready格式：http://pms.qiyi.domain/browse/VIDEODEV-5536
+开发：刘贺   Review：王兰惠,侯超昆    上线：刘贺
+
+9. 【MUS】AV1开播加速增加codec下发：http://pms.qiyi.domain/browse/VIDEODEV-5636
+开发：刘贺   Review：王兰惠,侯超昆    上线：刘贺
+
+10. 【星图】金丝雀小流量场景对比功能支持：http://pms.qiyi.domain/browse/VIDEODEV-5613
+开发：李珍   Review：魏超凡,王兰惠,刘贺    上线：李珍
+
+11. 镜像构建：加入新迁移到配置中心的配置数据到镜像里面去：http://pms.qiyi.domain/browse/VIDEODEV-5784
+开发：魏超凡   Review：王兰惠,刘贺    上线：魏超凡
+
+12. 月神：遗留的几个关于TV的码流权益树编译前后不一致的问题解决：http://pms.qiyi.domain/browse/VIDEODEV-5792
+开发：魏超凡   Review：王兰惠,李珍,刘贺    上线：魏超凡
+
+运维：
+13. 【Dash】开启访问后端使用为qsm主+service ip备的方式（第一周/共三周）：http://pms.qiyi.domain/browse/VIDEODEV-5799
+开发：魏超凡   Review：王兰惠,李珍,刘贺    上线：刘贺
+
+14. 【Dash】国际站新申请内网域名并切到网关：http://pms.qiyi.domain/browse/VIDEODEV-5777
+开发：魏超凡   Review：王兰惠,李珍,刘贺    上线：刘贺
+
+15. 【LIVE】开启访问后端使用为qsm主+service ip备的方式（第一周/共三周）：http://pms.qiyi.domain/browse/VIDEODEV-5800
+开发：魏超凡   Review：王兰惠,李珍,刘贺    上线：刘贺
+
+16. 【VRS】中云信流量迁移下线：http://pms.qiyi.domain/browse/VIDEODEV-5779
+开发：刘贺   Review：王兰惠,侯超昆    上线：刘贺
+
+
+以下是上线操作计划：
+1. 5.8（周五） 上线预发布环境，线上回测
+2. 5.11（周一） 上线狗粮环境，线上验证
+3. 5.12（周二） 上线保定徐水电信小站机器，上线国际站华为机房1台服务器
+4. 5.13（周三） 上线保定徐水其他机器，上线OTT保定徐水机房，上线国际站华为机房4台服务器
+5. 5.14（周四） 上线武汉临空港联通+移动小站，上线OTT武汉机房，上线国际站华为机房8台服务器
+6. 5.18（周一） 全量上线
