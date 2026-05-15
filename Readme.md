@@ -6,6 +6,18 @@
 
 - 里面的AGENTS.MD 是入口
 
+### claude 引用方法
+
+`vim ~/.claude/CLAUDE.md` ： 请先阅读：`~/ai/brain/AGENTS.md`
+
+### Cursor
+
+`vim ~/.cursor/rules/global.mdc` ： 请先阅读：`~/ai/brain/AGENTS.md`
+
+### codex
+
+`vim ~/.codex/AGENTS.md` ： 请先阅读：`~/ai/brain/AGENTS.md`
+
 ## agents
 
 存放不同功能的agent
