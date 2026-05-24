@@ -1,0 +1,14 @@
+## 火山引擎模型列表
+wiki: https://www.volcengine.com/docs/82379/1928262?lang=zh
+
+doubao-seed-2.0-code
+doubao-seed-2.0-pro
+doubao-seed-2.0-lite
+doubao-seed-code
+minimax-latest（推荐写法，对应模型minimax-m2.7）
+glm-5.1
+glm-4.7
+deepseek-v3.2
+kimi-k2.6
+kimi-k2.5
+
