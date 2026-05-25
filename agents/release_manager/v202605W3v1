@@ -1,0 +1,33 @@
+应用云VRS上线(v202605W3v1)，以下需求/优化测试完成，申请上线：
+
+问题修复：
+1. 【DASH】国际站：dash代码兼容新的内网域名相关逻辑：http://pms.qiyi.domain/browse/VIDEODEV-5813
+开发：魏超凡   Review：刘贺,王兰惠    上线：刘贺
+
+技术优化：
+2. 【星图】产品数据增加指标报警：http://pms.qiyi.domain/browse/VIDEODEV-5816
+开发：刘贺   Review：魏超凡,王兰惠    上线：刘贺
+
+3. 【星图】巡检邮件的业务数据支持国际站：http://pms.qiyi.domain/browse/VIDEODEV-5809
+开发：刘贺   Review：王兰惠,魏超凡    上线：刘贺
+
+4. 【星图】支持配置中心配置项的节点版本检查：http://pms.qiyi.domain/browse/VIDEODEV-5786
+开发：刘贺   Review：王兰惠,魏超凡    上线：刘贺
+
+5. 【星图】单机部署支持国际站qpaas及nobug适配新的内网域名：http://pms.qiyi.domain/browse/VIDEODEV-5819
+开发：魏超凡   Review：刘贺,王兰惠    上线：魏超凡
+
+6. 【BVD】RPC服务去除HiKV写依赖：http://pms.qiyi.domain/browse/VIDEODEV-5814
+开发：刘贺   Review：侯超昆,王兰惠    上线：刘贺
+
+7. 【月神】修复feature编辑的bug：http://pms.qiyi.domain/browse/VIDEODEV-5818
+开发：李珍   Review：魏超凡,王兰惠    上线：李珍
+
+
+以下是上线操作计划：
+1. 5.22（周五） 上线预发布环境，线上回测
+2. 5.25（周一） 上线狗粮环境，线上验证
+3. 5.26（周二） 上线保定徐水电信小站机器，上线国际站华为机房1台服务器
+4. 5.27（周三） 上线保定徐水其他机器，上线OTT保定徐水机房，上线国际站华为机房4台服务器
+5. 5.28（周四） 上线武汉临空港联通+移动小站，上线OTT武汉机房，上线国际站华为机房8台服务器
+6. 6.1（周一） 全量上线
