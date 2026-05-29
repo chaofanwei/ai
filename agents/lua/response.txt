@@ -1,0 +1,214 @@
+{
+  "data": {
+    "st": 101,
+    "boss_ts": {
+      "previewTime": 6,
+      "chargeInfo": {
+        "vipContentTypeV2": [
+          -1
+        ],
+        "ht": "2",
+        "isSupportMonthly": 1,
+        "chargeStatus": 1
+      },
+      "data": {
+        "prv": "1"
+      },
+      "content": {
+        "vipMode": 1,
+        "tokenType": 0,
+        "content_type": 0
+      },
+      "previewType": "1"
+    },
+    "ctl": {
+      "uid": "1023108576",
+      "ut": [
+        1
+      ],
+      "drm": true,
+      "uip": "202.108.14.240",
+      "rdt": 3
+    },
+    "program": {
+      "video": [
+        {
+          "m3u8Url": "",
+          "ff": "ts",
+          "bid": 300,
+          "isdol": 0,
+          "vid": "b539da0b61b4602f5e0c31d169f71aee",
+          "rp": 0,
+          "ispre": 1,
+          "ists": 0,
+          "mpdUrl": "",
+          "duration": 5318,
+          "name": "国语",
+          "_selected": false,
+          "source": 0,
+          "mt": 1,
+          "br": 100,
+          "sut": 1,
+          "vsize": 382982884,
+          "mu": "",
+          "slt": 0,
+          "fr": 25,
+          "dr": -1,
+          "drmType": 5,
+          "ptt": 0,
+          "lgt": 0,
+          "lid": 1,
+          "csv": 1,
+          "mver": "101",
+          "dv": "3.1.0",
+          "code": 2,
+          "iv": "0e523aba2db84e5aa0144cbb917de237",
+          "ever": "d795a14561d3412498986302afadb097"
+        },
+        {
+          "m3u8Url": "",
+          "ft": 3,
+          "cg": 1,
+          "bid": 300,
+          "vid": "2ef341edd280af2bbf38083062e79d31",
+          "pts": 160,
+          "rp": 0,
+          "t": 360,
+          "ispre": 1,
+          "tag": {
+            "vt": "",
+            "at": ""
+          },
+          "ists": 0,
+          "mpdUrl": "",
+          "unencryptedDuration": 369,
+          "_selected": true,
+          "ps": 0,
+          "duration": 5318,
+          "play": {
+            "ts": {
+             "i": 29,
+              "d": [
+                {
+                  "URL": "http:\\/\\/baiducdncnc.inter.iqiyi.com\\/videos\\/vts\\/20260429\\/b7\\/12\\/f104869d6dcf19dda5ed722bb87d6118.ts?key=0cdbec",
+                  "sp": "baiducdn_cnc",
+                  "cost": 1
+                }
+              ],
+              "mss_ver": 1
+            }
+          },
+          "previewTsSize": 26955816,
+          "csv": 1,
+          "drm": {
+            "timestamp": "2026-04-29 15:51:43",
+            "wmType": 0,
+            "ticket": "AAAADgUwAAAAAAAAAAdp8b",
+            "drmVersion": "3.1.0"
+          },
+          "source": 0,
+          "mt": 1,
+          "fr": 25,
+          "br": 100,
+          "sut": 1,
+          "vsize": 336840728,
+          "mu": "",
+          "slt": 0,
+          "dr": -1,
+          "fs": [],
+          "drmType": 5,
+          "m3u8": "#EXTM3U\n#EXT-X-KEY:METHOD=NONE\n#EXT-X-TARGETDURATION:5\n#EXT-X-VERSION:3\n#EXTINF:3.000000,\nhttp:\\/\\/data6.video.iqiyi.com\\/videos\\/vts\\/20260429\\/b7\\/12\\/f104869d6dcf19dda5ed722bb87d6118.ts?start=0&end=149272&contentlength=149272&sd=0&qd_idx=1DHK1",
+          "ptt": 0,
+          "lgt": 0,
+          "lid": 1,
+          "mver": "101",
+          "ff": "ts",
+          "name": "国语",
+          "p2p": "",
+          "dv": "3.1.0",
+          "code": 1,
+          "scrsz": "896x376",
+          "isdol": 0,
+          "iv": "0e523aba2db84e5aa0144cbb917de237",
+          "ever": "d795a14561d3412498986302afadb097"
+        }
+      ],
+      "audio": [
+        {
+          "m3u8Url": "",
+          "ff": "dash",
+          "_match": 1,
+          "aid": "74e94ea9bcce433cb872d4efbb9136d4",
+          "cf": "aac",
+          "s": 0,
+          "amt": 0,
+          "csv": 1,
+          "asize": 83869747,
+          "ct": 1,
+          "_sort": 0,
+          "lid": 1,
+          "name": "普通话",
+          "etid": "2120536683467244801",
+          "bid": 100,
+          "mpdUrl": "",
+          "ispre": 1,
+          "aat": 0,
+          "_selected": false,
+          "iv": "0e523aba2db84e5aa0144cbb917de237",
+          "mver": "101"
+        },
+        {
+          "mver": "101",
+          "ff": "amp4",
+          "_match": 1,
+          "aid": "d1d9de81a7a54bf196454caabe577a89",
+          "cf": "aac",
+          "s": 0,
+          "amt": 0,
+          "mpdUrl": "",
+          "m3u8Url": "",
+          "asize": 83028877,
+          "ct": 1,
+          "_sort": 3,
+          "lid": 3,
+          "name": "英语",
+          "etid": "2120536673455441153",
+          "bid": 100,
+          "aat": 0,
+          "_selected": false
+        }
+      ]
+    },
+    "aid": 3968013638565200,
+    "dm": "http:\\/\\/meta.video.iqiyi.com",
+    "etype": 0,
+    "drm": "http:\\/\\/drm.video.iqiyi.com\\/drm\\/",
+    "content": {
+      "isRs": 0,
+      "vtype": -1,
+      "vct": [
+        -1
+      ],
+      "bossStatus": 2,
+      "croIds": [
+        12186
+      ],
+      "pm": 1,
+      "thdt": 1,
+      "isProduced": 0,
+      "vipTypes": [
+        0
+      ]
+    },
+    "cid": 1,
+    "dd": "http:\\/\\/data6.video.iqiyi.com\\/videos",
+    "svp": [],
+    "dm3u8": "http:\\/\\/cache.m.iqiyi.com\\/dc\\/dt\\/",
+    "tvid": 3968013638565200,
+    "p": {
+      "tsl": [],
+      "mt": 0
+    }
+  },
+  "code": "A00000"
+}

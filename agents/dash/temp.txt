@@ -1,0 +1,79 @@
+# 【VRS】多音轨需求-提前获取音轨信息 http://pms.qiyi.domain/browse/VIDEODEV-5821
+
+## Summary
+为国际站新增独立音轨查询接口 `/audioTrack`，入口放在 `vis-rule-engine/src/main/lua/p911/audio_track.lua`，不经过 `dash/quantum.lua` 和 `/dash` 播放流程。
+
+需求链接：[【VRS】多音轨需求-提前获取音轨信息](http://pms.qiyi.domain/browse/VIDEODEV-5821)
+
+## Key Changes
+
+- 新增 `p911/audio_track.lua` 专门入口，负责收参、加载配置、调用业务模块、输出 JSON。
+- 新增音轨业务模块，如 `p911/audio/audio_track_service.lua`：
+  - 调用 `p911.http.fshark.fetch_video_data(request)` 获取 VP 元数据。
+  - 读取 `data.program.audio` 和 `data.p.dal`。
+  - 只执行国际站音轨白名单过滤：按 `src` 第 13-14 位 localisation 匹配 `subtitle_audio_sort.contryId`，不按用户 IP 过滤。
+  - 白名单保留语义：保留 `data.p.dal`、请求 `lid`、白名单配置命中的音轨。
+  - 执行轻量版 `su` 选择，只按 `lid` 维度选择，不使用 `cf/ct/abid/aid`。
+  - 使用 `subtitle_audio_trans` 给每个音轨生成多语言 `name`。
+- 新增或调整 nginx/location/接口映射，将 `/audioTrack` 指向 `p911/audio_track.lua`。
+- 在 `requirements/VIDEODEV-5821_audio_track_info.md` 记录背景、实现过程、修改时间和当前 Codex session id。
+
+## Request/Response
+必传参数：
+- `tvid`: 拉取 VP 元数据。
+- `src`: 判断国际站，并用于音轨白名单匹配。
+- `applang`: 音轨 `name` 的语言，未命中 fallback 到 `en_us`。
+- `su`: 复用现有国际站音轨选择顺序。
+
+建议参数：
+- `lid`: 用户当前/历史选择音轨，参与 `su` 选择，也按现有语义放行该音轨。这两个默认是0
+
+
+成功响应不返回 `st`：
+```json
+{
+  "code": "A00000",
+  "data": {
+    "audio": [
+      { "lid": 1, "name": "Simplified Chinese" }
+    ],
+    "audioInfo": {
+      "selected_lid": 1,
+      "dal": 1
+    }
+  }
+}
+```
+
+异常响应只用 code 表示结果，如：
+
+{ "code": "A00003" }
+
+## 返回错误码
+A00000: 成功，已返回音轨列表和选中信息。
+A00001: 参数非法或缺失，包括 tvid/src/applang/su 缺失、tvid 非法、src 无法识别为国际站。
+A00003: VP/飞鲨数据获取失败，包括超时、无响应、非 JSON、JSON 解析失败、返回结构缺失。
+A00004: VP/飞鲨获取成功，但没有可返回音轨，包括原始 program.audio 为空，或国际站白名单过滤后为空。
+
+## Selection Rules
+su=0 或未传：data.p.dal > 请求 lid > 白名单排序第一个可用音轨。
+su=1：请求 lid > data.p.dal > 白名单排序第一个可用音轨。
+su=3：请求 lid > data.p.dal > applang 对应语言 lid > 白名单排序第一个可用音轨。
+其他 su：请求 lid > applang 对应语言 lid > data.p.dal > 白名单排序第一个可用音轨。
+
+## Out Of Scope
+不判断会员状态。
+不判断视频码流状态。
+不判断设备能力。
+不走 DRM/fairplay/DTS 过滤。
+不返回播放地址或音轨原始大字段。
+不按用户 IP 做音轨过滤或选择。
+
+## Test Plan
+单测覆盖缺少 tvid/src/applang/su、非法 tvid、非国际站 src。
+单测覆盖 VP 超时、无响应、非 JSON、结构缺失返回 A00003。
+单测覆盖 VP 成功但无音轨、白名单过滤后无音轨返回 A00004。
+单测验证白名单按 src localisation 匹配，不按用户 IP 地区匹配。
+单测覆盖 su=0/1/3/其他 的 selected_lid。
+单测覆盖 applang 多语言命中、语言 fallback 到 en_us、音轨文案 fallback 到 id=0。
+单测验证响应 audio 条目只包含 lid/name，且成功响应不包含 st。

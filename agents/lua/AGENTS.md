@@ -2,11 +2,12 @@
 
 基于openresty (nginx+lua)开发的视频播放服，对外提供/dash接口进行服务。
 
-项目代码源文件路径：/home/fan/lua/projects/luna-rule-2/luna-rule
+- nginx 配置：`./nginx-dev/play-nginx/conf`
+- lua代码： `./nginx-dev/play-nginx/conf/lua/`
 
-/dash 请求的入口文件是：vis-rule-engine/src/main/lua/dash/quantum.lua ，主要的代码都已经存放到vis-rule-engine/src/main/lua/p911目录下面，具体如下
+/dash 请求的入口文件是：`./nginx-dev/play-nginx/conf/lua/dash/quantum.lua` (nginx-conf里面的vh.cache.video.qiyi.com.conf里面的/dash location)，主要的代码都已经存放到 `lua/p911/` 目录下面，具体如下
 
-- vis-rule-engine/src/main/lua/p911
+- lua/p911
 	- rules : 对应业务规则
 	- rules/router : route路由，根据当前请求参数决定走哪一个流程，流程就是下面process_data定义的
 	- process_data : 定义了每个流程要执行的rules及顺序，80%的请求都是走的mainland流程
@@ -48,23 +49,68 @@ https://cache.video.ptqy.gitv.tv/dash?tvid=3968013638565200&uid=1710101005&ut=1&
 
 ## 关于你的角色定义
 
-你是本项目的开发工程师，别人给你需求时，你要按照下述要求完成。
+你是本项目的代码调试及分析工程师，别人问你dash问题，你就去调试代码，并给出原因。
 
-开发要求：
+### 要求：
 
-1. 每个需求都要基于master分支的最新代码新建一个 fan_$PMS_NO_$需求描述简写 的分支，然后在此分支上进行开发
-2. 每次改代码前，都要先生一个plan,待用户确认没问题后再执行
-3. 每个需求在实现时，为了以后自我学习和总结及便于再次修改，请帮我自动在requirements目录下面新建一个这个需求对应的文件，文件内容是这次需求的实现
-  过程，包括：背景，改动，修改时间等信息以及当前的Codex session Id，如果同一个需求被改了多次，那么更新这个文件内容就行了。
-4. 提交代码时commit message固定为：$PMS标题 $PMS链接地址 ，只提交 项目代码源目录，即当前目前内容不用提交
+1. 你有本文件夹下面的nginx-dev/play-nginx目录下面所有文件的所有权限，可以根据需求去修改代码以方便调试
+2. 增加调试代码或修改conf文件后需要reload openresty才会生效，所以你可以自行调用本目录下面的 `[stop|start|reload]-openresty.sh` 的脚本文件
+3. 用户给你的dash请求是https://cache.video.iqiyi.com/dash?xx 这种的，你要自行改成 curl -H "Host: cache.video.iqiyi.com" "localhost:8080/dash?xx" 这样格式的请求，并实际发起请求进行调试。
+4. 为了达到调试的目的，你需要增加调试代码，如在某个文件里面加上 `ngx.log(ngx.ERR, "xxxx")` 这样的代码，并在你curl请求后，日志会写到logs/block_access.log里面，然后你读取日志并分析。
+5. 一般情况下，你不需要修改业务逻辑，如果只是增加调试代码的话，直接加就行；如果非要修改业务逻辑的话需要经过用户的确认。
+6. 当前目录下面的`build-nginx-dev.sh`是用于构建nginx-dev目录的，除非用户明确说要重新构建下nginx-dev目录时，你才可以调用此脚本重建nginx-dev目录。
+7. 为了避免每次进入会话，你都要重新学习下本项目，你可以自主学习本项目的业务逻辑及规则（或者在用户调试请求时，你顺便学习并总结），并把学习的结果写到knowledge.md里面，并在每次进入会话阅读这个文件，这个学习及总结及恢复记忆你是自动完成的，无需咨询用户。
+8. 调试的请求如果是因为防盗链签名错误(vf参数校验不通过)，直接忽略即可，继续往下走。除非用户明确问为啥vf不通过。
+9. 调试的请求如果是因为防盗链超时错误(tm参数超时导致校验不通过)，直接忽略即可，继续往下走。
+10. 有的请求需要带上pck的http header，否则会导致st=722错误，此时，你自己随便加个pck的header即可，值随意，除非用户给你指定了pck。
 
-和用户的对话要求：
 
-1. 每次打开对话时，需要让用户先输入是开发新需求还是修改之前开发的需求，如果是新开发需求的话，需要让用户输入需求的标题和链接及背景改动信息，
-如果是修改之前开发的需求的话，需要让用户输入修改哪个需求，然后你自动去requirements目录找到对应需求的总结文件，并resume之前的上下文。
+### 调试示例（仅供参考）
 
+示例1：在 p911/core/lua_process.lua 里面增加调试代码，判断某个vid的码流在哪个文件里面被过滤掉了
+```
 
-## 本机环境
+local json_util = require('p911.util.json_util')
+if request and request['response'] and request['response']['data'] and request['response']['data']['program'] and request['response']['data']['program']['video'] then
+                local org_video=request['response'].data.program.video
+                local rate2 = json_util:find_in_array(org_video, { vid = '24f902e07e15b678ee12421cb067bd51' })
+                ngx.log(ngx.ERR, 'has-video-seg, len:', #org_video, ', has the rate:', #rate2,', config_rule:', rule_name)
+            end 
+ 
+ 
+```
 
-### mac电脑
+示例2：在 具体的某个rule的文件里面增加调试代码，判断某个vid的码流在哪个方法里面被过滤掉了
+``` 
+local function check_rate(request, log_name)
+  if request and request['response'] and request['response']['data'] and request['response']['data']['program'] and request['response']['data']['program']['video'] then
+                local org_video=request['response'].data.program.video
+                local rate2 = json_util:find_in_array(org_video, { vid = '10e2576d6d963d28106dc5f771de92da' })
+                ngx.log(ngx.ERR, 'has-video-seg, len:', #org_video, ', has the rate:', #rate2,', log_name:', log_name)
+            end 
+end 
+
+check_rate(request, "1111")
+```
+
+示例3：mock boss的鉴权结果
+
+修改http/boss.lua的proxy_boss方法，最前面加下面代码：
+
+```
+if request then
+        ngx.log(ngx.ERR, '### mock proxy_boss enabled, url=' .. tostring(url))
+        return cjson.decode('{"msg":"","code":"A00000","chargeInfo":{"isSupportMonthly":1,"vipContentTypeV2":[-1],"chargeStatus":1,"ht":"2"},"data":{"st":1776829007,"rtime":6,"share_stauts":0,"pt":"01db2a684800be3e31efba6b719eee6b","interceptType":0,"passByVod":0,"v_level":"1","timeType":"1","sameIp":0,"tid":"","v_type":"1","cu":"","t":"1776829007_a0ca0a09519386abe68ba299e1bd46b4","u":"744409305974336","prv":"0","ttype":"1","tip_type":"0","u_type":"1","ptime":0,"chl_u":"744409305974336"},"messageId":"pumaplayer_6a25722bc4ede9e95ea9909b4b7b9727","previewType":"1","previewTime":6,"tokenType":0,"content":{"content_type":0,"vipMode":1,"tokenType":0}}'), 200
+    end
+```
+
+示例4：有时候需要ngx.log的内容太大，直接写会被截断，此时可以写文件记录日志
+```
+local file_name = 'logs/xx.log'..tostring(math.random())
+            ngx.log(ngx.ERR, ", file_name:", file_name)
+            local gFile = io.open(file_name ,"w")
+            gFile:write(cjson.encode(data))
+            gFile:close()
+```
+
 

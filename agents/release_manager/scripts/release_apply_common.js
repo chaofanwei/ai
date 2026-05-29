@@ -33,7 +33,7 @@ function loadRelease(releaseFile) {
     noteText,
     issues,
     issueIds: issues.map((x) => x.id).join(','),
-    issueKeys: issues.map((x) => x.label).join(','),
+    issueKeys: issues.map((x) => x.label.replace(/&/g, '＆')).join(','),
     mailTitle: `VRS上线申请(${fileName})`,
   };
 }
@@ -55,6 +55,11 @@ async function fillApplyForm(page, release) {
   await waitForApplyPage(page);
 
   await page.evaluate(({ issueIds, issueKeys, noteText, mailTitle }) => {
+    for (const selector of ['#JiraKey', '#summary']) {
+      const input = document.querySelector(selector);
+      if (input) input.setAttribute('maxlength', '2000');
+    }
+
     window.chooseJira({ issueIds, issueKeys });
 
     if (window.CKEDITOR?.instances?.description) {

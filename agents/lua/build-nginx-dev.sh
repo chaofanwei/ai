@@ -39,9 +39,9 @@ function detect_openresty_prefix() {
 
     if command -v openresty >/dev/null 2>&1; then
         local bin
-        bin="$(command -v openresty)"
+        bin="$(realpath "$(command -v openresty)")"
         case "$bin" in
-            */openresty/nginx/sbin/openresty)
+            */openresty/nginx/sbin/openresty|*/openresty/nginx/sbin/nginx)
                 dirname "$(dirname "$(dirname "$bin")")"
                 return
                 ;;
@@ -135,7 +135,7 @@ case "$OS_NAME:$HOST_NAME" in
         ;;
     Linux:*)
         DEFAULT_SOURCE_DIR="$HOME/lua/luna-rule-workspace"
-        DEFAULT_PLAY_OPS_SOURCE="$HOME/python/play_ops"
+        DEFAULT_PLAY_OPS_SOURCE="$HOME/python/projects/play_ops"
         DEFAULT_PYTHON_BIN="$HOME/miniconda3/envs/py310/bin/python"
         ;;
     *)
@@ -281,12 +281,26 @@ find "$CONF_DIR" -name "*.conf" -not -path "$CONF_DIR/lua/*" | while read -r con
     mv "$temp_file" "$conf_file"
 done
 
+# 6b. 重命名 .upsync 文件为 .conf（先删除原 .conf）
+echo "[6b/14] Renaming .upsync files to .conf..."
+for upsync_file in "$CONF_DIR"/upstream.*.upsync; do
+    if [ -f "$upsync_file" ]; then
+        conf_file="${upsync_file%.upsync}.conf"
+        if [ -f "$conf_file" ]; then
+            rm "$conf_file"
+            echo "Deleted existing: $(basename "$conf_file")"
+        fi
+        mv "$upsync_file" "$conf_file"
+        echo "Renamed: $(basename "$upsync_file") -> $(basename "$conf_file")"
+    fi
+done
+
 # 7. 修改lua文件中的路径
 echo "[7/14] Modifying lua files..."
 
 # 获取OpenResty的lualib路径
 OPENRESTY_LUALIB="$OPENRESTY_PREFIX/lualib"
-LUAROCKS_LUALIB="$HOME/.luarocks/lib/lua/5.1"
+LUAROCKS_LUALIB="$HOME/.luarocks/lib/lua/5.1;/usr/local/lib/lua/5.1"
 echo "Using OpenResty lualib: $OPENRESTY_LUALIB"
 echo "Using LuaRocks lualib:  $LUAROCKS_LUALIB"
 
