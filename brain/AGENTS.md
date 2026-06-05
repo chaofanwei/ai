@@ -35,4 +35,9 @@
 
 ## macmini (weichaofan@weichaofan-mini)
 
+- 安装的miniconda ,位于 `~/miniconda3` ,里面我装了多个env,如python3.11 ,优先用这里面的python环境，而不是系统的python环境。
+- 本机已安装android studio，sdk位于 `~/Library/Android/sdk/`,比如adb命令位于`~/Library/Android/sdk/platform-tools/`下面
+- 系统里面已经安装了ffmpeg命令
+- 已安装jdk8，并且java命令已经在path里面,路径为：`/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home`
+- jdk17 位于 `/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home` , 比如java命令位于这个目录下面
 

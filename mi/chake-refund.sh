@@ -53,8 +53,8 @@ while [[ $# -gt 0 ]]; do
   shift
 done
 
-refund_args=("${SKIP_UNLOCK[@]}")
-switch_args=("${SKIP_UNLOCK[@]}" "${RELAUNCH[@]}")
+refund_args=(${SKIP_UNLOCK[@]+"${SKIP_UNLOCK[@]}"})
+switch_args=(${SKIP_UNLOCK[@]+"${SKIP_UNLOCK[@]}"} ${RELAUNCH[@]+"${RELAUNCH[@]}"})
 
 if [[ "$EXECUTE" -eq 1 ]]; then
   refund_args+=(--execute)

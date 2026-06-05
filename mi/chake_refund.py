@@ -8,6 +8,8 @@ Use --execute to perform taps/swipes and submit eligible refund requests.
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timedelta
+import json
 import re
 import subprocess
 import sys
@@ -21,18 +23,37 @@ from pathlib import Path
 WECHAT_MSG_URL = "http://myroute.cn/msg"
 WECHAT_MAX_LINES = 5
 WECHAT_MAX_LINE_LEN = 40
+CHAKE_LEDGER_BASE_URL = "http://myroute.cn/chake"
+CHAKE_LEDGER_LOOKBACK_DAYS = 15
+ORDER_CARD_TOP_MARGIN = 180
+ORDER_CARD_BOTTOM_MARGIN = 320
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_UNLOCK_SCRIPT = str(SCRIPT_DIR / "unlock.sh")
 DEFAULT_ADB = "/Users/weichaofan/Library/Android/sdk/platform-tools/adb"
 PACKAGE = "com.slwy.shanglvwuyou"
 GREETING_RE = re.compile(r"您好[，,]?\s*(\S+)")
+ACCOUNT_LEDGER_NAMES = {
+    "魏超凡": "wei",
+    "常会洁": "chang",
+}
+PURCHASE_TIME_RE = re.compile(r"(\d{4}-\d{2}-\d{2})(?:\s+(\d{1,2}:\d{2})(?::(\d{2}))?)?")
 
 
 @dataclass(frozen=True)
 class RefundRecord:
     order_date: str
     amount: str
+
+
+@dataclass(frozen=True)
+class LedgerOrder:
+    purchase_time: str
+    purchase_amount: int
+
+    @property
+    def key(self) -> tuple[str, int]:
+        return self.purchase_time, self.purchase_amount
 
 
 @dataclass(frozen=True)
@@ -226,6 +247,74 @@ def nearest_order_amount(nodes: list[UINode], refund_node: UINode) -> str:
     return min(candidates, key=lambda node: abs(node.center_y - refund_node.center_y)).text
 
 
+def order_date_nodes(rows: list[UINode]) -> list[UINode]:
+    return [node for node in rows if node.text.startswith("2026-")]
+
+
+def amount_nodes(nodes: list[UINode]) -> list[UINode]:
+    return [node for node in nodes if node.visible and node.text.startswith("￥")]
+
+
+def same_card_window(date_node: UINode) -> tuple[int, int]:
+    center_y = date_node.center_y
+    return center_y - ORDER_CARD_TOP_MARGIN, center_y + ORDER_CARD_BOTTOM_MARGIN
+
+
+def date_node_for_order_node(rows: list[UINode], order_node: UINode) -> UINode | None:
+    candidates: list[UINode] = []
+    for date_node in order_date_nodes(rows):
+        top, bottom = same_card_window(date_node)
+        if top <= order_node.center_y <= bottom:
+            candidates.append(date_node)
+    if not candidates:
+        return None
+    return min(candidates, key=lambda node: abs(node.center_y - order_node.center_y))
+
+
+def normalize_purchase_time(text: str) -> str | None:
+    match = PURCHASE_TIME_RE.search(text)
+    if not match:
+        return None
+    date_part = match.group(1)
+    hour_minute = match.group(2) or "00:00"
+    second = match.group(3) or "00"
+    return f"{date_part} {hour_minute}:{second}"
+
+
+def parse_purchase_datetime(text: str) -> datetime | None:
+    normalized = normalize_purchase_time(text)
+    if normalized is None:
+        return None
+    try:
+        return datetime.strptime(normalized, "%Y-%m-%d %H:%M:%S")
+    except ValueError:
+        return None
+
+
+def parse_amount_int(text: str) -> int | None:
+    match = re.search(r"\d[\d,]*(?:\.\d+)?", text)
+    if not match:
+        return None
+    number = match.group(0).replace(",", "")
+    return int(float(number))
+
+
+def order_from_status_node(rows: list[UINode], nodes: list[UINode], status_node: UINode) -> LedgerOrder | None:
+    date_node = date_node_for_order_node(rows, status_node)
+    if date_node is None:
+        return None
+    top, bottom = same_card_window(date_node)
+    amounts = [node for node in amount_nodes(nodes) if top <= node.center_y <= bottom]
+    if not amounts:
+        return None
+    amount_node = min(amounts, key=lambda node: abs(node.center_y - status_node.center_y))
+    purchase_time = normalize_purchase_time(date_node.text)
+    amount = parse_amount_int(amount_node.text)
+    if purchase_time is None or amount is None:
+        return None
+    return LedgerOrder(purchase_time=purchase_time, purchase_amount=amount)
+
+
 def detect_account_name(nodes: list[UINode]) -> str | None:
     for node in nodes:
         if not node.visible:
@@ -234,6 +323,12 @@ def detect_account_name(nodes: list[UINode]) -> str | None:
         if match:
             return match.group(1).strip()
     return None
+
+
+def ledger_account_name(account_name: str | None) -> str | None:
+    if account_name is None:
+        return None
+    return ACCOUNT_LEDGER_NAMES.get(account_name)
 
 
 def account_prefix(account_name: str | None) -> str:
@@ -270,6 +365,19 @@ def build_wechat_message(
     return "\n".join(lines[:WECHAT_MAX_LINES])
 
 
+def build_ledger_added_wechat_message(records: list[LedgerOrder], *, account_name: str | None) -> str:
+    prefix = account_prefix(account_name).replace("退款", "账本")
+    lines = [truncate_wechat_line(f"{prefix}:新增等待确认{len(records)}笔")]
+    detail_slots = WECHAT_MAX_LINES - 1
+    for index, record in enumerate(records):
+        if index >= detail_slots - 1 and len(records) > detail_slots:
+            extra = len(records) - (detail_slots - 1)
+            lines.append(truncate_wechat_line(f"另有{extra}笔见运行日志"))
+            break
+        lines.append(truncate_wechat_line(f"{record.purchase_time} ￥{record.purchase_amount}"))
+    return "\n".join(lines[:WECHAT_MAX_LINES])
+
+
 def send_wechat_message(message: str) -> None:
     url = f"{WECHAT_MSG_URL}?{urllib.parse.urlencode({'echostr': message})}"
     try:
@@ -277,6 +385,193 @@ def send_wechat_message(message: str) -> None:
             print(f"wechat notify sent: HTTP {response.status}")
     except Exception as exc:
         print(f"warning: wechat notify failed: {exc}")
+
+
+def chake_ledger_json(method: str, path: str, *, params: dict[str, str] | None = None, data: dict | None = None) -> dict:
+    url = f"{CHAKE_LEDGER_BASE_URL}{path}"
+    if params:
+        url = f"{url}?{urllib.parse.urlencode(params)}"
+    body = None
+    headers = {}
+    if data is not None:
+        body = json.dumps(data, ensure_ascii=False).encode("utf-8")
+        headers["Content-Type"] = "application/json"
+    request = urllib.request.Request(url, data=body, headers=headers, method=method)
+    with urllib.request.urlopen(request, timeout=15) as response:
+        payload = response.read().decode("utf-8", "replace")
+    return json.loads(payload)
+
+
+def ledger_items(account: str) -> list[dict]:
+    cutoff = datetime.now() - timedelta(days=CHAKE_LEDGER_LOOKBACK_DAYS)
+    page = 1
+    page_size = 100
+    items: list[dict] = []
+    total: int | None = None
+    reached_cutoff = False
+    while total is None or len(items) < total:
+        payload = chake_ledger_json(
+            "GET",
+            "/list",
+            params={"account_name": account, "page": str(page), "page_size": str(page_size)},
+        )
+        if payload.get("code") != 0:
+            raise RuntimeError(payload.get("msg") or payload)
+        page_items = payload.get("items") or []
+        for item in page_items:
+            purchase_dt = parse_purchase_datetime(str(item.get("purchase_time", "")))
+            if purchase_dt is not None and purchase_dt < cutoff:
+                reached_cutoff = True
+                break
+            items.append(item)
+        total = int(payload.get("total") or len(items))
+        if not page_items or reached_cutoff:
+            break
+        page += 1
+    return items
+
+
+class LedgerCache:
+    def __init__(self) -> None:
+        self._items_by_account: dict[str, dict[tuple[str, int], dict]] = {}
+
+    def items_for_account(self, account: str) -> dict[tuple[str, int], dict]:
+        if account not in self._items_by_account:
+            print(f"load ledger cache for {account}: recent {CHAKE_LEDGER_LOOKBACK_DAYS} days")
+            self._items_by_account[account] = self._build_index(ledger_items(account))
+        return self._items_by_account[account]
+
+    def _build_index(self, items: list[dict]) -> dict[tuple[str, int], dict]:
+        index: dict[tuple[str, int], dict] = {}
+        for item in items:
+            key = ledger_item_key(item)
+            if key is not None:
+                index[key] = item
+        return index
+
+    def find(self, account: str, order: LedgerOrder) -> dict | None:
+        return self.items_for_account(account).get(order.key)
+
+    def remember(self, account: str, order: LedgerOrder, item: dict) -> None:
+        self.items_for_account(account)[order.key] = item
+
+
+def ledger_item_key(item: dict) -> tuple[str, int] | None:
+    item_time = normalize_purchase_time(str(item.get("purchase_time", "")))
+    item_amount = parse_amount_int(str(item.get("purchase_amount", "")))
+    if item_time is None or item_amount is None:
+        return None
+    return item_time, item_amount
+
+
+def add_ledger_order(account: str, order: LedgerOrder, *, refund_applied: int = 0) -> int:
+    payload = chake_ledger_json(
+        "POST",
+        "/add",
+        data={
+            "account_name": account,
+            "purchase_time": order.purchase_time,
+            "purchase_amount": order.purchase_amount,
+            "refund_applied": refund_applied,
+        },
+    )
+    if payload.get("code") != 0:
+        raise RuntimeError(payload.get("msg") or payload)
+    return int(payload["id"])
+
+
+def update_ledger_refund_applied(item_id: int) -> None:
+    payload = chake_ledger_json("POST", "/update", data={"id": item_id, "refund_applied": 1})
+    if payload.get("code") != 0:
+        raise RuntimeError(payload.get("msg") or payload)
+
+
+def sync_waiting_orders_to_ledger(
+    rows: list[UINode],
+    nodes: list[UINode],
+    *,
+    account_name: str | None,
+    seen_keys: set[tuple[str, int]],
+    ledger_cache: LedgerCache,
+) -> list[LedgerOrder]:
+    account = ledger_account_name(account_name)
+    if account is None:
+        if account_name is not None:
+            print(f"warning: unknown ledger account for {account_name}; skip waiting-order sync")
+        return []
+
+    added: list[LedgerOrder] = []
+    for waiting_node in [node for node in rows if node.text == "等待确认"]:
+        order = order_from_status_node(rows, nodes, waiting_node)
+        if order is None:
+            print(f"warning: could not parse waiting order near {waiting_node.bounds}; skip ledger sync")
+            continue
+        if order.key in seen_keys:
+            continue
+        seen_keys.add(order.key)
+        try:
+            existing = ledger_cache.find(account, order)
+            if existing is not None:
+                print(f"ledger already has waiting order: {order.purchase_time} ￥{order.purchase_amount}")
+                continue
+            item_id = add_ledger_order(account, order)
+            ledger_cache.remember(
+                account,
+                order,
+                {
+                    "id": item_id,
+                    "account_name": account,
+                    "purchase_time": order.purchase_time,
+                    "purchase_amount": order.purchase_amount,
+                    "refund_applied": 0,
+                    "refund_received": 0,
+                },
+            )
+            added.append(order)
+            print(f"ledger added waiting order id={item_id}: {order.purchase_time} ￥{order.purchase_amount}")
+        except Exception as exc:
+            print(f"warning: waiting-order ledger sync failed for {order}: {exc}")
+    return added
+
+
+def sync_refund_applied_to_ledger(
+    order: LedgerOrder,
+    *,
+    account_name: str | None,
+    ledger_cache: LedgerCache,
+) -> None:
+    account = ledger_account_name(account_name)
+    if account is None:
+        if account_name is not None:
+            print(f"warning: unknown ledger account for {account_name}; skip refund-applied sync")
+        return
+    try:
+        existing = ledger_cache.find(account, order)
+        if existing is None:
+            item_id = add_ledger_order(account, order, refund_applied=1)
+            ledger_cache.remember(
+                account,
+                order,
+                {
+                    "id": item_id,
+                    "account_name": account,
+                    "purchase_time": order.purchase_time,
+                    "purchase_amount": order.purchase_amount,
+                    "refund_applied": 1,
+                    "refund_received": 0,
+                },
+            )
+            print(f"ledger added refunded order id={item_id}: {order.purchase_time} ￥{order.purchase_amount}")
+            return
+        item_id = int(existing["id"])
+        if int(existing.get("refund_applied") or 0) == 1:
+            print(f"ledger refund_applied already set id={item_id}: {order.purchase_time} ￥{order.purchase_amount}")
+            return
+        update_ledger_refund_applied(item_id)
+        existing["refund_applied"] = 1
+        print(f"ledger refund_applied set id={item_id}: {order.purchase_time} ￥{order.purchase_amount}")
+    except Exception as exc:
+        print(f"warning: refund-applied ledger sync failed for {order}: {exc}")
 
 
 def print_rows(rows: list[UINode]) -> None:
@@ -410,9 +705,18 @@ def notify_wechat_summary(
     send_wechat_message(message)
 
 
+def notify_wechat_ledger_added(records: list[LedgerOrder], *, account_name: str | None, enabled: bool) -> None:
+    if not enabled or not records:
+        return
+    message = build_ledger_added_wechat_message(records, account_name=account_name)
+    print(f"wechat ledger-added summary:\n{message}")
+    send_wechat_message(message)
+
+
 def run_once(args: argparse.Namespace) -> int:
     adb = ADB(args.adb, dry_run=not args.execute)
     refund_records: list[RefundRecord] = []
+    ledger_added_records: list[LedgerOrder] = []
     had_refundable_order = False
     send_wechat = args.execute
     account_name: str | None = None
@@ -441,7 +745,9 @@ def run_once(args: argparse.Namespace) -> int:
             )
             return 0
 
-        handled: set[str] = set()
+        handled: set[tuple[str, int] | str] = set()
+        ledger_seen_keys: set[tuple[str, int]] = set()
+        ledger_cache = LedgerCache()
         submitted = 0
         already_submitted = 0
 
@@ -451,6 +757,17 @@ def run_once(args: argparse.Namespace) -> int:
             print(f"\nSTEP {step}")
             print_rows(rows)
 
+            if args.execute:
+                ledger_added_records.extend(
+                    sync_waiting_orders_to_ledger(
+                        rows,
+                        nodes,
+                        account_name=account_name,
+                        seen_keys=ledger_seen_keys,
+                        ledger_cache=ledger_cache,
+                    )
+                )
+
             if any(node.text == "已退款" for node in rows):
                 print(f"stop: 已看到已退款. submitted={submitted}, already_submitted={already_submitted}")
                 notify_wechat_summary(
@@ -459,32 +776,49 @@ def run_once(args: argparse.Namespace) -> int:
                     account_name=account_name,
                     enabled=send_wechat,
                 )
+                notify_wechat_ledger_added(
+                    ledger_added_records,
+                    account_name=account_name,
+                    enabled=send_wechat,
+                )
                 return 0
 
             refund_nodes = [node for node in rows if node.text == "申请退款"]
             if refund_nodes:
                 had_refundable_order = True
-            actionable: tuple[str, UINode] | None = None
+            actionable: tuple[str, str, UINode, LedgerOrder | None] | None = None
             for refund_node in refund_nodes:
                 order_date = nearest_order_date(rows, refund_node)
-                if order_date not in handled:
-                    actionable = (order_date, refund_node)
+                ledger_order = order_from_status_node(rows, nodes, refund_node)
+                handled_key: tuple[str, int] | str = ledger_order.key if ledger_order is not None else order_date
+                if handled_key not in handled:
+                    actionable = (order_date, handled_key, refund_node, ledger_order)
                     break
 
             if actionable:
-                order_date, refund_node = actionable
+                order_date, handled_key, refund_node, ledger_order = actionable
                 print(f"handle refund button for {order_date}: {refund_node.bounds}")
                 if args.execute:
                     amount = nearest_order_amount(nodes, refund_node)
                     newly_submitted, newly_already_submitted, result, entered_refund_page = process_refund_button(
                         adb, refund_node
                     )
-                    handled.add(order_date)
+                    handled.add(handled_key)
                     submitted += newly_submitted
                     already_submitted += newly_already_submitted
                     if entered_refund_page:
                         refund_records.append(RefundRecord(order_date=order_date, amount=amount))
                         print(f"refund page entered: {order_date} {amount}")
+                        if newly_submitted > 0 and ledger_order is not None:
+                            sync_refund_applied_to_ledger(
+                                ledger_order,
+                                account_name=account_name,
+                                ledger_cache=ledger_cache,
+                            )
+                        elif newly_submitted > 0:
+                            print(f"warning: could not parse refunded order for ledger sync: {order_date} {amount}")
+                        else:
+                            print(f"warning: refund submit not confirmed; skip ledger refund sync: {order_date} {amount}")
                     elif result == "unknown":
                         print(
                             f"error: clicked 申请退款 for {order_date} but refund page was not detected",
