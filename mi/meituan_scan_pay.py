@@ -229,26 +229,25 @@ def run_flow(adb: ADB, amount: str, photo_index: int, home_timeout: int) -> None
     wait_for_page(
         adb,
         "merchant payment page",
-        any_markers=("向商家付款", "付款给商家"),
-        all_markers=("付款金额", "确认支付"),
+        all_markers=("确认", "支付", "备注"),
         timeout=30,
     )
 
     input_amount(adb, amount)
     adb.tap(*CONFIRM_PAY, delay=2.0)
-    time.sleep(2)
+    time.sleep(3)
     tap_digit()
-    result_text = wait_for_page(
-        adb,
-        "payment result or verification page",
-        any_markers=("支付成功", "支付结果", "支付密码", "验证", "确认付款"),
-        timeout=20,
-    )
-    if "支付成功" in result_text or "支付结果" in result_text:
-        print("payment result page appears ready")
-        return
+    #result_text = wait_for_page(
+    #    adb,
+    #    "payment result or verification page",
+    #    any_markers=("支付成功", "支付结果", "支付密码", "验证", "确认付款"),
+    #    timeout=20,
+    #)
+    #if "支付成功" in result_text or "支付结果" in result_text:
+    #    print("payment result page appears ready")
+    #    return
 
-    print("payment verification is required; enter the payment password on the phone")
+    #print("payment verification is required; enter the payment password on the phone")
     wait_for_page(
         adb,
         "payment success page after manual verification",
