@@ -1,0 +1,34 @@
+应用云VRS上线(v202606W1v1)，以下需求/优化测试完成，申请上线：
+
+配置修改：
+1. 【DASH】国际站开启访问后端使用为qsm主+service ip备的方式（第一周/共三周）：http://pms.qiyi.domain/browse/VIDEODEV-5799
+开发：魏超凡   Review：刘贺,王兰惠,李珍    上线：刘贺
+
+2. 【DASH】O1增加国际站白名单灰度配置：http://pms.qiyi.domain/browse/VIDEODEV-5834
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+3. 【LIVE】国际站开启访问后端使用为qsm主+service ip备的方式（第一周/共三周）：http://pms.qiyi.domain/browse/VIDEODEV-5800
+开发：魏超凡   Review：刘贺,王兰惠,李珍    上线：刘贺
+
+代码修改：
+4. 【点播和直播】根据压测结果调整线上限流值：http://pms.qiyi.domain/browse/VIDEODEV-5827
+开发：魏超凡   Review：刘贺,王兰惠,李珍    上线：刘贺
+
+5. 【星图】指标报警支持分集群设置：http://pms.qiyi.domain/browse/VIDEODEV-5822
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+运维：
+6. 【DASH】中云信虚机下线：http://pms.qiyi.domain/browse/VIDEODEV-5833
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+7. 【DASH】local域名iptv的宁夏电信区域删除：http://pms.qiyi.domain/browse/VIDEODEV-5835
+开发：魏超凡   Review：刘贺,王兰惠,李珍    上线：刘贺
+
+
+以下是上线操作计划：
+1. 6.5（周五） 上线预发布环境，线上回测
+2. 6.8（周一） 上线狗粮环境，线上验证
+3. 6.9（周二） 上线保定徐水电信小站机器，上线国际站华为机房1台服务器
+4. 6.10（周三） 上线保定徐水其他机器，上线OTT保定徐水机房，上线国际站华为机房4台服务器
+5. 6.11（周四） 上线武汉临空港联通+移动小站，上线OTT武汉机房，上线国际站华为机房8台服务器
+6. 6.15（周一） 全量上线
