@@ -315,7 +315,8 @@ find "$LUA_DEST" -name "*.lua" | while read -r lua_file; do
 
     # - 把 /opt/soft/rule-nginx/lualib/ 替换为 OpenResty 的 lualib 路径
     sedi "s|/opt/soft/rule-nginx/lualib/?.lua;|$OPENRESTY_LUALIB/?.lua;|g" "$temp_file"
-    sedi "s|/opt/soft/rule-nginx/lualib/?.so|$OPENRESTY_LUALIB/?.so;$LUAROCKS_LUALIB/?.so;;|g" "$temp_file"
+    # LUAROCKS_LUALIB 可能含多个 ; 分隔目录，需各自追加 /?.so，不能整体拼一次
+    sedi "s|/opt/soft/rule-nginx/lualib/?.so|$OPENRESTY_LUALIB/?.so;$(printf '%s' "$LUAROCKS_LUALIB" | sed 's|;|/?.so;|g')/?.so;;|g" "$temp_file"
 
     mv "$temp_file" "$lua_file"
 done
