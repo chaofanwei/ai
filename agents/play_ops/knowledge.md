@@ -12,3 +12,4 @@
 - live 的 nginx-conf 配置仓库是 `ssh://git@gitlab.qiyi.domain:10022/live-video-play/nginx-config.git`。
 - live qpaas 的 `live_zone` 限流在 `live_nginx_conf/deploy_nginx_conf.sh` 的 k8s 构建阶段调整，目标文件是 `nginx1/conf/vh/*/vh.live.video.qiyi.com.conf` 里的 `limit_req_zone LIVE zone=live_zone`。
 - live 国际站 profile 映射：新加坡使用 `ali-sg` 和 `intel-huawei`；北美使用 `use_ali`。
+- live 国际站 nginx-conf k8s 限流当前统一为 `1700r/s`，对应 profile：`ali-sg`、`intel-huawei`、`use_ali`。

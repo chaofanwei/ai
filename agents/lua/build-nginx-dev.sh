@@ -97,10 +97,26 @@ function detect_libcrypto() {
     return 1
 }
 
+function checkout_remote_branch() {
+    local repo_dir="$1"
+    local branch="$2"
+    local remote="${3:-origin}"
+
+    cd "$repo_dir"
+    git fetch "$remote" "$branch"
+    if git show-ref --verify --quiet "refs/remotes/$remote/$branch"; then
+        git checkout -B "$branch" "$remote/$branch"
+    else
+        git checkout "$branch"
+    fi
+    git pull "$remote" "$branch"
+}
+
 # 默认分支
 PLAY_NGINX_BRANCH="zyx"
 LUNA_RULE_BRANCH="master"
 RUN_PROFILE=""
+LUNA_ENV_NAME="master"
 
 # 解析参数
 if [ $# -ge 1 ]; then
@@ -111,6 +127,9 @@ if [ $# -ge 2 ]; then
 fi
 if [ $# -ge 3 ]; then
     RUN_PROFILE="$3"
+fi
+if [ $# -ge 4 ]; then
+    LUNA_ENV_NAME="$4"
 fi
 
 # 确定默认的 run_profile
@@ -161,6 +180,7 @@ echo "Host:             $HOST_NAME"
 echo "play-nginx branch: $PLAY_NGINX_BRANCH"
 echo "luna-rule branch: $LUNA_RULE_BRANCH"
 echo "run profile:      $RUN_PROFILE"
+echo "luna env name:    $LUNA_ENV_NAME"
 echo "Source:           $SOURCE_DIR"
 echo "play_ops source:  $PLAY_OPS_SOURCE"
 echo "Python:           $PYTHON_BIN"
@@ -183,15 +203,11 @@ cp -r "$SOURCE_DIR/." "$WORK_DIR/"
 
 # 3. 切换 play-nginx 分支并 pull
 echo "[3/14] Switching play-nginx to branch $PLAY_NGINX_BRANCH..."
-cd "$PLAY_NGINX_DIR"
-git checkout "$PLAY_NGINX_BRANCH"
-git pull origin "$PLAY_NGINX_BRANCH"
+checkout_remote_branch "$PLAY_NGINX_DIR" "$PLAY_NGINX_BRANCH"
 
 # 4. 切换 luna-rule 分支并 pull
 echo "[4/14] Switching luna-rule to branch $LUNA_RULE_BRANCH..."
-cd "$LUNA_RULE_DIR"
-git checkout "$LUNA_RULE_BRANCH"
-git pull origin "$LUNA_RULE_BRANCH"
+checkout_remote_branch "$LUNA_RULE_DIR" "$LUNA_RULE_BRANCH"
 
 # 5. 复制 vis-rule-engine/src/main/lua 到 conf/lua 目录
 echo "[5/14] Copying lua code to conf/lua directory..."
@@ -293,6 +309,12 @@ for upsync_file in "$CONF_DIR"/upstream.*.upsync; do
         mv "$upsync_file" "$conf_file"
         echo "Renamed: $(basename "$upsync_file") -> $(basename "$conf_file")"
     fi
+done
+
+# 6c. 本地 DNS 不监听 127.0.0.1，修正 nginx resolver
+echo "[6c/14] Patching nginx resolver..."
+find "$CONF_DIR" -name "*.conf" -not -path "$CONF_DIR/lua/*" | while read -r conf_file; do
+    sedi 's/resolver[[:space:]]\+127\.0\.0\.1\([[:space:];]\)/resolver 10.1.1.1\1/g' "$conf_file"
 done
 
 # 7. 修改lua文件中的路径
@@ -408,8 +430,14 @@ if [ ! -x "$PYTHON_BIN" ]; then
 fi
 cp -r "$PLAY_OPS_SOURCE" "$PLAY_OPS_DIR"
 cd "$PLAY_OPS_DIR"
-git checkout dash_ops
-git pull origin dash_ops
+# play_ops is a disposable build copy. Clean it before checkout because the
+# source repo may be on another branch with local edits.
+git reset --hard
+git clean -fd
+git fetch origin dash_ops
+git checkout -B dash_ops origin/dash_ops
+git reset --hard origin/dash_ops
+git clean -fd
 cd "$PLAY_NGINX_DIR/html"
 "$PYTHON_BIN" - << EOF
 import sys
@@ -428,8 +456,8 @@ sys.modules["fabric.api"] = fabric_api
 sys.path.insert(0, "$PLAY_OPS_DIR/syn_4s_data")
 from fabfile import download_4s_data, download_config_data
 
-download_4s_data("1", "master")
-download_config_data("1", "master")
+download_4s_data("1", "$LUNA_ENV_NAME")
+download_config_data("1", "$LUNA_ENV_NAME")
 EOF
 
 # 14. 测试nginx配置

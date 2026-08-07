@@ -67,6 +67,26 @@ curl -X POST "http://starmap.qiyi.domain/apis/db/execute" \
 
 注意：`PatrolRulesCacheService` 规则缓存每 10 分钟刷新一次，修改后报告/巡检侧可能需要等待缓存刷新生效。
 
+## qpaas synLabelAndPod fail 排查
+
+2026-06-10 定位过 `qpaas synLabelAndPod fail`，示例：
+
+```text
+qpaas extra, appid:4091, env:test, clusterId:null, targetId:3127888, infoLabel:live-bddx-qpaas
+qpaas extra, appid:4454, env:test, clusterId:null, targetId:3127759, infoLabel:dash-bddx-qpaas
+```
+
+结论：
+
+- 定时入口：`DeployTimer.qpaasResourceSyn()`，每小时执行一次，调用 `QpassService.synLabelAndPod()`。
+- 告警发送点：`QpassService.synLabelAndPod()` 中 `errorInfo` 非空时直接调用 `hotChatWorkOrderService.sendFormatedText("weichaofan", "qpaas synLabelAndPod fail...")`。
+- 检查 appid 白名单写死在 `QpassService.LabelCheckedAppIds`：`4091(live)`、`4454(dash)`、`14004(stable)`。
+- 条件：读取 DB 表 `qpaas_deploy_config` 的配置，和 `QPassUtil.getAppInfo(appid)` 从 QPAAS `/api/v1/apps/{appid}/appunits/?status=online` 拉到的部署单元按 `envName + targetId/clusterId` 匹配。
+- `qpaas extra` 表示 QPAAS 接口有该部署单元，但 DB 里没有匹配配置。
+- `QPassUtil.getAppInfo()` 已过滤 `env_level != PROD`，但本次 `env:test` 仍进入告警，说明接口返回中这些 test 单元的 `env_level` 也满足 PROD，不能只靠 `env_level` 排除。
+
+建议改法：不要在工具类 `QPassUtil` 里加业务过滤，把过滤放在 `QpassService.synLabelAndPod()` 内。即 `QPassUtil.getAppInfo(appid)` 返回后，对 `infos` 增加 `envName != "test"` 过滤，这样只影响本同步告警逻辑，不影响其他工具类调用方。因当前运维权限不允许直接修改 `./star-map` 源码，建议补丁已放在 `./temp/exclude-qpaas-test-env.patch`。
+
 ## VRS Dash 小站请求耗时报警阈值
 
 2026-05-18 定位过 `VRS_Dash_GROUP_DURATION_2`：

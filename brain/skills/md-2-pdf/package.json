@@ -1,0 +1,18 @@
+{
+  "name": "md-2-pdf",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Convert Markdown (with Mermaid + CJK) to PDF using system Chrome.",
+  "bin": {
+    "md2pdf": "./convert.mjs"
+  },
+  "scripts": {
+    "convert": "node convert.mjs"
+  },
+  "dependencies": {
+    "highlight.js": "^11.10.0",
+    "markdown-it": "^14.1.0",
+    "puppeteer": "^23.0.0"
+  }
+}

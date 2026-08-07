@@ -1,0 +1,1447 @@
+{
+    "^/dc/amt/":     {
+        "define":         [
+            {"_$4_": "tvid"},
+            {"cookie___pad__figure__": "__pad__figure__"},
+            {"http_x_real_ip": "X-Real-IP"},
+            {"file_block_ips": "block_ips"},
+            {"file_part_config": "part_config"},
+            {"file_switch_config": "switch_config"},
+            {"file_offline_tvids": "offline_tvids"}
+        ],
+        "before":         {
+            "1":             {
+                "rule": "k_test 1 $eq 3 $ifne server_addr [ \"10.10.131.41\" \"220.181.184.149\" \"10.221.82.70\" \"101.227.203.105\" \"10.153.79.73\" \"223.99.251.9\" \"10.15.243.78\" \"10.153.131.44\" \"10.153.109.32\" \"10.15.243.72\" \"10.221.87.91\" \"10.15.246.17\" \"115.182.125.40\" \"10.15.246.16\" \"115.182.125.41\" \"10.221.87.60\" \"101.227.203.134\" \"10.110.28.13\" \"36.110.208.93\" \"10.110.90.11\" \"10.110.90.10\" ] $in $not 109 $ifne ip \"${block_ips@array}\" $in 99 $ifeq xff_ip \"${block_ips@array}\" $in 94 $ifeq X-Real-IP \"${block_ips@array}\" $in 89 $ifeq http_user_agent \"Mozilla\\/5%.0 %(iPod; CPU iPhone OS 6_1_2 like Mac OS X%) AppleWebKit\\/536%.26 %(KHTML, like Gecko%) Version\\/6%.0 Mobile\\/10B146 Safari\\/8536%.25\" i $regex 83 $ifeq http_referer \"src=bdbrand\" i $regex 77 $ifeq http_user_agent \"ipadletv\" i $regex 71 $ifeq http_user_agent \"letvipad\" i $regex 65 $ifeq http_user_agent \"iPad; CPU OS 5_1_1 like Mac OS X\" i $regex 8 $ifne src \"03020031010000000000\" $eq 3 $ifne vf false $exists $not 48 $ifne sc false $exists 3 $ifne vf false $exists 38 $ifeq t false $exists 33 $ifeq src false $exists 28 $ifeq sc \"${_md5_latest@string}\" $md5 $eq 21 $ifeq sc \"${_md5_obsolete@string}\" $md5 $eq 15 $ifeq vf \"${_md5_latest_new@string}\" $md5 $eq 4 $ifeq vf \"${_md5_obsolete_new@string}\" $md5 $eq 3 $ifne vf true $exists $not 3 $ifne F${switch_config.dcamt_waf@string} true $eq",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00001\",\"msg\":\"Rule Block\"}"
+                },
+                "_meta_info": "{\"$not:4\":{\"server_addr\":{\"$in:3\":[\"10.10.131.41\",\"220.181.184.149\",\"10.221.82.70\",\"101.227.203.105\",\"10.153.79.73\",\"223.99.251.9\",\"10.15.243.78\",\"10.153.131.44\",\"10.153.109.32\",\"10.15.243.72\",\"10.221.87.91\",\"10.15.246.17\",\"115.182.125.40\",\"10.15.246.16\",\"115.182.125.41\",\"10.221.87.60\",\"101.227.203.134\",\"10.110.28.13\",\"36.110.208.93\",\"10.110.90.11\",\"10.110.90.10\"]},\"k_test:1\":1},\"$or:[7, 9, 11, 13, 15, 17, 19, 49]\":[{\"ip\":{\"$in:6\":\"${block_ips@array}\"}},{\"xff_ip\":{\"$in:8\":\"${block_ips@array}\"}},{\"X-Real-IP\":{\"$in:10\":\"${block_ips@array}\"}},{\"http_user_agent\":{\"$contains:12\":\"Mozilla/5.0 (iPod; CPU iPhone OS 6_1_2 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B146 Safari/8536.25\"}},{\"http_referer\":{\"$contains:14\":\"src=bdbrand\"}},{\"http_user_agent\":{\"$contains:16\":\"ipadletv\"}},{\"http_user_agent\":{\"$contains:18\":\"letvipad\"}},{\"$not:25\":{\"$or:[25]\":[{\"http_user_agent\":{\"$contains:20\":\"iPad; CPU OS 5_1_1 like Mac OS X\"},\"vf\":{\"$exists:24\":false},\"src:22\":\"03020031010000000000\"}]},\"$or:[30, 32, 34, 49]\":[{\"sc\":{\"$exists:27\":false},\"vf\":{\"$exists:29\":false}},{\"t\":{\"$exists:31\":false}},{\"src\":{\"$exists:33\":false}},{\"$not:48\":{\"$or:[37, 40, 48]\":[{\"sc\":{\"$eq:36\":{\"$md5:35\":\"${_md5_latest@string}\"}}},{\"sc\":{\"$eq:39\":{\"$md5:38\":\"${_md5_obsolete@string}\"}}},{\"vf\":{\"$exists:47\":true},\"$or:[43, 46]\":[{\"vf\":{\"$eq:42\":{\"$md5:41\":\"${_md5_latest_new@string}\"}}},{\"vf\":{\"$eq:45\":{\"$md5:44\":\"${_md5_obsolete_new@string}\"}}}]}]}}]}],\"${switch_config.dcamt_waf@string}:50\":true}"
+            },
+            "2":             {
+                "rule": "tvid \"${offline_tvids@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00110\",\"msg\":\"Copyright offline by luna\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"tvid\":{\"$in:1\":\"${offline_tvids@array}\"}}]}"
+            }
+        },
+        "after":         {
+            "1":             {
+                "rule": "tvid true $exists",
+                "action": {"$set": {"ft_part": true}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"tvid\":{\"$exists:1\":true}}]}"
+            },
+            "2":             {
+                "rule": "F${cids@string} \"[,%[]29277[,%]]\" i $regex 4 $ifeq F${cids@string} \"[,%[]29698[,%]]\" i $regex $not 23 $ifne F${data.cid@string} 1 $eq 18 $ifne F${data.contentType@string} 1 $eq 13 $ifne F${ft_part@string} true $eq 8 $ifne area_id 8 $neq 3 $ifne country_id 48 $eq",
+                "action": {"$set":                 {
+                    "crr": "${data.crr@string}",
+                    "ctl.rank": "${data.crr@string}"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:[15]\":[{\"area_id\":{\"$neq:12\":8},\"$not:4\":{\"$or:[2, 4]\":[{\"${cids@string}:1\":\"/[,%[]29277[,%]]/i\"},{\"${cids@string}:3\":\"/[,%[]29698[,%]]/i\"}]},\"${data.cid@string}:6\":1,\"${data.contentType@string}:8\":1,\"${ft_part@string}:10\":true,\"country_id:14\":48}]}"
+            },
+            "3":             {
+                "rule": "F${ctl.rank@string} true $exists 9 $ifne F${part_config.1@string} true $eq 4 $ifne F${part_config.ranks@string} \"%${crr@string}\" i $regex",
+                "action":                 {
+                    "$set": {"data.parts": "${rankmp4$crr@string}"},
+                    "$key":                     {
+                        "tag": "nginx%_part%_tag",
+                        "node_names": ["data"],
+                        "names":                         [
+                            "${ip_number@string}",
+                            "${rank$crr@string}",
+                            "Q;2*&jY;l0)m+K#7"
+                        ],
+                        "values":                         {
+                            "qd_rank": "${rank$crr@string}",
+                            "qd_ip": "${ip_number@string}"
+                        }
+                    }
+                },
+                "break_chain": false,
+                "_meta_info": "{\"$or:[6]\":[{\"${part_config.ranks@string}\":{\"$contains:5\":\"${crr@string}\"},\"${ctl.rank@string}\":{\"$exists:1\":true},\"${part_config.1@string}:3\":true}]}"
+            },
+            "4":             {
+                "rule": "F${data.parts@string} true $exists 3 $ifne type \"mp4\" $neq",
+                "action": {"$unset": {"data.parts": ""}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:[4]\":[{\"${data.parts@string}\":{\"$exists:1\":true},\"type\":{\"$neq:3\":\"mp4\"}}]}"
+            },
+            "5":             {
+                "rule": "F${data.cids@string} true $exists",
+                "action": {"$unset":                 {
+                    "crr": "",
+                    "data.crr": "",
+                    "data.cids": "",
+                    "data.contentType": ""
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"${data.cids@string}\":{\"$exists:1\":true}}]}"
+            },
+            "6":             {
+                "rule": "_https true $eq",
+                "action": {"$body_filter": {"http:[\\\\/]+cache%.m%.iqiyi%.com": "https://cache%.m%.iqiyi%.com"}},
+                "doc":                 {
+                    "name": "HTTPS模块",
+                    "on":                     {
+                        "when": true,
+                        "msg": "HTTPS支持，对于HTTPS请求，返回HTTPS内容",
+                        "debug": {"_https": "${_https@string}"}
+                    }
+                },
+                "_meta_info": "{\"$or:1\":[{\"_https:1\":true}]}"
+            }
+        }
+    },
+    "^/dc/amdt/":     {
+        "define":         [
+            {"qd_src": "src"},
+            {"qd_t": "t"},
+            {"qd_sc": "sc"},
+            {"_$5_": "tvid"},
+            {"http_x_real_ip": "X-Real-IP"},
+            {"file_block_ips": "block_ips"},
+            {"file_switch_config": "switch_config"},
+            {"file_offline_tvids": "offline_tvids"}
+        ],
+        "before":         {
+            "1":             {
+                "rule": "ip \"${block_ips@array}\" $in 76 $ifeq xff_ip \"${block_ips@array}\" $in 71 $ifeq X-Real-IP \"${block_ips@array}\" $in 66 $ifeq http_user_agent \"AppleCoreMedia/1.0.0.11B554a (iPhone; U; CPU OS 7_0_4 like Mac OS X; zh_cn)\" $eq 3 $ifne http_x_playback_session_id \"8AD8A6D1-002F-4FE3-8F2F-978B2182DE1C\" $eq 56 $ifeq http_user_agent \"AppleCoreMedia/1.0.0.11D167 (iPhone; U; CPU OS 7_1 like Mac OS X; zh_cn)\" $eq 3 $ifne http_x_playback_session_id false $exists 46 $ifeq http_referer false $exists 3 $ifne http_user_agent \"Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_5 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B601 Safari/9537.53\" $eq 36 $ifeq http_referer \"http://www.iqiyi.com/common/openiframe.html\" $eq 31 $ifeq vf false $exists 21 $ifeq t false $exists 16 $ifeq src false $exists 11 $ifeq vf \"${_md5_latest_new@string}\" $md5 $eq 4 $ifeq vf \"${_md5_obsolete_new@string}\" $md5 $eq $not 3 $ifeq amdt_expired true $eq 3 $ifne F${switch_config.dcamdt_waf@string} true $eq",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00101\"}"
+                },
+                "_meta_info": "{\"$or:[2, 4, 6, 10, 14, 18, 20, 33, 35]\":[{\"ip\":{\"$in:1\":\"${block_ips@array}\"}},{\"xff_ip\":{\"$in:3\":\"${block_ips@array}\"}},{\"X-Real-IP\":{\"$in:5\":\"${block_ips@array}\"}},{\"http_user_agent:7\":\"AppleCoreMedia/1.0.0.11B554a (iPhone; U; CPU OS 7_0_4 like Mac OS X; zh_cn)\",\"http_x_playback_session_id:9\":\"8AD8A6D1-002F-4FE3-8F2F-978B2182DE1C\"},{\"http_x_playback_session_id\":{\"$exists:13\":false},\"http_user_agent:11\":\"AppleCoreMedia/1.0.0.11D167 (iPhone; U; CPU OS 7_1 like Mac OS X; zh_cn)\"},{\"http_referer\":{\"$exists:15\":false},\"http_user_agent:17\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_5 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B601 Safari/9537.53\"},{\"http_referer:19\":\"http://www.iqiyi.com/common/openiframe.html\"},{\"$or:[22, 24, 26, 33]\":[{\"vf\":{\"$exists:21\":false}},{\"t\":{\"$exists:23\":false}},{\"src\":{\"$exists:25\":false}},{\"$not:32\":{\"$or:[29, 32]\":[{\"vf\":{\"$eq:28\":{\"$md5:27\":\"${_md5_latest_new@string}\"}}},{\"vf\":{\"$eq:31\":{\"$md5:30\":\"${_md5_obsolete_new@string}\"}}}]}}]},{\"amdt_expired:34\":true}],\"${switch_config.dcamdt_waf@string}:36\":true}"
+            },
+            "2":             {
+                "rule": "tvid \"${offline_tvids@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00110\",\"msg\":\"Copyright offline by luna\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"tvid\":{\"$in:1\":\"${offline_tvids@array}\"}}]}"
+            }
+        },
+        "after":         {
+            "1":             {
+                "rule": "host [ \"cache.vip.ptqy.gitv.tv\" \"cache.video.ptqy.gitv.tv\" \"mixer.video.ptqy.gitv.tv\" \"cache.m.ptqy.gitv.tv\" ] $in",
+                "action": {"$body_filter": {"data%.video%.i?qiyi%.com": "data%.video%.ptqy%.gitv%.tv"}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"host\":{\"$in:1\":[\"cache.vip.ptqy.gitv.tv\",\"cache.video.ptqy.gitv.tv\",\"mixer.video.ptqy.gitv.tv\",\"cache.m.ptqy.gitv.tv\"]}}]}"
+            },
+            "2":             {
+                "rule": "host [ \"cache.vip.c002.ottcn.com\" \"cache.video.c002.ottcn.com\" \"mixer.video.c002.ottcn.com\" \"cache.m.c002.ottcn.com\" ] $in",
+                "action": {"$body_filter": {"data%.video%.i?qiyi%.com": "data%.video%.c002%.ottcn%.com"}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"host\":{\"$in:1\":[\"cache.vip.c002.ottcn.com\",\"cache.video.c002.ottcn.com\",\"mixer.video.c002.ottcn.com\",\"cache.m.c002.ottcn.com\"]}}]}"
+            }
+        }
+    },
+    "^/vms":     {
+        "define":         [
+            {"file_block_ips": "block_ips"},
+            {"file_block_userids": "block_userids"},
+            {"http_x_hola_version": "X-Hola-Version"},
+            {"http_x_hola_direct_first": "X-Hola-Direct-First"},
+            {"tvId": "tvid"},
+            {"http_x_forwarded_for": "X-Forwarded-For"},
+            {"file_switch_config": "switch_config"},
+            {"file_offline_tvids": "offline_tvids"}
+        ],
+        "rewrite":         {
+            "1":             {
+                "rule": "ecode true $exists",
+                "action": {"$real_time_rate": {"name": "real_time_rate_vms_ecode"}},
+                "break_chain": false,
+                "_meta_info": "{\"ecode\":{\"$exists:1\":true}}"
+            },
+            "2":             {
+                "rule": "real_time_rate_vms_ecode 100 $gte",
+                "action":                 {
+                    "$log":                     {
+                        "msg": "vms ecode limit exclusion",
+                        "values":                         [
+                            "ip",
+                            "src",
+                            "tvid",
+                            "vid"
+                        ]
+                    },
+                    "$add_args": {"ecode_limit": 1}
+                },
+                "_meta_info": "{\"real_time_rate_vms_ecode\":{\"$gte:1\":100}}"
+            }
+        },
+        "before":         {
+            "1":             {
+                "rule": "k_test 1 $eq 3 $ifne server_addr [ \"10.10.131.41\" \"220.181.184.149\" \"10.221.82.70\" \"101.227.203.105\" \"10.153.79.73\" \"223.99.251.9\" \"10.15.243.78\" \"10.15.243.72\" \"10.221.87.91\" \"10.15.246.17\" \"115.182.125.40\" \"10.15.246.16\" \"115.182.125.41\" \"10.221.87.60\" \"101.227.203.134\" \"10.110.28.13\" \"36.110.208.93\" \"10.110.90.11\" \"10.110.90.10\" ] $in $not 31 $ifne tm false $exists 21 $ifeq tvId false $exists 16 $ifeq vf false $exists 11 $ifeq vf \"${_md5_latest_new@string}\" $md5 $eq 4 $ifeq vf \"${_md5_obsolete_new@string}\" $md5 $eq $not 3 $ifne key [ \"fvip\" \"fvinp\" \"vpc\" \"mvip\" ] $in 18 $ifeq ip \"${block_ips@array}\" $in 13 $ifeq xff_ip \"${block_ips@array}\" $in 8 $ifeq X-Hola-Version true $exists 3 $ifeq X-Hola-Direct-First true $exists 3 $ifne F${switch_config.vms_waf@string} true $eq",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A000001\",\"msg\":\"Rule Block.\"}"
+                },
+                "_meta_info": "{\"$or:[20, 22, 24, 28]\":[{\"key\":{\"$in:19\":[\"fvip\",\"fvinp\",\"vpc\",\"mvip\"]},\"$not:4\":{\"server_addr\":{\"$in:3\":[\"10.10.131.41\",\"220.181.184.149\",\"10.221.82.70\",\"101.227.203.105\",\"10.153.79.73\",\"223.99.251.9\",\"10.15.243.78\",\"10.15.243.72\",\"10.221.87.91\",\"10.15.246.17\",\"115.182.125.40\",\"10.15.246.16\",\"115.182.125.41\",\"10.221.87.60\",\"101.227.203.134\",\"10.110.28.13\",\"36.110.208.93\",\"10.110.90.11\",\"10.110.90.10\"]},\"k_test:1\":1},\"$or:[7, 9, 11, 18]\":[{\"tm\":{\"$exists:6\":false}},{\"tvId\":{\"$exists:8\":false}},{\"vf\":{\"$exists:10\":false}},{\"$not:17\":{\"$or:[14, 17]\":[{\"vf\":{\"$eq:13\":{\"$md5:12\":\"${_md5_latest_new@string}\"}}},{\"vf\":{\"$eq:16\":{\"$md5:15\":\"${_md5_obsolete_new@string}\"}}}]}}]},{\"ip\":{\"$in:21\":\"${block_ips@array}\"}},{\"xff_ip\":{\"$in:23\":\"${block_ips@array}\"}},{\"$or:[26, 28]\":[{\"X-Hola-Version\":{\"$exists:25\":true}},{\"X-Hola-Direct-First\":{\"$exists:27\":true}}]}],\"${switch_config.vms_waf@string}:29\":true}"
+            },
+            "2":             {
+                "rule": "ecode_limit true $exists",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A000001\",\"msg\":\"Vms ecode limit exclusion.\"}"
+                },
+                "_meta_info": "{\"ecode_limit\":{\"$exists:1\":true}}"
+            },
+            "3":             {
+                "rule": "tvid \"${offline_tvids@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A000000\",\"data\":{\"vp\":{\"st\":501}}}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"tvid\":{\"$in:1\":\"${offline_tvids@array}\"}}]}"
+            },
+            "4":             {
+                "rule": "invalid true $eq",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A000020\",\"msg\":\"Time expired\"}"
+                },
+                "_meta_info": "{\"invalid:1\":true}"
+            },
+            "5":             {
+                "rule": "puid \"${block_userids@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A000001\",\"msg\":\"rule blocked by puid\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"puid\":{\"$in:1\":\"${block_userids@array}\"}}]}"
+            },
+            "6":             {
+                "rule": "tvid 0 $lte",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A000006\",\"msg\":\"Illegal tvid\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"tvid\":{\"$lte:1\":0}}]}"
+            }
+        },
+        "after":         {
+            "1":             {
+                "rule": "F${allowEditVVIqiyi@string} \"1\" $eq 3 $ifne src \"39647c71c77c461884e472f730671f7c\" $eq",
+                "action": {"$set":                 {
+                    "vn": "",
+                    "an": ""
+                }},
+                "_meta_info": "{\"$or:[4]\":[{\"${allowEditVVIqiyi@string}:1\":\"1\",\"src:3\":\"39647c71c77c461884e472f730671f7c\"}]}"
+            },
+            "2":             {
+                "rule": "F${code@string} \"A00004\" $eq $not 3 $ifne key \"sdvlst\" $eq",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00001\"}"
+                },
+                "_meta_info": "{\"$or:[5]\":[{\"$not:2\":{\"${code@string}:1\":\"A00004\"},\"key:4\":\"sdvlst\"}]}"
+            },
+            "3":             {
+                "rule": "F${data.vp.code@string} \"A00301\" $eq 3 $ifne _$isugc_ true $eq",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A000003\"}"
+                },
+                "_meta_info": "{\"$or:[4]\":[{\"${data.vp.code@string}:1\":\"A00301\",\"_$isugc_:3\":true}]}"
+            },
+            "4":             {
+                "rule": "F${data.vp.code@string} \"A00302\" $eq 3 $ifne _$isugc_ true $eq",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A000004\"}"
+                },
+                "_meta_info": "{\"$or:[4]\":[{\"${data.vp.code@string}:1\":\"A00302\",\"_$isugc_:3\":true}]}"
+            }
+        },
+        "log": {"1":         {
+            "rule": "F${code@string} \"A00004\" $eq",
+            "action": {"$log":             {
+                "msg": "vms-warn",
+                "values":                 [
+                    "ip",
+                    "src",
+                    "tvid",
+                    "vid",
+                    "${code@string}"
+                ]
+            }},
+            "_meta_info": "{\"${code@string}:1\":\"A00004\"}"
+        }}
+    },
+    "^/offline/test":     {
+        "define":         [
+            {"file_special-tv-ids": "tv_ids"},
+            {"file_waf_rule": "wafrule"}
+        ],
+        "rewrite":         {
+            "1":             {
+                "rule": "F${wafrule.vps@string} true $exists",
+                "action": {"$eval": {"waf_response": "${wafrule.vps@string}"}},
+                "break_chain": false,
+                "_meta_info": "{\"${wafrule.vps@string}\":{\"$exists:1\":true}}"
+            },
+            "2":             {
+                "rule": "F${waf_response@string} true $exists",
+                "action": {"$add_args": {"_resp_": "${waf_response@string}"}},
+                "_meta_info": "{\"${waf_response@string}\":{\"$exists:1\":true}}"
+            }
+        },
+        "before":         {
+            "1":             {
+                "rule": "_online false $eq 3 $ifne id \"${tv_ids@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"YES\"}"
+                },
+                "_meta_info": "{\"$or:[4]\":[{\"id\":{\"$in:3\":\"${tv_ids@array}\"},\"_online:1\":false}]}"
+            },
+            "2":             {
+                "rule": "id \"${tv_ids@array}\" $in $not 3 $ifne _online false $eq",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"NO\"}"
+                },
+                "_meta_info": "{\"$or:[5]\":[{\"$not:2\":{\"id\":{\"$in:1\":\"${tv_ids@array}\"}},\"_online:4\":false}]}"
+            },
+            "3":             {
+                "rule": "F${_resp_@string} true $exists",
+                "response":                 {
+                    "status": 200,
+                    "body": "${_resp_@string}"
+                },
+                "_meta_info": "{\"${_resp_@string}\":{\"$exists:1\":true}}"
+            }
+        },
+        "after":         {
+            "1":             {
+                "rule": "teststring true $exists",
+                "action": {"$split": {"teststring": "resval"}},
+                "break_chain": false,
+                "_meta_info": "{\"teststring\":{\"$exists:1\":true}}"
+            },
+            "2":             {
+                "rule": "F${resval@string} true $exists",
+                "action": {"$set": {"res1": "${resval[1]@string}"}},
+                "_meta_info": "{\"${resval@string}\":{\"$exists:1\":true}}"
+            },
+            "3":             {
+                "rule": "request_uri true $exists",
+                "action":                 {
+                    "$clean":                     {
+                        "features": [                        {
+                            "vd": true,
+                            "vid": true
+                        }],
+                        "props": ["vd"],
+                        "isInclude": true
+                    },
+                    "$adapt": [                    {
+                        "node": "vs",
+                        "set": {"test_set": "1"},
+                        "define": {"vd": "bid"}
+                    }],
+                    "$must_no_rate":                     {
+                        "type": "video",
+                        "filters": [{"clarity": "smooth"}]
+                    },
+                    "$must_have_rate":                     {
+                        "type": "video",
+                        "filters": [{"clarity": "speed"}]
+                    },
+                    "$white_rate":                     {
+                        "type": "video",
+                        "filters": [{"clarity":                         [
+                            "smooth",
+                            "hd",
+                            "h720P",
+                            "h1080P",
+                            "h4K",
+                            "h5M",
+                            "h8M",
+                            "h2K"
+                        ]}]
+                    },
+                    "$time_count": {"resolution": 1}
+                },
+                "_meta_info": "{\"request_uri\":{\"$exists:1\":true}}"
+            }
+        }
+    },
+    "^/rule/npb/":     {
+        "define":         [
+            {"_$3_": "tvid"},
+            {"_$4_": "vid"},
+            {"file_block_ips": "block_ips"},
+            {"file_offline_tvids": "offline_tvids"}
+        ],
+        "before":         {
+            "1":             {
+                "rule": "ip \"${block_ips@array}\" $in 3 $ifeq xff_ip \"${block_ips@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00001\",\"msg\":\"This ip is blocked.\"}"
+                },
+                "_meta_info": "{\"$or:[2, 4]\":[{\"ip\":{\"$in:1\":\"${block_ips@array}\"}},{\"xff_ip\":{\"$in:3\":\"${block_ips@array}\"}}]}"
+            },
+            "2":             {
+                "rule": "tvid \"${offline_tvids@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"st\":\"501\",\"msg\":\"Copyright offline by luna\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"tvid\":{\"$in:1\":\"${offline_tvids@array}\"}}]}"
+            },
+            "3":             {
+                "rule": "pf [ 14 15 16 ] $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00001\",\"msg\":\"This ip is blocked.\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"pf\":{\"$in:1\":[14,15,16]}}]}"
+            }
+        },
+        "after":         {
+            "1":             {
+                "rule": "F${st@string} 200 $gt",
+                "action":                 {
+                    "$unset": {"controlInfo": ""},
+                    "$set": {"ctl.msg": "server return err-data."},
+                    "$log":                     {
+                        "msg": "npb-warn, server return err data.",
+                        "values":                         [
+                            "ip",
+                            "src",
+                            "tvid",
+                            "vid",
+                            "${st@string}"
+                        ]
+                    }
+                },
+                "_meta_info": "{\"$or:1\":[{\"${st@string}\":{\"$gt:1\":200}}]}"
+            },
+            "2":             {
+                "rule": "F${controlInfo.ext.$pf.commonControl.downAld@string} 0 $eq 8 $ifne pf true $exists 3 $ifne vt 1 $eq",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"st\":508,\"msg\":\"This video does not allow downloads.\"}"
+                },
+                "_meta_info": "{\"$or:[6]\":[{\"pf\":{\"$exists:3\":true},\"${controlInfo.ext.$pf.commonControl.downAld@string}:1\":0,\"vt:5\":1}]}"
+            },
+            "3":             {
+                "rule": "pf 1 $eq 3 $ifeq src [ \"606b62b5b934470485fb8053e6705521\" \"1_11_114\" \"7d8d02b9a4cd4dd9a0ca82f928b7617b\" \"1_11_115\" \"3_31_312_xiaomi_cntv\" \"3_31_312_xiaomi_0\" \"3_31_312_xiaomi_gitv\" \"04022002012000000000\" \"02022002010000000000\" \"04022002011000000000\" ] $nin",
+                "action": {"$unset":                 {
+                    "tkl[1].vsext": "",
+                    "tkl[2].vsext": ""
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:[2, 4]\":[{\"pf:1\":1},{\"src\":{\"$nin:3\":[\"606b62b5b934470485fb8053e6705521\",\"1_11_114\",\"7d8d02b9a4cd4dd9a0ca82f928b7617b\",\"1_11_115\",\"3_31_312_xiaomi_cntv\",\"3_31_312_xiaomi_0\",\"3_31_312_xiaomi_gitv\",\"04022002012000000000\",\"02022002010000000000\",\"04022002011000000000\"]}}]}"
+            },
+            "4":             {
+                "rule": "src [ \"1_11_114\" \"606b62b5b934470485fb8053e6705521\" ] $in",
+                "action":                 {
+                    "$unset":                     {
+                        "tkl[1].bit": "",
+                        "tkl[2].bit": "",
+                        "tkl[1].vsext": "",
+                        "tkl[2].vsext": ""
+                    },
+                    "$unset_not_exists":                     {
+                        "tkl[1].vs.[bid=@{1,2,3,4,5,10}]": "",
+                        "tkl[2].vs.[bid=@{1,2,3,4,5,10}]": ""
+                    }
+                },
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"src\":{\"$in:1\":[\"1_11_114\",\"606b62b5b934470485fb8053e6705521\"]}}]}"
+            },
+            "5":             {
+                "rule": "F${controlInfo.base.mdown@string} 1 $eq 8 $ifne um [ 1 2 3 4 ] $nin 3 $ifne vt 1 $eq",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"st\":507,\"msg\":\"This video only vip can download.\"}"
+                },
+                "_meta_info": "{\"$or:[6]\":[{\"um\":{\"$nin:3\":[1,2,3,4]},\"${controlInfo.base.mdown@string}:1\":1,\"vt:5\":1}]}"
+            },
+            "6":             {
+                "rule": "province_en [ \"TW\" ] $in 13 $ifeq pf [ 2 3 5 10 12 13 14 ] $in 3 $ifne vt 2 $neq 3 $ifeq server_addr [ \"10.10.131.41\" \"220.181.184.149\" ] $in 13 $ifne F${ntkl[1].vs@string} true $exists 8 $ifne F${stl.d@string} true $exists 3 $ifne rs 1 $eq",
+                "action":                 {
+                    "$rename": {"ntkl": "tkl"},
+                    "$set": {"isRs": 1},
+                    "$unset": {"ntkl": ""}
+                },
+                "break_chain": false,
+                "_meta_info": "{\"$or:[14]\":[{\"${ntkl[1].vs@string}\":{\"$exists:9\":true},\"${stl.d@string}\":{\"$exists:11\":true},\"$or:[2, 6, 8]\":[{\"province_en\":{\"$in:1\":[\"TW\"]}},{\"pf\":{\"$in:3\":[2,3,5,10,12,13,14]},\"vt\":{\"$neq:5\":2}},{\"server_addr\":{\"$in:7\":[\"10.10.131.41\",\"220.181.184.149\"]}}],\"rs:13\":1}]}"
+            },
+            "7":             {
+                "rule": "F${isRs@string} 0 $eq",
+                "action": {"$unset":                 {
+                    "ntkl": "",
+                    "stl": ""
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"${isRs@string}:1\":0}]}"
+            },
+            "8":             {
+                "rule": "F${controlInfo.ext.$pf.commonControl.rejectDrmPlay@string} true $exists",
+                "action": {"$set":                 {
+                    "ddt": "${controlInfo.ext.$pf.commonControl.rejectDrmPlay@string}",
+                    "dt": 2
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"${controlInfo.ext.$pf.commonControl.rejectDrmPlay@string}\":{\"$exists:1\":true}}]}"
+            },
+            "9":             {
+                "rule": "F${controlInfo.ext.$pf.commonControl.rejectDrmPlay@string} 2 $eq 3 $ifne F${tkl[1].bit.drmt[1]@string} true $exists",
+                "action": {"$unset": {"tkl[1].bit.drmt": ""}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:[4]\":[{\"${tkl[1].bit.drmt[1]@string}\":{\"$exists:3\":true},\"${controlInfo.ext.$pf.commonControl.rejectDrmPlay@string}:1\":2}]}"
+            },
+            "10":             {
+                "rule": "F${controlInfo.ext.$pf.commonControl.rejectDrmPlay@string} 3 $eq 3 $ifne F${tkl[1].bit.drmt[1]@string} true $exists",
+                "action":                 {
+                    "$set": {"st": 602},
+                    "$unset":                     {
+                        "tkl[1].bit.dolby": "",
+                        "tkl[1].bit.dolbyM": "",
+                        "tkl[1].bit.drm": "",
+                        "tkl[1].vs": ""
+                    }
+                },
+                "break_chain": false,
+                "_meta_info": "{\"$or:[4]\":[{\"${tkl[1].bit.drmt[1]@string}\":{\"$exists:3\":true},\"${controlInfo.ext.$pf.commonControl.rejectDrmPlay@string}:1\":3}]}"
+            },
+            "11":             {
+                "rule": "src \"e9194cb155e14ceba4d63c185289b3c5\" $eq 24 $ifeq vps \"pps\" $eq 19 $ifeq vps \"tv\" $eq 3 $ifeq pf 9 $eq 4 $ifne vid $exist false $eq 3 $ifeq pf [ \"14\" ] $nin $not 3 $ifne vid \"${controlInfo.base.vids@array}\" $nin",
+                "action": {"$set":                 {
+                    "st": 401,
+                    "tsl": "",
+                    "tkl": ""
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:[15]\":[{\"vid\":{\"$nin:14\":\"${controlInfo.base.vids@array}\"},\"$not:12\":{\"$or:[2, 4, 10, 12]\":[{\"src:1\":\"e9194cb155e14ceba4d63c185289b3c5\"},{\"vps:3\":\"pps\"},{\"vid\":{\"$exist:9\":false},\"$or:[6, 8]\":[{\"vps:5\":\"tv\"},{\"pf:7\":9}]},{\"pf\":{\"$nin:11\":[\"14\"]}}]}}]}"
+            },
+            "12":             {
+                "rule": "F${controlInfo.ext.$pf.locationControl.city.$city_id.a@string} [ 1 4 ] $in 8 $ifne F${controlInfo.ext.$pf.locationControl.city@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_city_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${controlInfo.ext.$pf.locationControl.city@string}\":{\"$exists:3\":true},\"${controlInfo.ext.$pf.locationControl.city.$city_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "13":             {
+                "rule": "F${controlInfo.ext.$pf.locationControl.province.$province_id.a@string} [ 1 4 ] $in 8 $ifne F${controlInfo.ext.$pf.locationControl.province@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_province_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${controlInfo.ext.$pf.locationControl.province@string}\":{\"$exists:3\":true},\"${controlInfo.ext.$pf.locationControl.province.$province_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "14":             {
+                "rule": "F${controlInfo.ext.$pf.locationControl.country.$country_id.a@string} [ 1 4 ] $in 8 $ifne F${controlInfo.ext.$pf.locationControl.country@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_country_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${controlInfo.ext.$pf.locationControl.country@string}\":{\"$exists:3\":true},\"${controlInfo.ext.$pf.locationControl.country.$country_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "15":             {
+                "rule": "F${controlInfo.ext.$pf.locationControl.area.$area_id.a@string} [ 1 4 ] $in 8 $ifne F${controlInfo.ext.$pf.locationControl.area@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_area_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${controlInfo.ext.$pf.locationControl.area@string}\":{\"$exists:3\":true},\"${controlInfo.ext.$pf.locationControl.area.$area_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "16":             {
+                "rule": "vps \"pps\" $eq $not 117 $ifne F${controlInfo.ext.$pf.locationControl.city.$city_id.a@string} [ 2 3 5 6 7 ] $in 3 $ifne F${rule_city_flag@string} false $exists 97 $ifeq province_en [ \"TW\" \"HK\" \"MO\" ] $in 3 $ifne vv \"821d3c731e374feaa629dcdaab7c394b\" $eq $not 13 $ifne F${controlInfo.ext.$pf.locationControl.province.$province_id.a@string} [ 2 3 5 6 7 ] $in 8 $ifne F${rule_city_flag@string} false $exists 3 $ifne F${rule_province_flag@string} false $exists 71 $ifeq vv \"821d3c731e374feaa629dcdaab7c394b\" $eq $not 18 $ifne F${controlInfo.ext.$pf.locationControl.country.$country_id.a@string} [ 2 3 5 6 7 ] $in 13 $ifne F${rule_city_flag@string} false $exists 8 $ifne F${rule_country_flag@string} false $exists 3 $ifne F${rule_province_flag@string} false $exists 45 $ifeq vv \"821d3c731e374feaa629dcdaab7c394b\" $eq $not 23 $ifne F${controlInfo.ext.$pf.locationControl.area.$area_id.a@string} [ 2 3 5 6 7 ] $in 18 $ifne F${rule_area_flag@string} false $exists 13 $ifne F${rule_city_flag@string} false $exists 8 $ifne F${rule_country_flag@string} false $exists 3 $ifne F${rule_province_flag@string} false $exists 14 $ifeq F${controlInfo.ext.$pf.commonControl.availableStatus@string} [ 2 3 5 6 7 ] $in 9 $ifne F${controlInfo.ext.$pf.locationControl@string} \":%s-[14]%s-\" i $regex 3 $ifne F${rule_flag@string} false $exists 8 $ifne F${controlInfo.ext.$pf.locationControl@string} true $exists 3 $ifne pf true $exists",
+                "action":                 {
+                    "$set":                     {
+                        "st": 502,
+                        "tsl": "",
+                        "tkl": ""
+                    },
+                    "$unset": {"controlInfo": ""}
+                },
+                "_meta_info": "{\"pf\":{\"$exists:51\":true},\"${controlInfo.ext.$pf.locationControl@string}\":{\"$exists:49\":true},\"$not:2\":{\"$or:1\":[{\"vps:1\":\"pps\"}]},\"$or:[7, 18, 29, 42, 48]\":[{\"${controlInfo.ext.$pf.locationControl.city.$city_id.a@string}\":{\"$in:4\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:6\":false}},{\"${controlInfo.ext.$pf.locationControl.province.$province_id.a@string}\":{\"$in:13\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:15\":false},\"${rule_province_flag@string}\":{\"$exists:17\":false},\"$not:11\":{\"province_en\":{\"$in:8\":[\"TW\",\"HK\",\"MO\"]},\"vv:10\":\"821d3c731e374feaa629dcdaab7c394b\"}},{\"${controlInfo.ext.$pf.locationControl.country.$country_id.a@string}\":{\"$in:22\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:24\":false},\"${rule_province_flag@string}\":{\"$exists:28\":false},\"${rule_country_flag@string}\":{\"$exists:26\":false},\"$not:20\":{\"vv:19\":\"821d3c731e374feaa629dcdaab7c394b\"}},{\"${controlInfo.ext.$pf.locationControl.area.$area_id.a@string}\":{\"$in:33\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:37\":false},\"${rule_province_flag@string}\":{\"$exists:41\":false},\"${rule_country_flag@string}\":{\"$exists:39\":false},\"${rule_area_flag@string}\":{\"$exists:35\":false},\"$not:31\":{\"vv:30\":\"821d3c731e374feaa629dcdaab7c394b\"}},{\"${rule_flag@string}\":{\"$exists:47\":false},\"${controlInfo.ext.$pf.commonControl.availableStatus@string}\":{\"$in:43\":[2,3,5,6,7]},\"${controlInfo.ext.$pf.locationControl@string}:45\":\"/:%s-[14]%s-/i\"}]}"
+            },
+            "17":             {
+                "rule": "F${controlInfo.ext.$pf.commonControl.availableStatus@string} [ 2 3 ] $in 8 $ifeq F${controlInfo.ext.$pf@string} false $exists 3 $ifne pf [ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 ] $in 8 $ifne F${rule_flag@string} false $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "st": 501,
+                    "tsl": "",
+                    "tkl": "",
+                    "ctl.501": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:[10]\":[{\"pf\":{\"$exists:9\":true},\"${rule_flag@string}\":{\"$exists:7\":false},\"$or:[2, 6]\":[{\"${controlInfo.ext.$pf.commonControl.availableStatus@string}\":{\"$in:1\":[2,3]}},{\"${controlInfo.ext.$pf@string}\":{\"$exists:3\":false},\"pf\":{\"$in:5\":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]}}]}]}"
+            },
+            "18":             {
+                "rule": "F${st@string} \"109\" $eq",
+                "action": {"$set": {"st": 101}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"${st@string}:1\":\"109\"}]}"
+            },
+            "19":             {
+                "rule": "F${controlInfo.base.pageStatus@string} [ \"PAGE_ONLINE\" \"PAGE_THIRD_PARTY\" ] $in $not 3 $ifne pf [ 14 15 16 ] $in",
+                "action":                 {
+                    "$set":                     {
+                        "st": 401,
+                        "tsl": "",
+                        "tkl": ""
+                    },
+                    "$unset": {"controlInfo": ""}
+                },
+                "_meta_info": "{\"$or:[5]\":[{\"pf\":{\"$in:4\":[14,15,16]},\"$not:2\":{\"${controlInfo.base.pageStatus@string}\":{\"$in:1\":[\"PAGE_ONLINE\",\"PAGE_THIRD_PARTY\"]}}}]}"
+            },
+            "20":             {
+                "rule": "F${controlInfo.base.onlineStatus@string} \"OFFLINE_FOR_COPYRIGHT\" $eq 8 $ifne F${controlInfo.ext.$pf@string} false $exists 3 $ifne F${ctl.501@string} false $exists",
+                "action":                 {
+                    "$set":                     {
+                        "st": 405,
+                        "tsl": "",
+                        "tkl": ""
+                    },
+                    "$unset": {"controlInfo": ""}
+                },
+                "_meta_info": "{\"$or:[6]\":[{\"${ctl.501@string}\":{\"$exists:5\":false},\"${controlInfo.ext.$pf@string}\":{\"$exists:3\":false},\"${controlInfo.base.onlineStatus@string}:1\":\"OFFLINE_FOR_COPYRIGHT\"}]}"
+            },
+            "21":             {
+                "rule": "F${controlInfo.base.onlineStatus@string} \"OFFLINE_FOR_OTHER\" $eq 8 $ifne F${controlInfo.ext.$pf@string} false $exists 3 $ifne F${ctl.501@string} false $exists",
+                "action":                 {
+                    "$set":                     {
+                        "st": 406,
+                        "tsl": "",
+                        "tkl": ""
+                    },
+                    "$unset": {"controlInfo": ""}
+                },
+                "_meta_info": "{\"$or:[6]\":[{\"${ctl.501@string}\":{\"$exists:5\":false},\"${controlInfo.ext.$pf@string}\":{\"$exists:3\":false},\"${controlInfo.base.onlineStatus@string}:1\":\"OFFLINE_FOR_OTHER\"}]}"
+            },
+            "22":             {
+                "rule": "src [ \"3_31_312_xiaomi_cntv\" \"3_31_312_xiaomi_0\" \"3_31_312_haixin_0\" \"3_31_312_xiaomi_gitv\" \"04022002012000000000\" \"02022002010000000000\" \"04022002011000000000\" ] $nin",
+                "action": {"$unset":                 {
+                    "tkl[1].bit": "",
+                    "tkl[2].bit": ""
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"src\":{\"$nin:1\":[\"3_31_312_xiaomi_cntv\",\"3_31_312_xiaomi_0\",\"3_31_312_haixin_0\",\"3_31_312_xiaomi_gitv\",\"04022002012000000000\",\"02022002010000000000\",\"04022002011000000000\"]}}]}"
+            },
+            "23":             {
+                "rule": "src [ \"3_31_312_xiaomi_cntv\" \"3_31_312_xiaomi_0\" \"3_31_312_haixin_0\" \"3_31_312_xiaomi_gitv\" \"04022002012000000000\" \"02022002010000000000\" \"04022002011000000000\" ] $in",
+                "action": {"$unset":                 {
+                    "tkl[1].bit.dolby": "",
+                    "tkl[1].bit.drm": "",
+                    "tkl[2].bit.dolby": "",
+                    "tkl[3].bit.drm": ""
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"src\":{\"$in:1\":[\"3_31_312_xiaomi_cntv\",\"3_31_312_xiaomi_0\",\"3_31_312_haixin_0\",\"3_31_312_xiaomi_gitv\",\"04022002012000000000\",\"02022002010000000000\",\"04022002011000000000\"]}}]}"
+            },
+            "24":             {
+                "rule": "src [ \"e9194cb155e14ceba4d63c185289b3c5\" \"201_11_114\" ] $in",
+                "action": {"$unset_exists":                 {
+                    "tkl[1].vs.[bid=@{96}]": "",
+                    "tkl[2].vs.[bid=@{96}]": ""
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"src\":{\"$in:1\":[\"e9194cb155e14ceba4d63c185289b3c5\",\"201_11_114\"]}}]}"
+            },
+            "25":             {
+                "rule": "pf 9 $eq 3 $ifne src [ \"04022002041000000000\" \"04022002071000000000\" \"04022002012000000000\" \"04022001020000000000\" \"04022002031000000000\" \"04022002051000000000\" \"04022002061000000000\" \"04022001010000000000\" \"04022002011000000000\" \"04022002021000000000\" ] $nin",
+                "action": {"$unset_exists":                 {
+                    "tkl[1].vs.[bid=@{96,1}]": "",
+                    "tkl[2].vs.[bid=@{96,1}]": ""
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:[4]\":[{\"src\":{\"$nin:3\":[\"04022002041000000000\",\"04022002071000000000\",\"04022002012000000000\",\"04022001020000000000\",\"04022002031000000000\",\"04022002051000000000\",\"04022002061000000000\",\"04022001010000000000\",\"04022002011000000000\",\"04022002021000000000\"]},\"pf:1\":9}]}"
+            },
+            "26":             {
+                "rule": "src [ \"04022002041000000000\" \"04022002071000000000\" \"04022002012000000000\" \"04022001020000000000\" \"04022002031000000000\" \"04022002051000000000\" \"04022002061000000000\" \"04022001010000000000\" \"04022002011000000000\" \"04022002021000000000\" ] $in",
+                "action": {"$unset_exists":                 {
+                    "tkl[1].vs.[bid=@{96}]": "",
+                    "tkl[2].vs.[bid=@{96}]": ""
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"src\":{\"$in:1\":[\"04022002041000000000\",\"04022002071000000000\",\"04022002012000000000\",\"04022001020000000000\",\"04022002031000000000\",\"04022002051000000000\",\"04022002061000000000\",\"04022001010000000000\",\"04022002011000000000\",\"04022002021000000000\"]}}]}"
+            },
+            "27":             {
+                "rule": "F${tkl[1].vs.[bid=@{1,2,3,4,5}]@string} true $exists 3 $ifne src [ \"3_39_390\" \"06022001010000000000\" ] $in",
+                "action":                 {
+                    "$unset":                     {
+                        "tkl[1].bit": "",
+                        "tkl[2].bit": "",
+                        "tkl[1].vsext": "",
+                        "tkl[2].vsext": ""
+                    },
+                    "$unset_not_exists":                     {
+                        "tkl[1].vs.[bid=@{1,2,3,4,5}]": "",
+                        "tkl[2].vs.[bid=@{1,2,3,4,5}]": ""
+                    }
+                },
+                "break_chain": false,
+                "_meta_info": "{\"$or:[4]\":[{\"src\":{\"$in:3\":[\"3_39_390\",\"06022001010000000000\"]},\"${tkl[1].vs.[bid=@{1,2,3,4,5}]@string}\":{\"$exists:1\":true}}]}"
+            },
+            "28":             {
+                "rule": "k_vsext 1 $eq 3 $ifne src [ \"04022002011000000000\" ] $in",
+                "action":                 {
+                    "$unset_exists":                     {
+                        "tkl[1].vs.[bid=@{10}]": "",
+                        "tkl[2].vs.[bid=@{10}]": "",
+                        "tkl[1].bit.drmt.[bid=@{10}]": "",
+                        "tkl[2].bit.drmt.[bid=@{10}]": "",
+                        "tkl[1].bit.drmc.[bid=@{10}]": "",
+                        "tkl[2].bit.drmc.[bid=@{10}]": ""
+                    },
+                    "$set": {"ctl.4k": true}
+                },
+                "break_chain": false,
+                "_meta_info": "{\"$or:[4]\":[{\"src\":{\"$in:3\":[\"04022002011000000000\"]},\"k_vsext:1\":1}]}"
+            },
+            "29":             {
+                "rule": "F${ctl.4k@string} false $exists 3 $ifne src [ \"04022002011000000000\" \"05022002011000000000\" \"04022002012000000000\" \"05022002012000000000\" ] $in",
+                "action": {"$unset_exists":                 {
+                    "tkl[1].vs.[bid=@{10}]": "",
+                    "tkl[2].vs.[bid=@{10}]": "",
+                    "tkl[1].bit.dolby.[bid=@{16}]": "",
+                    "tkl[2].bit.dolby.[bid=@{16}]": "",
+                    "tkl[1].vsext.[bid=@{19}]": "",
+                    "tkl[2].vsext.[bid=@{19}]": "",
+                    "tkl[1].bit.drmt.[bid=@{10}]": "",
+                    "tkl[2].bit.drmt.[bid=@{10}]": "",
+                    "tkl[1].bit.drmc.[bid=@{10}]": "",
+                    "tkl[2].bit.drmc.[bid=@{10}]": ""
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:[4]\":[{\"src\":{\"$in:3\":[\"04022002011000000000\",\"05022002011000000000\",\"04022002012000000000\",\"05022002012000000000\"]},\"${ctl.4k@string}\":{\"$exists:1\":false}}]}"
+            },
+            "30":             {
+                "rule": "vid true $exists",
+                "action":                 {
+                    "$set": {"vid": "${vid@string}"},
+                    "$unset": {"controlInfo": ""}
+                },
+                "_meta_info": "{\"$or:1\":[{\"vid\":{\"$exists:1\":true}}]}"
+            },
+            "31":             {
+                "rule": "vid false $exists",
+                "action": {"$unset": {"controlInfo": ""}},
+                "_meta_info": "{\"$or:1\":[{\"vid\":{\"$exists:1\":false}}]}"
+            }
+        },
+        "log": {"1":         {
+            "rule": "F${st@string} 101 $neq",
+            "action": {"$log":             {
+                "msg": "npb-warn",
+                "values":                 [
+                    "ip",
+                    "src",
+                    "tvid",
+                    "vid",
+                    "${st@string}"
+                ]
+            }},
+            "_meta_info": "{\"$or:1\":[{\"${st@string}\":{\"$neq:1\":101}}]}"
+        }}
+    },
+    "^/liven/":     {
+        "define":         [
+            {"_$2_": "tvid"},
+            {"file_block_ips": "block_ips"},
+            {"http_x_forwarded_for": "X-Forwarded-For"},
+            {"file_switch_config": "switch_config"},
+            {"file_offline_tvids": "offline_tvids"},
+            {"file_live_area": "live_area"},
+            {"file_live_rate": "live_rate"}
+        ],
+        "before":         {
+            "1":             {
+                "rule": "ip \"${block_ips@array}\" $in 13 $ifeq xff_ip \"${block_ips@array}\" $in 8 $ifeq illegal_src true $eq 3 $ifeq src false $exists",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00001\",\"msg\":\"rule block.\"}"
+                },
+                "_meta_info": "{\"$or:[2, 4, 6, 8]\":[{\"ip\":{\"$in:1\":\"${block_ips@array}\"}},{\"xff_ip\":{\"$in:3\":\"${block_ips@array}\"}},{\"illegal_src:5\":true},{\"src\":{\"$exists:7\":false}}]}"
+            },
+            "2":             {
+                "rule": "tvid \"${offline_tvids@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00110\",\"msg\":\"Copyright offline by luna\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"tvid\":{\"$in:1\":\"${offline_tvids@array}\"}}]}"
+            }
+        },
+        "after":         {
+            "1":             {
+                "rule": "F${code@string} \"A00000\" $neq",
+                "action":                 {
+                    "$unset": {"data": ""},
+                    "$set": {"ctl.msg": "server return err-data."},
+                    "$log":                     {
+                        "msg": "liven-warn, server return err data.",
+                        "values":                         [
+                            "ip",
+                            "X-Forwarded-For",
+                            "src",
+                            "tvid",
+                            "lp",
+                            "${code@string}"
+                        ]
+                    }
+                },
+                "doc": {"name": "播放服务后端数据状态检查"},
+                "_meta_info": "{\"$or:1\":[{\"${code@string}\":{\"$neq:1\":\"A00000\"}}]}"
+            },
+            "2":             {
+                "rule": "F${data@string} true $exists",
+                "action": {"$set":                 {
+                    "data.timestamp": "${cur_time@string}",
+                    "data._area": "OTHER"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"${data@string}\":{\"$exists:1\":true}}]}"
+            },
+            "3":             {
+                "rule": "host [ \"cache.video.ptqy.gitv.tv\" \"mixer.video.ptqy.gitv.tv\" \"cache.m.ptqy.gitv.tv\" ] $in",
+                "action": {"$body_filter":                 {
+                    "cache%.video%.i?qiyi%.com": "cache%.video%.ptqy%.gitv%.tv",
+                    "live%.video%.i?qiyi%.com": "live%.video%.ptqy%.gitv%.tv"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"host\":{\"$in:1\":[\"cache.video.ptqy.gitv.tv\",\"mixer.video.ptqy.gitv.tv\",\"cache.m.ptqy.gitv.tv\"]}}]}"
+            },
+            "4":             {
+                "rule": "host [ \"cache.video.c002.ottcn.com\" \"mixer.video.c002.ottcn.com\" \"cache.m.c002.ottcn.com\" ] $in",
+                "action": {"$body_filter":                 {
+                    "cache%.video%.i?qiyi%.com": "cache%.video%.c002%.ottcn%.com",
+                    "live%.video%.i?qiyi%.com": "live%.video%.c002%.ottcn%.com"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"host\":{\"$in:1\":[\"cache.video.c002.ottcn.com\",\"mixer.video.c002.ottcn.com\",\"cache.m.c002.ottcn.com\"]}}]}"
+            },
+            "5":             {
+                "rule": "F${data.program.controlInfo.ext.$pf.locationControl.city.$city_id.a@string} [ 1 4 ] $in 8 $ifne F${data.program.controlInfo.ext.$pf.locationControl.city@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_city_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${data.program.controlInfo.ext.$pf.locationControl.city@string}\":{\"$exists:3\":true},\"${data.program.controlInfo.ext.$pf.locationControl.city.$city_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "6":             {
+                "rule": "F${data.program.controlInfo.ext.$pf.locationControl.province.$province_id.a@string} [ 1 4 ] $in 8 $ifne F${data.program.controlInfo.ext.$pf.locationControl.province@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_province_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${data.program.controlInfo.ext.$pf.locationControl.province@string}\":{\"$exists:3\":true},\"${data.program.controlInfo.ext.$pf.locationControl.province.$province_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "7":             {
+                "rule": "F${data.program.controlInfo.ext.$pf.locationControl.country.$country_id.a@string} [ 1 4 ] $in 8 $ifne F${data.program.controlInfo.ext.$pf.locationControl.country@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_country_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${data.program.controlInfo.ext.$pf.locationControl.country@string}\":{\"$exists:3\":true},\"${data.program.controlInfo.ext.$pf.locationControl.country.$country_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "8":             {
+                "rule": "F${data.program.controlInfo.ext.$pf.locationControl.area.$area_id.a@string} [ 1 4 ] $in 8 $ifne F${data.program.controlInfo.ext.$pf.locationControl.area@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_area_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${data.program.controlInfo.ext.$pf.locationControl.area@string}\":{\"$exists:3\":true},\"${data.program.controlInfo.ext.$pf.locationControl.area.$area_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "9":             {
+                "rule": "F${data.program.controlInfo.ext.$pf.locationControl.city.$city_id.a@string} [ 2 3 5 6 7 ] $in 3 $ifne F${rule_city_flag@string} false $exists 103 $ifeq vv \"821d3c731e374feaa629dcdaab7c394b\" $eq 3 $ifne province_en [ \"TW\" \"HK\" \"MO\" ] $in $not 13 $ifne F${data.program.controlInfo.ext.$pf.locationControl.province.$province_id.a@string} [ 2 3 5 6 7 ] $in 8 $ifne F${rule_city_flag@string} false $exists 3 $ifne F${rule_province_flag@string} false $exists 77 $ifeq vv \"821d3c731e374feaa629dcdaab7c394b\" $eq $not 18 $ifne F${data.program.controlInfo.ext.$pf.locationControl.country.$country_id.a@string} [ 2 3 5 6 7 ] $in 13 $ifne F${rule_city_flag@string} false $exists 8 $ifne F${rule_country_flag@string} false $exists 3 $ifne F${rule_province_flag@string} false $exists 51 $ifeq vv \"821d3c731e374feaa629dcdaab7c394b\" $eq $not 23 $ifne F${data.program.controlInfo.ext.$pf.locationControl.area.$area_id.a@string} [ 2 3 5 6 7 ] $in 18 $ifne F${rule_area_flag@string} false $exists 13 $ifne F${rule_city_flag@string} false $exists 8 $ifne F${rule_country_flag@string} false $exists 3 $ifne F${rule_province_flag@string} false $exists 20 $ifeq vv \"821d3c731e374feaa629dcdaab7c394b\" $eq $not 14 $ifne F${data.program.controlInfo.ext.$pf.commonControl.availableStatus@string} [ 2 3 5 6 7 ] $in 9 $ifne F${data.program.controlInfo.ext.$pf.locationControl@string} \":%s-[14]%s-\" i $regex 3 $ifne F${rule_flag@string} false $exists 8 $ifne F${data.program.controlInfo.ext.$pf.locationControl@string} true $exists 3 $ifne pf true $exists",
+                "action":                 {
+                    "$set":                     {
+                        "code": "A00111",
+                        "ip": "${ip@string}"
+                    },
+                    "$unset": {"data": ""},
+                    "$log":                     {
+                        "msg": "liven-warn,msg=\"Area limited\"",
+                        "values":                         [
+                            "ip",
+                            "src",
+                            "tvid",
+                            "lp",
+                            "${code@string}"
+                        ]
+                    }
+                },
+                "_meta_info": "{\"pf\":{\"$exists:51\":true},\"${data.program.controlInfo.ext.$pf.locationControl@string}\":{\"$exists:49\":true},\"$or:[4, 15, 26, 39, 48]\":[{\"${data.program.controlInfo.ext.$pf.locationControl.city.$city_id.a@string}\":{\"$in:1\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:3\":false}},{\"${data.program.controlInfo.ext.$pf.locationControl.province.$province_id.a@string}\":{\"$in:10\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:12\":false},\"${rule_province_flag@string}\":{\"$exists:14\":false},\"$not:8\":{\"province_en\":{\"$in:7\":[\"TW\",\"HK\",\"MO\"]},\"$or:5\":[{\"vv:5\":\"821d3c731e374feaa629dcdaab7c394b\"}]}},{\"${data.program.controlInfo.ext.$pf.locationControl.country.$country_id.a@string}\":{\"$in:19\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:21\":false},\"${rule_province_flag@string}\":{\"$exists:25\":false},\"${rule_country_flag@string}\":{\"$exists:23\":false},\"$not:17\":{\"$or:16\":[{\"vv:16\":\"821d3c731e374feaa629dcdaab7c394b\"}]}},{\"${data.program.controlInfo.ext.$pf.locationControl.area.$area_id.a@string}\":{\"$in:30\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:34\":false},\"${rule_province_flag@string}\":{\"$exists:38\":false},\"${rule_country_flag@string}\":{\"$exists:36\":false},\"${rule_area_flag@string}\":{\"$exists:32\":false},\"$not:28\":{\"vv:27\":\"821d3c731e374feaa629dcdaab7c394b\"}},{\"${rule_flag@string}\":{\"$exists:47\":false},\"${data.program.controlInfo.ext.$pf.commonControl.availableStatus@string}\":{\"$in:43\":[2,3,5,6,7]},\"$not:41\":{\"vv:40\":\"821d3c731e374feaa629dcdaab7c394b\"},\"${data.program.controlInfo.ext.$pf.locationControl@string}:45\":\"/:%s-[14]%s-/i\"}]}"
+            },
+            "10":             {
+                "rule": "F${data.program.controlInfo.ext.$pf.locationControl@string} \":%s-[14]%s-\" i $regex $not 3 $ifne F${data.controlInfo.ext.$pf.commonControl.availableStatus@string} [ 2 3 ] $in 8 $ifeq F${data.program.controlInfo.ext.$pf@string} false $exists 3 $ifne pf [ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 ] $in 8 $ifne F${rule_flag@string} false $exists 3 $ifne pf true $exists",
+                "action":                 {
+                    "$set": {"code": "A00110"},
+                    "$unset": {"data": ""},
+                    "$log":                     {
+                        "msg": "liven-warn,msg=\"The platform is no copyright\"",
+                        "values":                         [
+                            "ip",
+                            "src",
+                            "tvid",
+                            "lp",
+                            "${code@string}"
+                        ]
+                    }
+                },
+                "_meta_info": "{\"$or:[13]\":[{\"pf\":{\"$exists:12\":true},\"${rule_flag@string}\":{\"$exists:10\":false},\"$or:[5, 9]\":[{\"${data.controlInfo.ext.$pf.commonControl.availableStatus@string}\":{\"$in:4\":[2,3]},\"$not:2\":{\"${data.program.controlInfo.ext.$pf.locationControl@string}:1\":\"/:%s-[14]%s-/i\"}},{\"${data.program.controlInfo.ext.$pf@string}\":{\"$exists:6\":false},\"pf\":{\"$in:8\":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]}}]}]}"
+            },
+            "11":             {
+                "rule": "city_zh \"${live_area.FIRST@array}\" $in",
+                "action": {"$set": {"data._area": "FIRST"}},
+                "break_chain": false,
+                "_meta_info": "{\"city_zh\":{\"$in:1\":\"${live_area.FIRST@array}\"}}"
+            },
+            "12":             {
+                "rule": "city_zh \"${live_area.SECOND@array}\" $in",
+                "action": {"$set": {"data._area": "SECOND"}},
+                "break_chain": false,
+                "_meta_info": "{\"city_zh\":{\"$in:1\":\"${live_area.SECOND@array}\"}}"
+            },
+            "13":             {
+                "rule": "F${live_rate@string} true $exists",
+                "action": {"$area_rate":                 {
+                    "area": "${data._area@string}",
+                    "proId": "${data.program.id@string}"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"${live_rate@string}\":{\"$exists:1\":true}}"
+            },
+            "14":             {
+                "rule": "_https true $eq",
+                "action": {"$body_filter": {"http:[\\\\/]+live%.video%.iqiyi%.com": "https://live%.video%.iqiyi%.com"}},
+                "doc":                 {
+                    "name": "HTTPS模块",
+                    "on":                     {
+                        "when": true,
+                        "msg": "HTTPS支持，对于HTTPS请求，返回HTTPS内容",
+                        "debug": {"_https": "${_https@string}"}
+                    }
+                },
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"_https:1\":true}]}"
+            },
+            "15":             {
+                "rule": "src true $exists",
+                "action":                 {
+                    "$set": {"vid": "${vid@string}"},
+                    "$unset":                     {
+                        "data.program.controlInfo": "",
+                        "data._area": ""
+                    }
+                },
+                "_meta_info": "{\"$or:1\":[{\"src\":{\"$exists:1\":true}}]}"
+            },
+            "16":             {
+                "rule": "src false $exists",
+                "action": {"$unset":                 {
+                    "data.program.controlInfo": "",
+                    "data._area": ""
+                }},
+                "_meta_info": "{\"$or:1\":[{\"src\":{\"$exists:1\":false}}]}"
+            }
+        }
+    },
+    "(^/live)|(^/real_live)":     {
+        "define":         [
+            {"http_x_forwarded_for": "X-Forwarded-For"},
+            {"file_block_ips": "block_ips"},
+            {"file_block_userids": "block_userids"},
+            {"file_live_priority": "live_priority"},
+            {"file_switch_config": "switch_config"},
+            {"file_offline_tvids": "offline_tvids"},
+            {"file_live_area": "live_area"},
+            {"file_live_rate": "live_rate"},
+            {"file_tenant_config": "tenant_config"},
+            {"file_live_player_buffer": "live_player_buffer"},
+            {"file_live_black_white_list_config": "live_black_white_list_config"},
+            {"file_live_advise_bid": "live_advise_bid"},
+            {"file_live_feature_config": "live_feature_config"}
+        ],
+        "before": {"1":         {
+            "rule": "false $not",
+            "action": {"$lua_process": {"rules": ["before_process"]}},
+            "break_chain": false,
+            "_meta_info": "{\"$not:1\":false}"
+        }},
+        "after": {"1":         {
+            "rule": "false $not",
+            "action": {"$lua_process": {"rules":             [
+                "pre_check",
+                "prepare",
+                "area_play_control",
+                "pf_play_control",
+                "play_status_check",
+                "boss_proxy",
+                "qd_sc_sign",
+                "stream_filter",
+                "stream_priority",
+                "original_paint_control",
+                "rate_control",
+                "live_drm",
+                "bid_fr_adapter",
+                "post_process",
+                "body_filter",
+                "clean_data"
+            ]}},
+            "break_chain": false,
+            "_meta_info": "{\"$not:1\":false}"
+        }}
+    },
+    "^/live/epg/":     {
+        "define":         [
+            {"_$3_": "tvid"},
+            {"file_offline_tvids": "offline_tvids"}
+        ],
+        "before":         {
+            "1":             {
+                "rule": "src false $exists",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00001\",\"msg\":\"rule block.\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"src\":{\"$exists:1\":false}}]}"
+            },
+            "2":             {
+                "rule": "tvid \"${offline_tvids@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00110\",\"msg\":\"Copyright offline by luna\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"tvid\":{\"$in:1\":\"${offline_tvids@array}\"}}]}"
+            }
+        },
+        "after":         {
+            "1":             {
+                "rule": "F${code@string} \"A00000\" $neq",
+                "action":                 {
+                    "$unset":                     {
+                        "data.epg[1].controlInfo": "",
+                        "data.epg[2].controlInfo": ""
+                    },
+                    "$set": {"ctl.msg": "server return err-data."},
+                    "$log":                     {
+                        "msg": "live-epg-warn, server return err data.",
+                        "values":                         [
+                            "ip",
+                            "src",
+                            "tvid"
+                        ]
+                    }
+                },
+                "_meta_info": "{\"$or:1\":[{\"${code@string}\":{\"$neq:1\":\"A00000\"}}]}"
+            },
+            "2":             {
+                "rule": "F${data@string} true $exists",
+                "action": {"$set": {"data.timestamp": "${cur_time@string}"}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"${data@string}\":{\"$exists:1\":true}}]}"
+            },
+            "3":             {
+                "rule": "host [ \"cache.video.ptqy.gitv.tv\" \"mixer.video.ptqy.gitv.tv\" \"cache.m.ptqy.gitv.tv\" \"live.video.ptqy.gitv.tv\" ] $in",
+                "action": {"$body_filter":                 {
+                    "cache%.video%.i?qiyi%.com": "cache%.video%.ptqy%.gitv%.tv",
+                    "live%.video%.i?qiyi%.com": "live%.video%.ptqy%.gitv%.tv"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"host\":{\"$in:1\":[\"cache.video.ptqy.gitv.tv\",\"mixer.video.ptqy.gitv.tv\",\"cache.m.ptqy.gitv.tv\",\"live.video.ptqy.gitv.tv\"]}}]}"
+            },
+            "4":             {
+                "rule": "host [ \"cache.video.c002.ottcn.com\" \"mixer.video.c002.ottcn.com\" \"cache.m.c002.ottcn.com\" \"live.video.c002.ottcn.com\" ] $in",
+                "action": {"$body_filter":                 {
+                    "cache%.video%.i?qiyi%.com": "cache%.video%.c002%.ottcn%.com",
+                    "live%.video%.i?qiyi%.com": "live%.video%.c002%.ottcn%.com"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"host\":{\"$in:1\":[\"cache.video.c002.ottcn.com\",\"mixer.video.c002.ottcn.com\",\"cache.m.c002.ottcn.com\",\"live.video.c002.ottcn.com\"]}}]}"
+            },
+            "5":             {
+                "rule": "src true $exists",
+                "action": {"$play_ctl":                 [
+                                        {
+                        "name": "data.epg[1].code",
+                        "value": "code",
+                        "data": "${data.epg[1].controlInfo@string}"
+                    },
+                                        {
+                        "name": "data.epg[2].code",
+                        "value": "code",
+                        "data": "${data.epg[2].controlInfo@string}"
+                    }
+                ]},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"src\":{\"$exists:1\":true}}]}"
+            },
+            "6":             {
+                "rule": "_https true $eq",
+                "action": {"$body_filter": {"http:[\\\\/]+live%.video%.iqiyi%.com": "https://live%.video%.iqiyi%.com"}},
+                "doc":                 {
+                    "name": "HTTPS模块",
+                    "on":                     {
+                        "when": true,
+                        "msg": "HTTPS支持，对于HTTPS请求，返回HTTPS内容",
+                        "debug": {"_https": "${_https@string}"}
+                    }
+                },
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"_https:1\":true}]}"
+            }
+        }
+    },
+    "^/nl/":     {
+        "define":         [
+            {"_$2_": "tvid"},
+            {"file_switch_config": "switch_config"},
+            {"file_offline_tvids": "offline_tvids"}
+        ],
+        "before":         {
+            "1":             {
+                "rule": "sc \"${_md5_latest@string}\" $md5 $eq 19 $ifeq sc \"${_md5_obsolete@string}\" $md5 $eq 13 $ifeq sc \"${t@string}\" \"d5fb4bd9d50c4be6948c97edd7254b0e\" $concat \"${vid@string}\" $concat $md5 $eq 3 $ifne src \"76f90cbd92f94a2e925d83e8ccd22cb7\" $eq 13 $ifne sc true $exists 8 $ifne src true $exists 3 $ifne t true $exists $not 18 $ifne sc true $exists 8 $ifeq t true $exists 3 $ifeq src true $exists 3 $ifne src [ \"f45bc84a7ea643209b29a72b0c1e385f\" \"d846d0c32d664d32b6b54ea48997a589\" ] $in 46 $ifeq http_referer \"%.pps%.tv\" i $regex 4 $ifeq http_referer \"%.iqiyi%.com\" i $regex 13 $ifne sc false $exists 8 $ifne src false $exists 3 $ifne t false $exists $not 18 $ifne sc false $exists 8 $ifeq t false $exists 3 $ifeq src false $exists 3 $ifne src [ \"f45bc84a7ea643209b29a72b0c1e385f\" \"d846d0c32d664d32b6b54ea48997a589\" ] $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00001\",\"msg\":\"rule block.\"}"
+                },
+                "_meta_info": "{\"$or:[28, 47]\":[{\"src\":{\"$in:27\":[\"f45bc84a7ea643209b29a72b0c1e385f\",\"d846d0c32d664d32b6b54ea48997a589\"]},\"$not:19\":{\"sc\":{\"$exists:14\":true},\"t\":{\"$exists:18\":true},\"src\":{\"$exists:16\":true},\"$or:[3, 6, 13]\":[{\"sc\":{\"$eq:2\":{\"$md5:1\":\"${_md5_latest@string}\"}}},{\"sc\":{\"$eq:5\":{\"$md5:4\":\"${_md5_obsolete@string}\"}}},{\"sc\":{\"$eq:10\":{\"$md5:9\":{\"$concat:[7-8]\":[\"${t@string}\",\"d5fb4bd9d50c4be6948c97edd7254b0e\",\"${vid@string}\"]}}},\"src:12\":\"76f90cbd92f94a2e925d83e8ccd22cb7\"}]},\"$or:[22, 24, 26]\":[{\"sc\":{\"$exists:21\":true}},{\"t\":{\"$exists:23\":true}},{\"src\":{\"$exists:25\":true}}]},{\"src\":{\"$in:46\":[\"f45bc84a7ea643209b29a72b0c1e385f\",\"d846d0c32d664d32b6b54ea48997a589\"]},\"$not:38\":{\"sc\":{\"$exists:33\":false},\"t\":{\"$exists:37\":false},\"src\":{\"$exists:35\":false},\"$or:[30, 32]\":[{\"http_referer\":{\"$contains:29\":\".pps.tv\"}},{\"http_referer\":{\"$contains:31\":\".iqiyi.com\"}}]},\"$or:[41, 43, 45]\":[{\"sc\":{\"$exists:40\":false}},{\"t\":{\"$exists:42\":false}},{\"src\":{\"$exists:44\":false}}]}]}"
+            },
+            "2":             {
+                "rule": "tvid \"${offline_tvids@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00110\",\"msg\":\"Copyright offline by luna\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"tvid\":{\"$in:1\":\"${offline_tvids@array}\"}}]}"
+            }
+        },
+        "after":         {
+            "1":             {
+                "rule": "F${code@string} \"A00000\" $neq",
+                "action":                 {
+                    "$unset": {"data": ""},
+                    "$set": {"ctl.msg": "server return err-data."},
+                    "$log":                     {
+                        "msg": "nl-warn, server return err data.",
+                        "values":                         [
+                            "ip",
+                            "X-Forwarded-For",
+                            "src",
+                            "tvid",
+                            "lp",
+                            "${code@string}"
+                        ]
+                    }
+                },
+                "doc": {"name": "播放服务后端数据状态检查"},
+                "_meta_info": "{\"$or:1\":[{\"${code@string}\":{\"$neq:1\":\"A00000\"}}]}"
+            },
+            "2":             {
+                "rule": "F${data@string} true $exists",
+                "action": {"$set": {"data.timestamp": "${cur_time@string}"}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"${data@string}\":{\"$exists:1\":true}}]}"
+            },
+            "3":             {
+                "rule": "host [ \"cache.video.ptqy.gitv.tv\" \"cache.vip.ptqy.gitv.tv\" \"mixer.video.ptqy.gitv.tv\" \"cache.m.ptqy.gitv.tv\" ] $in",
+                "action": {"$body_filter":                 {
+                    "cache%.video%.i?qiyi%.com": "cache%.video%.ptqy%.gitv%.tv",
+                    "live%.video%.i?qiyi%.com": "live%.video%.ptqy%.gitv%.tv"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"host\":{\"$in:1\":[\"cache.video.ptqy.gitv.tv\",\"cache.vip.ptqy.gitv.tv\",\"mixer.video.ptqy.gitv.tv\",\"cache.m.ptqy.gitv.tv\"]}}]}"
+            },
+            "4":             {
+                "rule": "host [ \"cache.video.c002.ottcn.com\" \"cache.vip.c002.ottcn.com\" \"mixer.video.c002.ottcn.com\" \"cache.m.c002.ottcn.com\" ] $in",
+                "action": {"$body_filter":                 {
+                    "cache%.video%.i?qiyi%.com": "cache%.video%.c002%.ottcn%.com",
+                    "live%.video%.i?qiyi%.com": "live%.video%.c002%.ottcn%.com"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"host\":{\"$in:1\":[\"cache.video.c002.ottcn.com\",\"cache.vip.c002.ottcn.com\",\"mixer.video.c002.ottcn.com\",\"cache.m.c002.ottcn.com\"]}}]}"
+            },
+            "5":             {
+                "rule": "F${data.controlInfo.ext.$pf.locationControl.city.$city_id.a@string} [ 1 4 ] $in 8 $ifne F${data.controlInfo.ext.$pf.locationControl.city@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_city_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${data.controlInfo.ext.$pf.locationControl.city@string}\":{\"$exists:3\":true},\"${data.controlInfo.ext.$pf.locationControl.city.$city_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "6":             {
+                "rule": "F${data.controlInfo.ext.$pf.locationControl.province.$province_id.a@string} [ 1 4 ] $in 8 $ifne F${data.controlInfo.ext.$pf.locationControl.province@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_province_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${data.controlInfo.ext.$pf.locationControl.province@string}\":{\"$exists:3\":true},\"${data.controlInfo.ext.$pf.locationControl.province.$province_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "7":             {
+                "rule": "F${data.controlInfo.ext.$pf.locationControl.country.$country_id.a@string} [ 1 4 ] $in 8 $ifne F${data.controlInfo.ext.$pf.locationControl.country@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_country_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${data.controlInfo.ext.$pf.locationControl.country@string}\":{\"$exists:3\":true},\"${data.controlInfo.ext.$pf.locationControl.country.$country_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "8":             {
+                "rule": "F${data.controlInfo.ext.$pf.locationControl.area.$area_id.a@string} [ 1 4 ] $in 8 $ifne F${data.controlInfo.ext.$pf.locationControl.area@string} true $exists 3 $ifne pf true $exists",
+                "action": {"$set":                 {
+                    "rule_flag": true,
+                    "rule_area_flag": true
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"pf\":{\"$exists:5\":true},\"${data.controlInfo.ext.$pf.locationControl.area@string}\":{\"$exists:3\":true},\"${data.controlInfo.ext.$pf.locationControl.area.$area_id.a@string}\":{\"$in:1\":[1,4]}}"
+            },
+            "9":             {
+                "rule": "F${data.controlInfo.ext.$pf.locationControl.city.$city_id.a@string} [ 2 3 5 6 7 ] $in 3 $ifne F${rule_city_flag@string} false $exists 103 $ifeq vv \"821d3c731e374feaa629dcdaab7c394b\" $eq 3 $ifne province_en [ \"TW\" \"HK\" \"MO\" ] $in $not 13 $ifne F${data.controlInfo.ext.$pf.locationControl.province.$province_id.a@string} [ 2 3 5 6 7 ] $in 8 $ifne F${rule_city_flag@string} false $exists 3 $ifne F${rule_province_flag@string} false $exists 77 $ifeq vv \"821d3c731e374feaa629dcdaab7c394b\" $eq $not 18 $ifne F${data.controlInfo.ext.$pf.locationControl.country.$country_id.a@string} [ 2 3 5 6 7 ] $in 13 $ifne F${rule_city_flag@string} false $exists 8 $ifne F${rule_country_flag@string} false $exists 3 $ifne F${rule_province_flag@string} false $exists 51 $ifeq vv \"821d3c731e374feaa629dcdaab7c394b\" $eq $not 23 $ifne F${data.controlInfo.ext.$pf.locationControl.area.$area_id.a@string} [ 2 3 5 6 7 ] $in 18 $ifne F${rule_area_flag@string} false $exists 13 $ifne F${rule_city_flag@string} false $exists 8 $ifne F${rule_country_flag@string} false $exists 3 $ifne F${rule_province_flag@string} false $exists 20 $ifeq vv \"821d3c731e374feaa629dcdaab7c394b\" $eq $not 14 $ifne F${data.program.controlInfo.ext.$pf.commonControl.availableStatus@string} [ 2 3 5 6 7 ] $in 9 $ifne F${data.program.controlInfo.ext.$pf.locationControl@string} \":%s-[14]%s-\" i $regex 3 $ifne F${rule_flag@string} false $exists 8 $ifne F${data.controlInfo.ext.$pf.locationControl@string} true $exists 3 $ifne pf true $exists",
+                "action":                 {
+                    "$set":                     {
+                        "code": "A00111",
+                        "ip": "${ip@string}"
+                    },
+                    "$unset": {"data": ""},
+                    "$log":                     {
+                        "msg": "nl-warn,msg=\"Area limited\"",
+                        "values":                         [
+                            "ip",
+                            "src",
+                            "tvid",
+                            "lp",
+                            "${code@string}"
+                        ]
+                    }
+                },
+                "_meta_info": "{\"pf\":{\"$exists:51\":true},\"${data.controlInfo.ext.$pf.locationControl@string}\":{\"$exists:49\":true},\"$or:[4, 15, 26, 39, 48]\":[{\"${data.controlInfo.ext.$pf.locationControl.city.$city_id.a@string}\":{\"$in:1\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:3\":false}},{\"${data.controlInfo.ext.$pf.locationControl.province.$province_id.a@string}\":{\"$in:10\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:12\":false},\"${rule_province_flag@string}\":{\"$exists:14\":false},\"$not:8\":{\"province_en\":{\"$in:7\":[\"TW\",\"HK\",\"MO\"]},\"$or:5\":[{\"vv:5\":\"821d3c731e374feaa629dcdaab7c394b\"}]}},{\"${data.controlInfo.ext.$pf.locationControl.country.$country_id.a@string}\":{\"$in:19\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:21\":false},\"${rule_province_flag@string}\":{\"$exists:25\":false},\"${rule_country_flag@string}\":{\"$exists:23\":false},\"$not:17\":{\"$or:16\":[{\"vv:16\":\"821d3c731e374feaa629dcdaab7c394b\"}]}},{\"${data.controlInfo.ext.$pf.locationControl.area.$area_id.a@string}\":{\"$in:30\":[2,3,5,6,7]},\"${rule_city_flag@string}\":{\"$exists:34\":false},\"${rule_province_flag@string}\":{\"$exists:38\":false},\"${rule_country_flag@string}\":{\"$exists:36\":false},\"${rule_area_flag@string}\":{\"$exists:32\":false},\"$not:28\":{\"vv:27\":\"821d3c731e374feaa629dcdaab7c394b\"}},{\"${rule_flag@string}\":{\"$exists:47\":false},\"${data.program.controlInfo.ext.$pf.commonControl.availableStatus@string}\":{\"$in:43\":[2,3,5,6,7]},\"$not:41\":{\"vv:40\":\"821d3c731e374feaa629dcdaab7c394b\"},\"${data.program.controlInfo.ext.$pf.locationControl@string}:45\":\"/:%s-[14]%s-/i\"}]}"
+            },
+            "10":             {
+                "rule": "F${data.program.controlInfo.ext.$pf.locationControl@string} \":%s-[14]%s-\" i $regex $not 3 $ifne F${data.controlInfo.ext.$pf.commonControl.availableStatus@string} [ 2 3 ] $in 8 $ifeq F${data.program.controlInfo.ext.$pf@string} false $exists 3 $ifne pf [ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 ] $in 8 $ifne F${rule_flag@string} false $exists 3 $ifne pf true $exists",
+                "action":                 {
+                    "$set": {"code": "A00110"},
+                    "$unset": {"data": ""},
+                    "$log":                     {
+                        "msg": "nl-warn,msg=\"The platform is no copyright\"",
+                        "values":                         [
+                            "ip",
+                            "src",
+                            "tvid",
+                            "lp",
+                            "${code@string}"
+                        ]
+                    }
+                },
+                "_meta_info": "{\"$or:[13]\":[{\"pf\":{\"$exists:12\":true},\"${rule_flag@string}\":{\"$exists:10\":false},\"$or:[5, 9]\":[{\"${data.controlInfo.ext.$pf.commonControl.availableStatus@string}\":{\"$in:4\":[2,3]},\"$not:2\":{\"${data.program.controlInfo.ext.$pf.locationControl@string}:1\":\"/:%s-[14]%s-/i\"}},{\"${data.program.controlInfo.ext.$pf@string}\":{\"$exists:6\":false},\"pf\":{\"$in:8\":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]}}]}]}"
+            },
+            "11":             {
+                "rule": "city_en [ \"GuangZhou\" \"ShenZhen\" ] $in 3 $ifeq province_en [ \"BeiJing\" \"ShangHai\" ] $in 3 $ifne F${switch_config.live1080p@string} true $eq $not 8 $ifne F${switch_config.spring@string} true $eq 3 $ifne tvid [ \"380246622\" \"380246022\" \"380246422\" \"380246122\" \"380246222\" \"380246322\" \"380246722\" \"380246522\" ] $in",
+                "action": {"$unset_exists": {"data.streams.[bid=@{5}]": ""}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:[11]\":[{\"tvid\":{\"$in:10\":[\"380246622\",\"380246022\",\"380246422\",\"380246122\",\"380246222\",\"380246322\",\"380246722\",\"380246522\"]},\"$not:6\":{\"$or:[2, 4]\":[{\"city_en\":{\"$in:1\":[\"GuangZhou\",\"ShenZhen\"]}},{\"province_en\":{\"$in:3\":[\"BeiJing\",\"ShangHai\"]}}],\"${switch_config.live1080p@string}:5\":true},\"${switch_config.spring@string}:8\":true}]}"
+            },
+            "12":             {
+                "rule": "src true $exists",
+                "action":                 {
+                    "$set": {"vid": "${vid@string}"},
+                    "$unset": {"data.controlInfo": ""}
+                },
+                "_meta_info": "{\"$or:1\":[{\"src\":{\"$exists:1\":true}}]}"
+            },
+            "13":             {
+                "rule": "src false $exists",
+                "action": {"$unset": {"data.controlInfo": ""}},
+                "_meta_info": "{\"$or:1\":[{\"src\":{\"$exists:1\":false}}]}"
+            }
+        }
+    },
+    "^/m/u/":     {
+        "define":         [
+            {"http_x_real_ip": "X-Real-IP"},
+            {"file_block_ips": "block_ips"}
+        ],
+        "before": {"1":         {
+            "rule": "ip \"${block_ips@array}\" $in 8 $ifeq xff_ip \"${block_ips@array}\" $in 3 $ifeq X-Real-IP \"${block_ips@array}\" $in",
+            "response":             {
+                "status": 200,
+                "body": "{\"code\":\"A00001\",\"msg\":\"This ip is blocked.\"}"
+            },
+            "_meta_info": "{\"$or:[2, 4, 6]\":[{\"ip\":{\"$in:1\":\"${block_ips@array}\"}},{\"xff_ip\":{\"$in:3\":\"${block_ips@array}\"}},{\"X-Real-IP\":{\"$in:5\":\"${block_ips@array}\"}}]}"
+        }},
+        "after":         {
+            "1":             {
+                "rule": "host [ \"cache.vip.ptqy.gitv.tv\" \"cache.video.ptqy.gitv.tv\" \"mixer.video.ptqy.gitv.tv\" \"cache.m.ptqy.gitv.tv\" ] $in",
+                "action": {"$body_filter":                 {
+                    "%.video%.qiyi%.com": "%.video%.ptqy%.gitv%.tv",
+                    "%.video%.iqiyi%.com": "%.video%.ptqy%.gitv%.tv"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"host\":{\"$in:1\":[\"cache.vip.ptqy.gitv.tv\",\"cache.video.ptqy.gitv.tv\",\"mixer.video.ptqy.gitv.tv\",\"cache.m.ptqy.gitv.tv\"]}}]}"
+            },
+            "2":             {
+                "rule": "host [ \"cache.vip.c002.ottcn.com\" \"cache.video.c002.ottcn.com\" \"mixer.video.c002.ottcn.com\" \"cache.m.c002.ottcn.com\" ] $in",
+                "action": {"$body_filter":                 {
+                    "%.video%.qiyi%.com": "%.video%.c002%.ottcn%.com",
+                    "%.video%.iqiyi%.com": "%.video%.c002%.ottcn%.com"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"host\":{\"$in:1\":[\"cache.vip.c002.ottcn.com\",\"cache.video.c002.ottcn.com\",\"mixer.video.c002.ottcn.com\",\"cache.m.c002.ottcn.com\"]}}]}"
+            }
+        }
+    },
+    "(/[0-9]+/[a-zA-Z0-9]+.html/?$)|(/[vw]_[a-zA-Z0-9]+.html/?$)|(/api/cloud/code)":     {
+        "define":         [
+            {"_tv_id_": "tvid"},
+            {"cookie_QC015": "cookie_QC015"},
+            {"http_q_ua2": "http_q_ua2"},
+            {"file_h5_cloudcontrol": "cloudcontrol"},
+            {"file_h5_tvids": "h5_tvids"},
+            {"file_offline_tvids": "offline_tvids"}
+        ],
+        "rewrite":         {
+            "1":             {
+                "rule": "http_user_agent true $exists",
+                "action": {"$add_args":                 {
+                    "template": "0",
+                    "browser_name": "${browser_name@string}",
+                    "browser_device": "${browser_device@string}",
+                    "browser_system": "${browser_system@string}"
+                }},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"http_user_agent\":{\"$exists:1\":true}}]}"
+            },
+            "2":             {
+                "rule": "area_id 8 $neq 13 $ifne country_id 48 $eq 8 $ifne day [ 19 20 21 22 ] $in 3 $ifne month [ 10 ] $in",
+                "action": {"$set": {"prio": true}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:[7]\":[{\"area_id\":{\"$neq:4\":8},\"$datetime:[1-2]\":\"* * 19-22 10 *\",\"country_id:6\":48}]}"
+            },
+            "3":             {
+                "rule": "F${_plat_@string} \"iPhone\" $eq 3 $ifne prio true $eq",
+                "action": {"$add_args":                 {
+                    "template": "4",
+                    "packageUrl": "https://itunes.apple.com/cn/app/ai-qi-yi-ben-pao-ba-xiong/id393765873"
+                }},
+                "_meta_info": "{\"$or:[4]\":[{\"${_plat_@string}:1\":\"iPhone\",\"prio:3\":true}]}"
+            },
+            "4":             {
+                "rule": "F${_plat_@string} \"Gphone\" $eq 3 $ifne prio true $eq",
+                "action": {"$add_args":                 {
+                    "template": "4",
+                    "packageUrl": "http://mbdapp.iqiyi.com/j/ap/iqiyi_1845.apk"
+                }},
+                "_meta_info": "{\"$or:[4]\":[{\"${_plat_@string}:1\":\"Gphone\",\"prio:3\":true}]}"
+            },
+            "5":             {
+                "rule": "F${cloudcontrol@string} true $exists",
+                "action": {"$eval": {"code_url": "${cloudcontrol@string}"}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"${cloudcontrol@string}\":{\"$exists:1\":true}}]}"
+            },
+            "6":             {
+                "rule": "F${code_url@string} true $exists",
+                "action": {"$split": {"${code_url@string}": "codes"}},
+                "break_chain": false,
+                "_meta_info": "{\"$or:1\":[{\"${code_url@string}\":{\"$exists:1\":true}}]}"
+            },
+            "7":             {
+                "rule": "F${codes@string} true $exists",
+                "action": {"$add_args":                 {
+                    "template": "${codes[1]@string}",
+                    "packageUrl": "${codes[2]@string}"
+                }},
+                "_meta_info": "{\"${codes@string}\":{\"$exists:1\":true}}"
+            }
+        },
+        "before":         {
+            "1":             {
+                "rule": "http_q_ua2 true $exists 4 $ifne request_uri \" \" i $regex",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00000\",\"msg\":\"bad request.\"}"
+                },
+                "_meta_info": "{\"$or:[4]\":[{\"http_q_ua2\":{\"$exists:1\":true},\"request_uri\":{\"$contains:3\":\" \"}}]}"
+            },
+            "2":             {
+                "rule": "tvid \"${offline_tvids@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00110\",\"msg\":\"Copyright offline by luna\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"tvid\":{\"$in:1\":\"${offline_tvids@array}\"}}]}"
+            }
+        },
+        "log": {"1":         {
+            "rule": "_online false $eq 3 $ifne template true $exists",
+            "action": {"$real_time_count": {"name": "real_time_count_h5_cloud"}},
+            "_meta_info": "{\"$or:[4]\":[{\"template\":{\"$exists:3\":true},\"_online:1\":false}]}"
+        }}
+    },
+    "/weixinhot.html$": {"rewrite": {"1":     {
+        "rule": "http_user_agent true $exists",
+        "action": {"$add_args":         {
+            "template": "0",
+            "browser_name": "${browser_name@string}",
+            "browser_device": "${browser_device@string}",
+            "browser_system": "${browser_system@string}"
+        }},
+        "break_chain": false,
+        "_meta_info": "{\"$or:1\":[{\"http_user_agent\":{\"$exists:1\":true}}]}"
+    }}},
+    "/find/":     {
+        "define": [{"cookie_QC015": "cookie_QC015"}],
+        "rewrite": {"1":         {
+            "rule": "cookie_QC015 true $exists 3 $ifne vfm false $exists",
+            "action": {"$add_args": {"vfm": "${cookie_QC015@string}"}},
+            "_meta_info": "{\"$or:[4]\":[{\"vfm\":{\"$exists:3\":false},\"cookie_QC015\":{\"$exists:1\":true}}]}"
+        }}
+    },
+    "^/np/":     {
+        "define":         [
+            {"_$2_": "tvid"},
+            {"file_block_ips": "block_ips"},
+            {"file_offline_tvids": "offline_tvids"}
+        ],
+        "before":         {
+            "1":             {
+                "rule": "ip \"${block_ips@array}\" $in 3 $ifeq xff_ip \"${block_ips@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00001\",\"msg\":\"This ip is blocked.\"}"
+                },
+                "_meta_info": "{\"$or:[2, 4]\":[{\"ip\":{\"$in:1\":\"${block_ips@array}\"}},{\"xff_ip\":{\"$in:3\":\"${block_ips@array}\"}}]}"
+            },
+            "2":             {
+                "rule": "http_referer \"^http:\\/\\/swf%.adtchrome%.com\\/\" I $regex",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00001\",\"msg\":\"rule block.\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"http_referer:1\":\"/^http://swf%.adtchrome%.com//I\"}]}"
+            },
+            "3":             {
+                "rule": "tvid \"${offline_tvids@array}\" $in",
+                "response":                 {
+                    "status": 200,
+                    "body": "{\"code\":\"A00110\",\"msg\":\"Copyright offline by luna\"}"
+                },
+                "_meta_info": "{\"$or:1\":[{\"tvid\":{\"$in:1\":\"${offline_tvids@array}\"}}]}"
+            }
+        }
+    }
+}

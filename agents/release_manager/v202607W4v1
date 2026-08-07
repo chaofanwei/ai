@@ -1,0 +1,34 @@
+应用云VRS上线(v202607W4v1)，以下需求/优化测试完成，申请上线：
+
+技术优化：
+1. 【星图】流量对比及回归case指标计算优化：http://pms.qiyi.domain/browse/VIDEODEV-5887
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+2. 【星图】巡检增加金丝雀对比相关指标并集成到星图发布系统里面：http://pms.qiyi.domain/browse/VIDEODEV-5865
+开发：魏超凡   Review：刘贺,王兰惠,李珍    上线：魏超凡
+
+业务需求：
+3. 【DASH】增加HDR内色彩格式偏好一期：http://pms.qiyi.domain/browse/VIDEODEV-5864
+开发：魏超凡   Review：刘贺,王兰惠,李珍    上线：刘贺
+
+4. 【DASH】Pad端支持爱奇艺音效：http://pms.qiyi.domain/browse/VIDEODEV-5870
+开发：魏超凡   Review：刘贺,王兰惠,李珍    上线：刘贺
+
+运维：
+5. 【DASH】虚机流量迁移下线：http://pms.qiyi.domain/browse/VIDEODEV-5879
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+6. 【DASH & LIVE】retry域名解析到伏羲自动生成的retry域名：http://pms.qiyi.domain/browse/VIDEODEV-5888
+开发：魏超凡   Review：刘贺,王兰惠,李珍    上线：刘贺
+
+7. 【公网缓存】批量队列更新缓存逻辑优化：http://pms.qiyi.domain/browse/VIDEODEV-5875
+开发：刘贺   Review：王兰惠,侯超昆    上线：刘贺
+
+
+以下是上线操作计划：
+1. 7.24（周五） 上线预发布环境，线上回测
+2. 7.27（周一） 上线狗粮环境，线上验证
+3. 7.28（周二） 上线保定徐水电信小站机器，上线国际站华为机房1台服务器
+4. 7.29（周三） 上线保定徐水其他机器，上线OTT保定徐水机房，上线国际站华为机房4台服务器
+5. 7.30（周四） 上线武汉临空港联通+移动小站，上线OTT武汉机房，上线国际站华为机房8台服务器
+6. 8.3（周一） 全量上线

@@ -1,0 +1,33 @@
+应用云VRS上线(v202607W5v1)，以下需求/优化测试完成，申请上线：
+
+业务需求：
+1. 【DASH】O1增加车联网&智能音箱渠道白名单配置：http://pms.qiyi.domain/browse/VIDEODEV-5890
+开发：刘贺   Review：魏超凡,王兰惠,李珍    上线：刘贺
+
+2. 【DASH】小米快应用支持1080p清晰度：http://pms.qiyi.domain/browse/VIDEODEV-5873
+开发：魏超凡   Review：刘贺,王兰惠,李珍    上线：刘贺
+
+3. 【DASH】VR端新src申请添加各项VR白名单：http://pms.qiyi.domain/browse/VIDEODEV-5869
+开发：魏超凡   Review：刘贺,王兰惠,李珍    上线：刘贺
+
+4. 【DASH】【多音轨】audioTrack接口支持跨域请求：http://pms.qiyi.domain/browse/VIDEODEV-5884
+开发：魏超凡   Review：刘贺,王兰惠,李珍    上线：刘贺
+
+5. 【DRM】Fairplay License接口增加跨域支持：http://pms.qiyi.domain/browse/VIDEODEV-5889
+开发：刘贺   Review：王兰惠,侯超昆    上线：刘贺
+
+6. DLNA投屏连播体验优化：http://pms.qiyi.domain/browse/VIDEODEV-5652
+开发：刘贺   Review：王兰惠,侯超昆    上线：刘贺
+
+运维：
+7. 【VRS】保定徐水虚机下线：http://pms.qiyi.domain/browse/VIDEODEV-5880
+开发：刘贺   Review：王兰惠,侯超昆    上线：刘贺
+
+
+以下是上线操作计划：
+1. 7.31（周五） 上线预发布环境，线上回测
+2. 8.3（周一） 上线狗粮环境，线上验证
+3. 8.4（周二） 上线保定徐水电信小站机器，上线国际站华为机房1台服务器
+4. 8.5（周三） 上线保定徐水其他机器，上线OTT保定徐水机房，上线国际站华为机房4台服务器
+5. 8.6（周四） 上线武汉临空港联通+移动小站，上线OTT武汉机房，上线国际站华为机房8台服务器
+6. 8.10（周一） 全量上线

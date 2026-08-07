@@ -1,0 +1,97 @@
+{
+  "_pf": "14",
+  "code": "A00000",
+  "user_ip": "202.108.14.240",
+  "v": 0,
+  "data": {
+    "boss": 0,
+    "isReplayReady": false,
+    "cbUpdateType": "from live-web",
+    "provider": 1,
+    "name": "俺来啦",
+    "videoInfo": {
+      "pm": 1
+    },
+    "pfInfo": {
+      "platform": "PC_QIYI",
+      "delayTime": 0
+    },
+    "liveType": 4,
+    "duration": 259200,
+    "type": 0,
+    "timestamp": "1780303021933",
+    "maxPlayTime": "1780383397000",
+    "id": 7990073197087723,
+    "channelId": -1,
+    "program": {
+      "hideStream": 0,
+      "showPopups": true,
+      "allowPopups": true,
+      "payMark": 0,
+      "liveDrmInfo": {
+        "drm": false
+      },
+      "streamMountType": "MOUNT_EPISODE",
+      "name": "俺来啦",
+      "chatRoomShouldDisplay": true,
+      "logoHidden": [
+        2,
+        3,
+        4
+      ],
+      "qitanId": 0
+    },
+    "mv": {
+      "ismv": 0,
+      "layout": "",
+      "num": 0,
+      "did": 0
+    },
+    "liveEpisodeType": [
+      -1
+    ],
+    "streams": [
+      {
+        "codeFormat": 2,
+        "streamName": "c28_rqy_ioq3spv0_720p_ts_t4",
+        "formatType": "HLFLV",
+        "bitrate": "1700",
+        "url": "hcdnlive:\\/\\/AEAAAAB3ETHMUQI7AEAAAAD3P2ADYLQW?hl_nm=6&hl_cid=TDHLRPHHS3SYBLXALQHBPBITU6YD5Z7B&hl_slid=c28_rqy_ioq3spv0_720p_ts_t40&qdv=3&qd_k=2495c14eddacd8c6a91b6068bd26b3f3&qd_bid=4&ip=202.108.14.240",
+        "steamType": "RESOLUTION_720P",
+        "bid": 500,
+        "uuid": "506d5458-db7a-407d-aa93-2f5bb156a396",
+        "scheduleUrl": "http:\\/\\/flvlive.video.iqiyi.com\\/livemall\\/rqy_ioq3spv0_720p.flv?stream_name=rqy_ioq3spv0_720p&port=1935&ptype=h4.240&flv=1&mss=1",
+        "screenSize": "720:1280",
+        "aspectRatio": "9:16",
+        "chunkSize": 10,
+        "streamFormat": "HLFLV"
+      },
+      {
+        "streamFormat": "TS",
+        "streamName": "c28_rqy_ioq3spv0_720p_ts_t4",
+        "formatType": "TS",
+        "bitrate": "1700",
+        "url": "http:\\/\\/hlslive.video.iqiyi.com\\/tslive\\/c28_rqy_ioq3spv0_720p_ts_t4\\/c28_rqy_ioq3spv0_720p_ts_t4.m3u8?hl_abs0=0&pv=0.2&qd_tvid=799114f26&qd_sc=273fcbc7bid=4&ip=202.108.14.240",
+        "codeFormat": 2,
+        "steamType": "RESOLUTION_720P",
+        "uuid": "d3d005db-6cbf-4c6c-8e4c-9637251182fd",
+        "bid": 500,
+        "aspectRatio": "9:16",
+        "chunkSize": 10,
+        "screenSize": "720:1280"
+      }
+    ],
+    "playBufferLp": 30000,
+    "playBuffer": 8000,
+    "updateTime": "20260601163030",
+    "updateAt": "1780302710148",
+    "cbUpdateIP": "091-99-57-01",
+    "pano": {
+      "zoomRate": 1,
+      "viewAngleX": 0,
+      "viewAngleY": 0,
+      "type": 1
+    }
+  },
+  "_login_rate": false
+}

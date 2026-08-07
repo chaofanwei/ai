@@ -1,5 +1,6 @@
 # Local agent/runtime state
 .claude/
+.cursor/
 .playwright-mcp/
 .codex
 **/.codex
@@ -17,6 +18,7 @@ temp/
 
 # OS/editor noise
 .DS_Store
+__MACOSX/
 Thumbs.db
 *.swp
 *.swo

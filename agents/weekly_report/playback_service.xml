@@ -1,0 +1,146 @@
+<li><b>播放服务</b><ul>
+  <li><b>运营数据</b><ul>
+    <li><b>系统QPS</b>
+      <p>本周[2026.07.27~2026.08.02] VRS</p>
+      <ul>
+        <li>点播主站平均QPS 38.6k (37.2k, +3.76%)，峰值QPS 69.8k (69.5k, +0.43%)；</li>
+        <li>点播小米平均QPS 1.2k (1.2k, 0.0%)，峰值QPS 2.5k (2.5k, 0.0%)；</li>
+        <li>“主站+小米”合计平均QPS 39.8k (38.4k, +3.65%)，峰值QPS 72.3k (72.0k, +0.42%)，其中TV端平均QPS 17.8k (17.2k, +3.49%)；</li>
+        <li>点播国际站平均QPS 842.2 (1.1k, -23.44%)，峰值QPS 1.5k (2.1k, -28.57%)；</li>
+        <li>直播平均QPS 42.6 (42.0, +1.43%)，峰值QPS 94.1 (94.1, 0.0%)。</li>
+      </ul>
+    </li>
+  </ul></li>
+  <li><b>运维体系优化</b><ul>
+    <li>上线流程管理进化<ul>
+      <li>P2级以上报警处置机制完善：上线流程管理接入巡检P2告警 <a href="http://pms.qiyi.domain/browse/VIDEODEV-5865">VIDEODEV-5865</a>，已上线<ul>
+        <li>统一发布页面增加消息提醒功能，如是否有P1/P2告警、QPAAS发布是否开启upgrade接口</li>
+      </ul></li>
+      <li>全面的上线操作信息管理：保存和查询</li>
+    </ul></li>
+    <li>月神中台的非技术人员可用性提升（增加白屏化可操作场景数量、降低研发人力消耗）</li>
+    <li>应急能力提升（Dash和Live的极速回滚发布能力完善）</li>
+  </ul></li>
+  <li><b>服务治理优化</b><ul>
+    <li><b>SMMI评分提升：TOP3</b><ul>
+      <li>虚机集群的规模收敛：保定AZ下线回收</li>
+      <li>资源利用率提升：Q3提升CPU使用率到5%<ul>
+        <li>直播资源梳理及缩容<ul>
+          <li>过去1年峰值QPS：常规集群春晚为1.8w，排除春晚为6.3k（2026年5月31日）；电商集群为303（2026年4月23日）</li>
+          <li>过去历史峰值：4.2w（缩容到一倍容量，以此值为准）</li>
+          <li>目前单Pod限流值：1750</li>
+          <li><b>本周完成直播主站常规集群CPU弹性策略落地。</b><cite type="user" user-id="ou_f509503707295974ecfc7a5c9bd2c7dd" user-name="刘贺(Liu He)"></cite><ul>
+            <li><b>将各机房固定部署12个Pod调整为基于CPU使用率的自动弹性策略。</b></li>
+            <li><b>单机房最少保留8个Pod、最多扩容至48个Pod，在保障历史峰值容量的同时进一步提升资源利用率。</b></li>
+            <li><b>电商集群继续沿用现有潮汐弹性策略，凌晨最少3个Pod，不做额外调整。</b></li>
+          </ul></li>
+        </ul></li>
+      </ul></li>
+      <li>QSM覆盖度提升</li>
+    </ul></li>
+    <li>Retry机制的线上演练：QTP网络库和PCW改进后的线上功能演练</li>
+    <li>巡检系统的指标完善：<ul>
+      <li>增加金丝雀对比告警<ul>
+        <li>小流量场景请求优化——替换authcookie，待实现 <a href="http://pms.qiyi.domain/browse/VIDEODEV-5855">VIDEODEV-5855</a></li>
+        <li><b>本周由巡检系统触发P1/P2级报警后启动专项排查，集中完善金丝雀技术对比规则，解决O1和复杂动态字段引发的大量无效差异报警。</b><ul>
+          <li><b>排查O1地址中ms随机数导致的差异，系统梳理已有忽略规则和易变字段白名单。本计划准备将该随机数字段加入忽略字段，但横向核对后发现Dash主站并未配置相同忽略规则，也没有触发报警，因此没有直接采用简单忽略方案，而是继续排查对比链路中的其他差异。</b></li>
+          <li><b>确认data.bmsg属于飞鲨VP内部缓存相关字段，仅在使用同一CB时数据才能完全一致；去除bmsg影响后进一步分析暴露出的技术差异。</b></li>
+          <li><b>新增通用JSON浅层结构对比能力：支持按path+depth仅校验节点存在性，忽略play、bmsg、tickets等节点的深层动态内容差异。</b></li>
+          <li><b>针对vt=4请求中VP码流返回顺序变化导致选中码流不同的问题，新增只对比code和st的专项规则，避免码流节点连锁误报。</b></li>
+          <li><b>JSON.data.content.croIds差异确认为VP预发布与线上环境数据过期所致，本次纳入忽略范围。</b></li>
+        </ul></li>
+      </ul></li>
+      <li>增加乐客数据监控告警<ul>
+        <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5737">VIDEODEV-5737</a>【运维助手】乐客故障收集能力构建，测试环境稳定运行中<ul>
+          <li>设计详见：<cite doc-id="OUtdw6kCVii9i3kr5S6cnfYbnHz" file-type="wiki" title="乐客系统-故障收集能力构建" type="doc"></cite>，grafana监控：<a href="http://grafana.hubble.qiyi.domain/d/b3d3af40-4c16-4dc6-ba5d-abc4abe58b01/e4b990-e5aea2-e58f8d-e9a688?orgId=9589">link</a>，反馈历史详情：<a href="http://starmap-test.qiyi.domain/dash/dial-i?to=feedback">星图</a></li>
+          <li>待实现功能：增加uid维度数据方便去重；报警后AI跟进分析总结；细化VRS相关错误码。</li>
+        </ul></li>
+        <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5826">VIDEODEV-5826</a> 页面迁移到狂飙<ul>
+          <li><b>本周完成乐客反馈分析系统迁移到狂飙体系的主体建设，已具备独立部署和接入条件。</b><ul>
+            <li><b>完成权限模型整理，在狂飙中新增一级“乐客反馈”和二级“视频云”菜单项。</b></li>
+            <li><b>将原星图相关代码迁移到独立乐客Git仓库，并建立</b><a href="http://qcd.cloud.qiyi.domain/pipelines/138401/overview"><b>QCD部署流水线</b></a><b>。</b></li>
+            <li><b>完成QPAAS应用与网关部署，网关域名为vrs-leke-feedback-fronted.online.qiyi.qae。</b></li>
+            <li><b>完成Octopus接入；狂飙前端Iframe及菜单联动改造待上线。</b></li>
+          </ul></li>
+        </ul></li>
+      </ul></li>
+    </ul></li>
+    <li>播放链路级巡检体系构建：与编码云的数据联动（生产系统的码流全排列组合巡检）</li>
+    <li>国际站架构升级（QSM应用、网关接入等）<ul><li>DashStable服务的国际站功能适配与部署应用</li></ul></li>
+  </ul></li>
+  <li><b>系统优化</b><ul>
+    <li>O1播放应用：<ul>
+      <li>线上统计</li>
+      <li>主站剩余客户端（鸿蒙各端、Mac端、车联网和智能音箱）的接入</li>
+      <li>国际站的全面接入（PHA全量、PCW和WebTV覆盖）</li>
+    </ul></li>
+    <li>DRM服务存储架构进化（增加同单元MUS-CB的读写能力）</li>
+    <li>Conf-Sidecar功能架构的持续优化（配置文件暂存由jFrog升级为OSS；扩大配置中心云控应用覆盖）<ul>
+      <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5788">VIDEODEV-5788</a> qcp和乐高预览环境支持新的配置中心数据，待启动<ul><li>涉及nobug、乐高预览环境、qcp环境</li></ul></li>
+    </ul></li>
+    <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5886">VIDEODEV-5886</a> VRS-fastjson漏洞影响项目紧急修复：涉外网服务已升级完毕，内网服务待完成<ul>
+      <li>Conf-agent启动命令写在yaml中，需要替换Dash、Live全部QPAAS模板及环境</li>
+      <li>星图QPAAS升级API已适配环境模板升级能力<cite type="user" user-id="ou_f509503707295974ecfc7a5c9bd2c7dd" user-name="刘贺(Liu He)"></cite></li>
+      <li>由于fastjson 1.x和2.x不兼容，暂定不再升级到2.x</li>
+    </ul></li>
+    <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5888">VIDEODEV-5888</a><b> 本周完成VRS Retry域名向网关Retry域名的解析迁移。</b><ul>
+      <li><b>前期梳理VRS现有Retry域名与网关域名对应关系，向伏羲侧提出支持VRS域名的需求，并预演迁移方案。</b></li>
+      <li><b>8月3日先完成3个域名替换并协调线上验证，8月4日完成剩余域名解析切换，DASH与LIVE相关域名已按计划迁移。</b></li>
+    </ul></li>
+  </ul></li>
+  <li><b>重点业务支持</b><ul>
+    <li><b>新评审/沟通需求</b><ul>
+      <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5885">VIDEODEV-5885</a> 支持Dash历史播放记录VRS侧服务状态查询<ul>
+        <li>提供独立服务，底层调用venus-api返回Dash请求响应情况；Hive表权限由调用方自行申请。</li>
+      </ul></li>
+      <li><b>新爱小屏接入大播放：针对联调过程中发现的Dash字段问题完成排查，并与大播放侧讨论期望字段及修改策略。</b></li>
+      <li><b>儿童互动视频体验优化：完成特殊场景方案沟通。</b><ul>
+        <li><b>背景：儿童互动节目包含30余个分支视频，每次切换分支都会重复播放奇巴布前后贴片段，影响互动体验。</b></li>
+        <li><b>期望方案：针对该批分支视频在Dash侧强制不返回奇巴布片段，避免分支切换时重复播放。</b></li>
+      </ul></li>
+    </ul></li>
+    <li>播放安全与重点节目的播放保障：<ul>
+      <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5891">VIDEODEV-5891</a><b> 本周完成Dash海外黑产流量紧急封禁与大规模IP匹配优化。</b><ul>
+        <li><b>针对近期香港海外黑产流量，对Mac src、越南高风险IP且用户未登录的请求实施临时封禁。</b></li>
+        <li><b>使用AI Agent直接在香港机器完成临时代码部署；由于方案不进入常规发布包，每次服务升级后需重新部署。</b></li>
+        <li><b>IP清单累计更新4次，从最初1000个C段扩展至约884万个精确IP，历次均为增量新增、无删除。</b></li>
+        <li><b>将Lua哈希加载改为分块紧凑存储和二分查找，避免大规模IP产生过高内存开销；每个Worker常驻内存约34MB，首次加载约3.5秒。</b></li>
+        <li><b>完成IP合法性、排序、重复项、新旧差异及精确匹配验证；上线后内存利用率约由26%升至30%，CPU利用率约由1%升至2%，整体资源影响可控。</b></li>
+      </ul></li>
+    </ul></li>
+    <li>非中心化：<ul><li>奇谱同步链路吞吐提升：短剧漫剧的生产量提升对应</li></ul></li>
+    <li>音视频质量提升<ul>
+      <li>基线<ul>
+        <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5864">VIDEODEV-5864</a> 增加HDR内色彩格式偏好一期，上线中<ul>
+          <li>监控需求：统计np各值的占比信息及端信息 <a href="http://pms.qiyi.domain/browse/VIDEODEV-5872">VIDEODEV-5872</a>，上线中</li>
+        </ul></li>
+        <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5870">VIDEODEV-5870</a> Pad端支持爱奇艺音效，上线中</li>
+      </ul></li>
+      <li>生产<ul>
+        <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5849">VIDEODEV-5849</a> 支持多色彩范围合并生产<ul>
+          <li><b>本周完成需求方案收敛、调度接口对接以及月神侧开发自测，月神进度由0%推进至100%。</b><ul>
+            <li><b>梳理现有代码及码流权益影响，并与端侧确认码流选择范围；评审后明确本期只涉及基线和码流选择2.1。</b></li>
+            <li><b>参加基线侧需求评审，并与大播放初步讨论新Meta码流Feature设计。</b></li>
+            <li><b>完成新调度接口对接和测试，在月神黑白名单、码流选择2.1等DR写死位置增加ADR与DV8.1适配。</b></li>
+            <li><b>重构月神码流选择2.1页面：由各属性策略独立维护调整为引用共用策略，降低ADR、DV8.1新增及后续维护成本。</b></li>
+          </ul></li>
+          <li>DASH后续仍需增加Meta码流Feature、Meta URL露出与开播加速，并适配DV8.1/ADR码流选择优先级及权益策略。</li>
+        </ul></li>
+      </ul></li>
+    </ul></li>
+    <li>测试、线上问题及临时支持<ul>
+      <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5873">VIDEODEV-5873</a><b> 小米快应用支持1080p清晰度测试支持：针对“非会员也可播放1080p”问题完成排查，确认H5端当前未配置权益策略，现象符合既有逻辑。</b></li>
+      <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5884">VIDEODEV-5884</a><b> 国际站audioTrack接口支持WebTV跨域：</b><ul>
+        <li><b>对测试反馈的异常场景未返回跨域Header问题进行专项排查，确认是首次开发上线遗留Bug，所有穿透到VP的异常请求都会触发。</b></li>
+        <li><b>完成代码修复和测试验证，跨域异常处理闭环。</b></li>
+      </ul></li>
+      <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-5869">VIDEODEV-5869</a><b> VR端新src白名单测试支持：协助分析无法构造测试用例的文件，确认对应逻辑为陈旧策略、无需继续测试。</b></li>
+      <li><a href="http://pms.qiyi.domain/browse/VIDEODEV-4219">VIDEODEV-4219</a><b> DLNA投屏试看码流问题：排查Dash未返回试看码流的原因，确认调用请求未开启对应Feature，并非服务异常。</b></li>
+      <li><b>线上视频分享播放问题：针对tvid 4464554299247000分享到微信浏览器后无法播放的问题检索Dash日志，确认对应时段线上请求均正常返回，暂未发现服务侧异常。</b></li>
+      <li><b>TV清晰度问题：排查某视频仅返回480p码流，确认请求未开启H.265 Feature和竖屏清晰度Feature。</b></li>
+      <li><b>ISO审核与发布质量保障：完成ISO审核前期准备和检查，修复并上线月神超管权限显示问题，参与视频面审；同时完成下周上线代码Review。</b></li>
+      <li><b>日常发布协同：提交本周升级代码与配置，协调测试完成线上验证，并在周会同步本周进展及后续计划。</b></li>
+    </ul></li>
+  </ul></li>
+  <li><b>关键指标监测</b></li>
+</ul></li>
