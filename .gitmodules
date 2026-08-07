@@ -10,9 +10,6 @@
 [submodule "agents/lua/nginx-dev/play_ops"]
 	path = agents/lua/nginx-dev/play_ops
 	url = ssh://git@gitlab.qiyi.domain:10022/video-play/play_ops.git
-[submodule "agents/lua/nginx-dev/play-nginx"]
-	path = agents/lua/nginx-dev/play-nginx
-	url = ssh://git@gitlab.qiyi.domain:10022/videocloud/play-nginx.git
 [submodule "agents/lua/nginx-dev/live-nginx-config"]
 	path = agents/lua/nginx-dev/live-nginx-config
 	url = ssh://git@gitlab.qiyi.domain:10022/live-video-play/nginx-config.git

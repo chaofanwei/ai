@@ -20,7 +20,7 @@ git submodule update --init --recursive
 git submodule update --recursive
 ```
 
-`agents/play_ops/temp/` 下的 nginx 副本为本地临时目录，未纳入 submodule。
+`agents/lua/nginx-dev/play-nginx/` 由 `build-nginx-dev.sh` 本地构建生成，已 gitignore；`agents/play_ops/temp/` 下的 nginx 副本为本地临时目录，未纳入 submodule。
 
 ## brain文件夹
 
