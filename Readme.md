@@ -1,5 +1,27 @@
 # 使用说明
 
+## 克隆仓库
+
+本仓库依赖多个 git submodule（各 agent 引用的业务代码仓库）。首次克隆请使用：
+
+```bash
+git clone --recurse-submodules <仓库地址>
+```
+
+已克隆但未拉取 submodule 时：
+
+```bash
+git submodule update --init --recursive
+```
+
+更新 submodule 到主仓库记录的版本：
+
+```bash
+git submodule update --recursive
+```
+
+`agents/play_ops/temp/` 下的 nginx 副本为本地临时目录，未纳入 submodule。
+
 ## brain文件夹
 
 全局的知识库，各个agent都会读取，如codex, claude, cursor-agent

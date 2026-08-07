@@ -3,7 +3,6 @@
 .playwright-mcp/
 .codex
 **/.codex
-agents/lua/nginx-dev/play-nginx/
 
 # Dependencies
 node_modules/
