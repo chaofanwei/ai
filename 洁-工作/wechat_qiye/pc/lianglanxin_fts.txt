@@ -1,0 +1,216 @@
+keyword=梁蓝欣
+
+======== C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\data_index.db size=10129408 ========
+tables: tencent_document_include,tencent_document_exclude,spm_party_v2_include,spm_party_v2_exclude,spm_student_v2_include,spm_student_v2_exclude,govern_grid_include,govern_grid_exclude,file_index_include,file_index_exclude,out_contact_v2_include,out_contact_v2_exclude,company_index_include,company_index_exclude,filename_index_storage_v2,filename_index_storage_v2_content,filename_index_storage_v2_segments,filename_index_storage_v2_segdir,frq_user,idx_user,idx_user_data,idx_user_idx,idx_user_content,idx_user_docsize,idx_user_config,frq_hot_user,idx_hot_user,idx_hot_user_data,idx_hot_user_idx,idx_hot_user_content,idx_hot_user_docsize,idx_hot_user_config,frq_department,idx_department,idx_department_data,idx_department_idx,idx_department_content,idx_department_docsize,idx_department_config,frq_conversation,idx_conversation,idx_conversation_data,idx_conversation_idx,idx_conversation_content,idx_conversation_docsize,idx_conversation_config,frq_conversation_member_nickname,idx_conversation_member_nickname,idx_conversation_member_nickname_data,idx_conversation_member_nickname_idx,idx_conversation_member_nickname_content,idx_conversation_member_nickname_docsize,idx_conversation_member_nickname_config,frq_customer_relation,idx_customer_relation,idx_customer_relation_data,idx_customer_relation_idx,idx_customer_relation_content,idx_customer_relation_docsize,idx_customer_relation_config,frq_tencent_document,idx_tencent_document,idx_tencent_document_data,idx_tencent_document_idx,idx_tencent_document_content,idx_tencent_document_docsize,idx_tencent_document_config,tencent_document_id_mapping,frq_spm_party_v2,idx_spm_party_v2,idx_spm_party_v2_data,idx_spm_party_v2_idx,idx_spm_party_v2_content,idx_spm_party_v2_docsize,idx_spm_party_v2_config,frq_spm_student_v2,idx_spm_student_v2,idx_spm_student_v2_data,idx_spm_student_v2_idx,idx_spm_student_v2_content,idx_spm_student_v2_docsize,idx_spm_student_v2_config,frq_govern_grid,idx_govern_grid,idx_govern_grid_data,idx_govern_grid_idx,idx_govern_grid_content,idx_govern_grid_docsize,idx_govern_grid_config,frq_out_contact_v2,idx_out_contact_v2,idx_out_contact_v2_data,idx_out_contact_v2_idx,idx_out_contact_v2_content,idx_out_contact_v2_docsize,idx_out_contact_v2_config,frq_company_index,idx_company_index,idx_company_index_data,idx_company_index_idx,idx_company_index_content,idx_company_index_docsize,idx_company_index_config,frq_wechat_contact,idx_wechat_contact,idx_wechat_contact_data,idx_wechat_contact_idx,idx_wechat_contact_content,idx_wechat_contact_docsize,idx_wechat_contact_config,wechat_contact_id_mapping
+SAMPLE filename_index_storage_v2_content cols=['docid', 'c0content']
+  (65536, '2023统计(1).xlsx')
+  (131072, '2023统计(11).xlsx')
+  (1245440, '企业微信截图_16994296879827.png')
+SAMPLE frq_user cols=['data_id', 'frequency']
+SAMPLE_FAIL idx_user no such tokenizer: fts5word
+SAMPLE idx_user_data cols=['id', 'block']
+  (1, b'\x8d&\x88\xc4{')
+  (10, b'\x00\x00\x00\x00\x05\x04\xa8m\x00\x01\x03\x01\x12\x00\x01\x07\x01T\x00\x01\x02\x01\x81i\x00\x00\x00\x01\x01\x01\x82u')
+  (137438953473, b'\x00\x00\x0f\xcc\x020 \x83\x80\x80\x81\xd0\xc7\xac8\x08\x08\x0e\x0e\x106\x10\x08\x05\n\x05\n\x05\x0c\x05\x81\x17\x10\x08\x05\x0b\x05\x0b\x05\r\x05\x02\x08\x0c\x0e\x0e\x10\xbf\x158\x08\x03\x05\x03\n\x03\x05\x03\n\x03\x05\x03\x0c\x03\x05\x03\x0b\x03\x05\n\x03\x05\n\x03\x05\x0b\x03\x05\x19\x08\x08\x11\x11\x13\x89\x02\x08\x07\x0b\x0b\rk\x08\r\x11\x11\x13\x81\xe7R \x08\x03\x06\x03\x0b\x03\x06\x03\x0b\x03\x06\x03\r\x03\x06\x03b\x10\x08\x05\x0b\x05\x0b\x05\r\x05\'\x10\x08\x05\x0b\x05\x0b\x05\r\x05\x01\x10\n\x03\x0c\x03\x0c\x03\x0e\x03\n\x10\x08\x05\x0b\x05\x0b\x05\r\x05\x03\x08\x08\r\r\x0f\t0\x08\x03\x05\x03\x06\x03\x08\x03\x05\x03\x06\x03\x08\x03\x05\x03\x06\x03\n\x03\x05\x03\x06\x03\x01\x10\x08\x06\x0b\x06\x0b\x06\r\x06\x01\x10\x08\x05\x0b\x05\x0b\x05\r\x05\n\x08\x08\x0e\x0e\x10\x07\x08\x13\n\n\x0b\x81f\x08\r\x11\x11\x13\x01\x10\x08\x05\x0b\x05\x0b\x05\r\x05\x02 \x08\x04\x07\x04\x0b\x04\x07\x04\x0b\x04\x07\x04\r\x04\x07\x04\xa0S\x10\x08\x05\x0b\x05\x0b\x05\r\x05\x8f\xa5=\x1
+SAMPLE idx_user_idx cols=['segid', 'term', 'pgno']
+  (1, b'', 2)
+  (1, b'0.', 6)
+  (1, b'011', 8)
+SAMPLE_FAIL idx_user_content Could not decode to UTF-8 column 'c0' with text '�������-���������-���������������-���������-���������������-���������-�����������������-���������-����������bu�mb�mubu�ran�wangxiaoran�wxr�xiangmubu�
+SAMPLE idx_user_docsize cols=['id', 'sz']
+  (1688849996810444, b'H')
+  (1688850030015014, b'f')
+  (1688850044254950, b'p')
+SAMPLE idx_user_config cols=['k', 'v']
+  ('version', 4)
+SAMPLE frq_hot_user cols=['data_id', 'frequency']
+  (1688850030015014, 1)
+  (1688850044254950, 1732)
+  (1688850259873350, 61)
+SAMPLE_FAIL idx_hot_user no such tokenizer: fts5word
+SAMPLE idx_hot_user_data cols=['id', 'block']
+  (1, b'\x84\x03\x82\xf23')
+  (10, b'\x00\x00\x00\x00\x06\x12\x81\x9fS\x00\x0b\x07\x01\x02\x08\x01\x02\n\x01\x01\x0b\x01\x02\x0c\x01\x02\r\x01\x01\x0e\x01\x01\x0f\x01\x01\x10\x01\x01\x11\x01\x03\x12\x01\x03\x00\x00\x00\x02\x04\x01\x17\x06\x01\x16\x00\x01\t\x01,\x00\x03\x01\x01G\x02\x01H\x03\x01B\x00\x01\x05\x01\x81\x14')
+  (137438953473, b'\x00\x00\x0f6\x020 \x83\x80\x80\x81\xd0\xc9\xe0\'\t\x13\n\n\x0b\x96\xaa\xb8\xc44\t\x0e\x11\x11\x13\x87\xfc\xf4\xde\x16\t-\t\t\n\x8a\xff\xff\xe3\x93\x8c\xc0\x1f\x11\t\x0c\x0c\x0e\x81P\x08\x07\xd9\xf8\xf9=\x08\x81+\x08\x07\x81\xc2\x86\xadY\t\x04\x06\x06\x08\xf2\xbd\xc5c\x08L\x81\x11\x07\xa1\xf0\xe3T\x10\t\x04\x11\x04\x11\x04\x13\x04\x82\x8b\xf5\xd0\x1e\n\x810\x10\x08\x07\x81\xb9\xfb\xc2(\t\x04\x04\x04\x07\x82\xc7\x92\x8aj\x12\x04\x04\x04\x06&\x03\x03\x0f\x03\xa4\xec\xfe^\x05\x81\x04\x8c\xdd\xcak\x05\x81\x0b\x81\xb0\xf1\x83/\x10\x06\x04\x0c\x04\x0c\x04\x0e\x04\xf2\x8b\xa6q\x08\x0c\x0e\x0e\x10\x01\x01&\x8e\x80\x80\x88\xe9\xd1\x8f\\\t\x06\x10\x10\x12\x01\x01(\x83\x80\x80\x9a\x81\xb4\xb5s\x08\x08\x0f\x0f\x11\x8a\xff\xff\xf2\xeb\xec\xf9x\t\x0b\x07\x07\x08\x81\xd9\xe0\xed\x1d\x08\x06\x10\x10\x12\x01\x01)\x83\x80\x80\x9a\x81\xb4\xb5s\x08\x0f\x0f\x0f\x11\x8a\xff\xff\xf4\xc5\xcd\xe7\x15\x08\x10\x10\x10\x12\x01\x01+\x83\x80\x80\x9a\x81\xb4\xb5s\x08\x0b\x0f\x0f\x11\x01\x01-\x83\x80
+SAMPLE idx_hot_user_idx cols=['segid', 'term', 'pgno']
+  (1, b'', 2)
+  (1, b'0anshanshihengjuehuiguonongchanpiny', 4)
+  (1, b'0chbzclyx', 6)
+SAMPLE_FAIL idx_hot_user_content Could not decode to UTF-8 column 'c0' with text '����������������-������������-������������������������-������������-������������������������-������������-��������������������������-������������-���
+SAMPLE idx_hot_user_docsize cols=['id', 'sz']
+  (1688850030015014, b'f')
+  (1688850044254950, b'p')
+  (1688850259873350, b'F')
+SAMPLE idx_hot_user_config cols=['k', 'v']
+  ('version', 4)
+SAMPLE_FAIL idx_department_content Could not decode to UTF-8 column 'c0' with text '�����������������'
+SAMPLE frq_conversation cols=['data_id', 'frequency']
+SAMPLE_FAIL idx_conversation no such tokenizer: fts5word
+SAMPLE idx_conversation_data cols=['id', 'block']
+  (1, b'\x81\x12\x9f$')
+  (10, b'\x00\x00\x00\x00\x06\x0e\x84\xcfX\x00\t\x16\x01\x01\x01\x01\x01\x03\x01\x01\x08\x01\x01\t\x01\x01\n\x01\x02\x0b\x01\x01\x0c\x01\x01\r\x01\x01\x00\x00\x00\x01\x02\x01\x04\x00\x03\x04\x01\x06\x06\x01\x06\x07\x01\x06\x00\x00\x00\x01\x05\x01\x14')
+  (137438953473, b'\x00\x00\x01\xfb\t088888888\x1a\x03\x03\x01\x02bu\x1a\x03\t\x01\x03fsb\x1a\x03\x0b\x02\x06usanbu\x1a\x03\r\x01\tkefusanbu\x1a\x03\x0f\x02\x03fsb\x1a\x03\x11\x01\x05sanbu\x1a\x03\x13\x02\x01b\x1a\x03\x15\x01\x01\x82\x1a\x13\x02\x08\x04\x04\x04\x04\x04\x04\x04\x01\x03\xe4\xb8\x89\x1a\x03\x06\x01\x03\xe5\xae\xa2\x1a\x03\x04\x01\x03\xe6\x9c\x8d\x1a\x03\x05\x01\x03\xe9\x83\xa8\x1a\x03\x07\x00\x0218\x1a\x03\x03\x01\x01b\x1a\x03\t\x01\x01f\x1a\x05\x0b\x04\x01\x01k\x1a\x05\x0f\x04\x01\x01s\x1a\x05\x13\x04\x01\x01\x82\x1a\x13\x02\x08\x04\x04\x04\x04\x04\x04\x04\x01\x03\xe4\xb8\x89\x1a\x03\x06\x01\x03\xe5\xae\xa2\x1a\x03\x04\x01\x03\xe6\x9c\x8d\x1a\x03\x05\x01\x03\xe9\x83\xa8\x1a\x03\x07\x00\x03288\x1a\x03\x03\x01\x02bu\x1a\x03\t\x01\x02fs\x1a\x03\x0b\x02\x01u\x1a\x03\r\x01\x02ke\x1a\x03\x0f\x02\x01f\x1a\x03\x11\x01\x02sa\x1a\x03\x13\x02\x01b\x1a\x03\x15\x00\x043888\x1a\x03\x03\x01\x03fsb\x1a\x03\x0b\x02\x02us\x1a\x03\r\x01\x03kef\x1a\x03\x0f\x02\x02fs\x1a\x03\x11\x01\x03san\x1a
+SAMPLE idx_conversation_idx cols=['segid', 'term', 'pgno']
+  (1, b'', 2)
+  (2, b'', 2)
+  (2, b'1\xe4', 4)
+SAMPLE_FAIL idx_conversation_content Could not decode to UTF-8 column 'c0' with text '��'
+SAMPLE idx_conversation_docsize cols=['id', 'sz']
+  (1, b'\x02')
+  (2, b'\x02')
+  (3, b'\x02')
+SAMPLE idx_conversation_config cols=['k', 'v']
+  ('version', 4)
+SAMPLE frq_conversation_member_nickname cols=['data_id', 'frequency']
+SAMPLE_FAIL idx_conversation_member_nickname no such tokenizer: fts5word
+SAMPLE idx_conversation_member_nickname_data cols=['id', 'block']
+  (1, b'\x03U')
+  (10, b'\x00\x00\x00\x00\x02\x0f\x81]\x00\x0f\x11\x01\x01\x01\x01\x01\x02\x01\x01\x03\x01\x01\x04\x01\x01\x05\x01\x01\x06\x01\x01\x07\x01\x01\x08\x01\x01\t\x01\x01\n\x01\x01\x0b\x01\x01\x0c\x01\x01\r\x01\x01\x0e\x01\x01\x00\x00')
+  (137438953473, b'\x00\x00\x01T\x080jinting\x81\x1d\x01\x02\x01t\x81\x1d\x01\x01\x04ting\x81\x1d\x01\x01\nzhujinting\x81\x1d\x01\x02\x02jt\x81\x1d\x01\x01\x01\x82\x81\x1d\x01\x01\x03\xe5\xa9\xb7\x81\x1d\x01\x01\x03\xe6\x9c\xb1\x81\x1d\x01\x01\x03\xe9\x87\x91\x81\x1d\x01\x00\x021j\x81\x1d\x01\x01\x01t\x81\x1d\x01\x01\x01z\x81\x1d\x01\x01\x01\x82\x81\x1d\x01\x01\x03\xe5\xa9\xb7\x81\x1d\x01\x01\x03\xe6\x9c\xb1\x81\x1d\x01\x01\x03\xe9\x87\x91\x81\x1d\x01\x00\x032ji\x81\x1d\x01\x02\x01t\x81\x1d\x01\x01\x02ti\x81\x1d\x01\x01\x02zh\x81\x1d\x01\x02\x01j\x81\x1d\x01\x00\x043jin\x81\x1d\x01\x01\x03tin\x81\x1d\x01\x01\x03zhu\x81\x1d\x01\x02\x02jt\x81\x1d\x01\x00\x054jint\x81\x1d\x01\x01\x04ting\x81\x1d\x01\x01\x04zhuj\x81\x1d\x01\x00\x065jinti\x81\x1d\x01\x01\x05zhuji\x81\x1d\x01\x00\x076jintin\x81\x1d\x01\x01\x06zhujin\x81\x1d\x01\x00\x087jinting\x81\x1d\x01\x01\x07zhujint\x81\x1d\x01\x00\t8zhujinti\x81\x1d\x01\x00\n9zhujintin\x81\x1d\x01\x00\x0b:zhujinting\x81\x1d\x01\x04\x0c\x06\t\x0f\x07\x06\x
+SAMPLE idx_conversation_member_nickname_idx cols=['segid', 'term', 'pgno']
+  (1, b'', 2)
+  (2, b'', 2)
+  (3, b'', 2)
+SAMPLE_FAIL idx_conversation_member_nickname_content Could not decode to UTF-8 column 'c0' with text '�gl�gonglei�hl�honglei�hou�lei�qgl�qhl�qiugonglei�qiuhonglei�weihou�wh�������-����������'
+SAMPLE idx_conversation_member_nickname_docsize cols=['id', 'sz']
+  (35, b' ')
+  (148, b'&')
+  (164, b'\x0f')
+SAMPLE idx_conversation_member_nickname_config cols=['k', 'v']
+  ('version', 4)
+SAMPLE idx_customer_relation_content cols=['id', 'c0']
+SAMPLE_FAIL idx_tencent_document_content Could not decode to UTF-8 column 'c0' with text '�baoming�biao�bm�jb�jibiao�kssssjb�kuaisushangshoushoujibiao�ming�peixunbaoming�pxbm�shangshoushoujibiao�shoujibiao�shoushoujibiao�sjb�ssjb�sssjb�sss
+SAMPLE tencent_document_id_mapping cols=['string_value']
+  ('c2_AFAA7QduAAoAN0AbwYSABo7YNCQTN3Ri_sys3',)
+  ('c2_AFAA7QduAAoAOYAegb3AAoEMy0si8RTrj_base',)
+  ('c2_AFAA7QduAAoAOYAegb3AAoiQn4xoPqTQj_base',)
+SAMPLE idx_spm_party_v2_content cols=['id', 'c0']
+SAMPLE idx_spm_student_v2_content cols=['id', 'c0']
+SAMPLE idx_govern_grid_content cols=['id', 'c0']
+SAMPLE idx_out_contact_v2_content cols=['id', 'c0']
+SAMPLE idx_company_index_content cols=['id', 'c0']
+SAMPLE_FAIL idx_wechat_contact_content Could not decode to UTF-8 column 'c0' with text '�man�xiaoman�xm��������'
+SAMPLE wechat_contact_id_mapping cols=['string_value']
+  ('ozynqsg03-TBUrRimmoptdg4ktvg',)
+  ('ozynqsg0fhkntcQcrgygPWBisHSA',)
+  ('ozynqsg3BeU6LlwV4UDfVvu3uyEc',)
+
+======== C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\data_index.db size=3112960 ========
+tables: tencent_document_include,tencent_document_exclude,spm_party_v2_include,spm_party_v2_exclude,spm_student_v2_include,spm_student_v2_exclude,govern_grid_include,govern_grid_exclude,file_index_include,file_index_exclude,out_contact_v2_include,out_contact_v2_exclude,company_index_include,company_index_exclude,filename_index_storage_v2,filename_index_storage_v2_content,filename_index_storage_v2_segments,filename_index_storage_v2_segdir,frq_user,idx_user,idx_user_data,idx_user_idx,idx_user_content,idx_user_docsize,idx_user_config,frq_hot_user,idx_hot_user,idx_hot_user_data,idx_hot_user_idx,idx_hot_user_content,idx_hot_user_docsize,idx_hot_user_config,frq_department,idx_department,idx_department_data,idx_department_idx,idx_department_content,idx_department_docsize,idx_department_config,frq_conversation,idx_conversation,idx_conversation_data,idx_conversation_idx,idx_conversation_content,idx_conversation_docsize,idx_conversation_config,frq_conversation_member_nickname,idx_conversation_member_nickname,idx_conversation_member_nickname_data,idx_conversation_member_nickname_idx,idx_conversation_member_nickname_content,idx_conversation_member_nickname_docsize,idx_conversation_member_nickname_config,frq_customer_relation,idx_customer_relation,idx_customer_relation_data,idx_customer_relation_idx,idx_customer_relation_content,idx_customer_relation_docsize,idx_customer_relation_config,frq_tencent_document,idx_tencent_document,idx_tencent_document_data,idx_tencent_document_idx,idx_tencent_document_content,idx_tencent_document_docsize,idx_tencent_document_config,tencent_document_id_mapping,frq_spm_party_v2,idx_spm_party_v2,idx_spm_party_v2_data,idx_spm_party_v2_idx,idx_spm_party_v2_content,idx_spm_party_v2_docsize,idx_spm_party_v2_config,frq_spm_student_v2,idx_spm_student_v2,idx_spm_student_v2_data,idx_spm_student_v2_idx,idx_spm_student_v2_content,idx_spm_student_v2_docsize,idx_spm_student_v2_config,frq_govern_grid,idx_govern_grid,idx_govern_grid_data,idx_govern_grid_idx,idx_govern_grid_content,idx_govern_grid_docsize,idx_govern_grid_config,frq_out_contact_v2,idx_out_contact_v2,idx_out_contact_v2_data,idx_out_contact_v2_idx,idx_out_contact_v2_content,idx_out_contact_v2_docsize,idx_out_contact_v2_config,frq_company_index,idx_company_index,idx_company_index_data,idx_company_index_idx,idx_company_index_content,idx_company_index_docsize,idx_company_index_config,frq_wechat_contact,idx_wechat_contact,idx_wechat_contact_data,idx_wechat_contact_idx,idx_wechat_contact_content,idx_wechat_contact_docsize,idx_wechat_contact_config,wechat_contact_id_mapping
+SAMPLE filename_index_storage_v2_content cols=['docid', 'c0content']
+  (1376512, '网站打不开添加-不受信任证书-20200104.rar')
+  (1769728, '中胜收款证明(带章）.pdf')
+  (1900800, '投标文件编制培训课件.pdf')
+SAMPLE frq_user cols=['data_id', 'frequency']
+SAMPLE_FAIL idx_user no such tokenizer: fts5word
+SAMPLE idx_user_data cols=['id', 'block']
+  (1, b'\x83;\x82\xd9\x19')
+  (10, b'\x00\x00\x00\x00\x02\t\x82a\x00\x04\x01\x01\x01\x02\x01\x01\x03\x01\x01\x04\x01\x01\x00\x05\x05\x01M\x08\x01e\x13\x01%\x14\x01\x05\x15\x01\x05')
+  (137438953473, b'\x00\x00\x08\xaf\x020-\x83\x80\x80\x94\x94\xea\xae\x11\x10\x05\x06\x08\x06\x08\x06\n\x06\x87a\x10\x05\x06\x08\x06\x08\x06\n\x06\x01\x02bu\x83\x80\x80\x94\x94\xea\xae\x11\x02.\x87a\x02.\x01\nfeiyanping\x83\x80\x80\x94\x94\xea\xae\x11\x020\x02\x02yp\x83\x80\x80\x94\x94\xea\xae\x11\x022\x01\x03hua\x83\x80\x80\x94\x94\xea\xb5r\x020\x01\tliumeihua\x83\x80\x80\x94\x94\xea\xb5r\x022\x02\x02mh\x83\x80\x80\x94\x94\xea\xb5r\x024\x01\x06meihua\x83\x80\x80\x94\x94\xea\xb5r\x026\x02\x01h\x83\x80\x80\x94\x94\xea\xb5r\x028\x01\x08peixunbu\x83\x80\x80\x94\x94\xea\xae\x11\x024\x87a\x02:\x02\x03ing\x83\x80\x80\x94\x94\xea\xae\x11\x026\x02\x02xb\x83\x80\x80\x94\x94\xea\xae\x11\x028\x87a\x02<\x01\x02xb\x83\x80\x80\x94\x94\xea\xae\x11\x02:\x87a\x02>\x02\x04unbu\x83\x80\x80\x94\x94\xea\xae\x11\x02<\x87a\x02@\x01\x07yanping\x83\x80\x80\x94\x94\xea\xae\x11\x02>\x02\x01p\x83\x80\x80\x94\x94\xea\xae\x11\x02@\x01\x04zhou\x83\x80\x80\x94\x94\xea\xae\x11\x02B\x87a\x02B\x03\x06uozhou\x83\x80\x80\x9
+SAMPLE idx_user_idx cols=['segid', 'term', 'pgno']
+  (1, b'', 2)
+  (2, b'', 2)
+  (3, b'', 2)
+SAMPLE_FAIL idx_user_content Could not decode to UTF-8 column 'c0' with text '�������-���������-���������������-���������-���������������-���������-�����������������-���������-����������2546758691�bu�mb�mubu�ran�wangxiaoran�wxr
+SAMPLE idx_user_docsize cols=['id', 'sz']
+  (1688849996810444, b'H')
+  (1688850030015014, b'f')
+  (1688850044254950, b'p')
+SAMPLE idx_user_config cols=['k', 'v']
+  ('version', 4)
+SAMPLE frq_hot_user cols=['data_id', 'frequency']
+  (1688850030015014, 1)
+  (1688850044254950, 11)
+  (1688850259873350, 1)
+SAMPLE_FAIL idx_hot_user no such tokenizer: fts5word
+SAMPLE idx_hot_user_data cols=['id', 'block']
+  (1, b'\x81\\\x81\x9ar')
+  (10, b'\x00\x00\x00\x00\x03\t\x816\x00\x07\x02\x01\x01\x03\x01\x01\x04\x01\x01\x05\x01\x01\x06\x01\x04\x07\x01\x01\x08\x01\x01\x00\x01\x11\x01\x0f\x00\x01\x01\x01<')
+  (137438953473, b'\x00\x00\x0f\x94\x020 \x83\x80\x80\x81\xd0\xc9\xe0\'\x08\x13\n\n\x0b\x96\xaa\xb8\xc44\x08\x0e\x11\x11\x13\x8a\xff\xff\xeb\x97\xf5\xa3\x15\x08\x05\r\r\x0f\xa9\xfd\xef\x07\x08\x0b\x0c\x0c\x0e\x88\xea\xd0\xd11\x08\x04\x08\x08\n\x01\x01-\x83\x80\x80\x80\xd0\xf8\xe4&\x10\x08\x07\x0b\x07\x0b\x07\r\x07\x86\xe5\x91@\x12\x08\x06\x0b\x06\x0b\x06\r\x06\x16\xe6\xe8\xa6`\x10\x05\x07\x07\x07\x07\x07\t\x07\x91\xec\xf6j\x10\x08\x06\x0b\x06\x0b\x06\r\x06\x94\x9a-\x08\x05\x08\x08\n\x02\x10\x08\x06\x0b\x06\x0b\x06\r\x06\x01\x10\x08\x08\n\x08\n\x08\x0c\x08\x03\x10\x08\x05\n\x05\n\x05\x0c\x05#\x084\n\n\x0b\x03\x10\x08\x05\x0b\x05\x0b\x05\r\x05\x82\x0b\x10\x08\x07\n\x07\n\x07\x0c\x07\xabV\x10\x08\x06\x0b\x06\x0b\x06\r\x06\x02\x10\x08\x07\x0b\x07\x0b\x07\r\x07\x8d\x0f \x08\x05\x0b\x05\x0b\x05\r\x05\x0c\x07\x0b\x07\x0b\x07\x0c\x07\x01\x10\x08\x07\x0b\x07\x0b\x07\r\x07@\x10\x08\x07\x0b\x07\x0b\x07\r\x07\x83%\x10\x08\x05\n\x05\n\x05\x0c\x05F\x10\x13\x06\n\x06\n\x06\x0b\x06\x02\x10\x08\x07\n\x07
+SAMPLE idx_hot_user_idx cols=['segid', 'term', 'pgno']
+  (1, b'', 2)
+  (1, b'0bao', 4)
+  (1, b'0chx', 6)
+SAMPLE_FAIL idx_hot_user_content Could not decode to UTF-8 column 'c0' with text '����������������-������������-������������������������-������������-������������������������-������������-��������������������������-������������-���
+SAMPLE idx_hot_user_docsize cols=['id', 'sz']
+  (1688850030015014, b'f')
+  (1688850044254950, b'p')
+  (1688850259873350, b'F')
+SAMPLE idx_hot_user_config cols=['k', 'v']
+  ('version', 4)
+SAMPLE_FAIL idx_department_content Could not decode to UTF-8 column 'c0' with text '�����������������'
+SAMPLE frq_conversation cols=['data_id', 'frequency']
+SAMPLE_FAIL idx_conversation no such tokenizer: fts5word
+SAMPLE idx_conversation_data cols=['id', 'block']
+  (1, b'i\x9dN')
+  (10, b'\x00\x00\x00\x00\x03\x04\x82O\x00\x00\x00\x01\x14\x01\x02\x00\x03\x01\x01\x15\x02\x01\x04\x05\x01\x04')
+  (137438953473, b"\x00\x00\x0e\x8d\x020 2\x06p\x03\x03\x01\x02`\x81/\x08\x03\t\x03\x03\x03\x02\x03\x01\x01+\x81l\x02S\x01\x01-\x81k\x02\x16\x01\x08888888888\x02\x03\x01\x02ac`\x02\x03\x01\x02\x03\x02\x07dscwlgf4\x02\x03\x03\x08ztjskjyx\x81f\x02\x03\x02\rimeiguguzheng3\x02\x03\x08\x08jiazheng3\x02\x05\x06\njiaguzheng3\x02\x07\t\x08jiazheng3\x02\t\x08\x08eguzheng3\x02\x0b\t\x08jiazheng3\x02\r\x02\x04mggz3\x02\x0f\x04\x02jz3\x02\x11\x03\x03jgz3\x02\x13\x04\x02jz3\x02\x15\x02\x06nchang`\x02\x05\x01\x02\x05\x03\x17diansichuanwanglaogufen4\x02\x05\x13\x07uogufen4\x02\x07\x04\x1eongzhongtianjianshekejiyouxian\x81f\x02\x05\x03\x04quan\\\x02\x03\x03\x13zhouguolingkongdiao\x81l\x02\x03\x12\x04tiao\x81l\x02\x05\x02\x01q\\\x02\x05\x02\x05zglkd\x81l\x02\x07\x06\x01t\x81l\x02\t\x01\x03banT\x02\x03\x1e\x02\x03\x04\x01gj\x02\x03\x05\x04bangj\x02\x05\x05\x19ongyikaoqinhaijiajiguanliq\x02\x03\x16\x08qiguanliq\x02\x05\x11\x0cejiajiguanliq\x02\x07\x15\x08qiguanliq\x02\t\x11\x0cujiajiguanliq\x02\x0b\x15\x08
+SAMPLE idx_conversation_idx cols=['segid', 'term', 'pgno']
+  (1, b'', 2)
+  (1, b'0gs', 4)
+  (1, b'0kjcczwh', 6)
+SAMPLE_FAIL idx_conversation_content Could not decode to UTF-8 column 'c0' with text '��'
+SAMPLE idx_conversation_docsize cols=['id', 'sz']
+  (1, b'\x02')
+  (2, b'\x02')
+  (3, b'\n')
+SAMPLE idx_conversation_config cols=['k', 'v']
+  ('version', 4)
+SAMPLE frq_conversation_member_nickname cols=['data_id', 'frequency']
+SAMPLE_FAIL idx_conversation_member_nickname no such tokenizer: fts5word
+SAMPLE idx_conversation_member_nickname_data cols=['id', 'block']
+  (1, b'\x01\x03')
+  (10, b'\x00\x00\x00\x00\x02\tI\x00\t\x01\x01\x01\x02\x01\x01\x03\x01\x01\x04\x01\x01\x05\x01\x01\x06\x01\x01\x07\x01\x01\x08\x01\x01\t\x01\x01\x00\x00')
+  (137438953473, b'\x00\x00\x00\x1f\x020.!\x02\x03\x01\x01\x82!\x04\x02\x04\x00\x021.!\x02\x03\x01\x01\x82!\x04\x02\x04\x04\x06\x07\x07')
+SAMPLE idx_conversation_member_nickname_idx cols=['segid', 'term', 'pgno']
+  (1, b'', 2)
+  (2, b'', 2)
+  (3, b'', 2)
+SAMPLE_FAIL idx_conversation_member_nickname_content Could not decode to UTF-8 column 'c0' with text '�.�'
+SAMPLE idx_conversation_member_nickname_docsize cols=['id', 'sz']
+  (37, b'\x03')
+SAMPLE idx_conversation_member_nickname_config cols=['k', 'v']
+  ('version', 4)
+SAMPLE idx_customer_relation_content cols=['id', 'c0']
+SAMPLE idx_tencent_document_content cols=['id', 'c0']
+SAMPLE tencent_document_id_mapping cols=['string_value']
+SAMPLE idx_spm_party_v2_content cols=['id', 'c0']
+SAMPLE idx_spm_student_v2_content cols=['id', 'c0']
+SAMPLE idx_govern_grid_content cols=['id', 'c0']
+SAMPLE_FAIL idx_out_contact_v2_content Could not decode to UTF-8 column 'c0' with text '�jingrujingrujingru��jingru�jingru@bidcenter.cn�'
+SAMPLE idx_company_index_content cols=['id', 'c0']
+SAMPLE_FAIL idx_wechat_contact_content Could not decode to UTF-8 column 'c0' with text '�bo�jb�jinbo�jingbo�wangjinbo�wangjingbo�wjb�����������'
+SAMPLE wechat_contact_id_mapping cols=['string_value']
+  ('ozynqsg0fxLZ_F5Ske8Cl4g2W328',)
+  ('ozynqsg0vxiJNmsz0MWBdsR5wexQ',)
+  ('ozynqsg1b_GFC6_2L0BOEs8eIq4M',)
+
+======== C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\message_index.db size=58667008 ========
+OPEN_FAIL file is not a database
+
+======== C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\message_index_1.db size=24576 ========
+OPEN_FAIL file is not a database
+
+======== C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\message_index_v1_1.db size=110428160 ========
+OPEN_FAIL file is not a database
+
+======== C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\session_index.db size=45056 ========
+OPEN_FAIL file is not a database
+
+======== C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\user_index.db size=49152 ========
+OPEN_FAIL file is not a database
+
+======== C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\hot_index.db size=20480 ========
+OPEN_FAIL file is not a database
+
+======== C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\message_index.db size=7602176 ========
+OPEN_FAIL file is not a database
+
+======== C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\session_index.db size=45056 ========
+OPEN_FAIL file is not a database
+
+======== C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\user_index.db size=49152 ========
+OPEN_FAIL file is not a database
+
+======== C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\hot_index.db size=20480 ========
+OPEN_FAIL file is not a database

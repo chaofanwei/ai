@@ -1,0 +1,54 @@
+
+===== account 1688850297679837 =====
+TABLE idx_user_content cols=['id', 'c0']
+HIT table=idx_user_content id=1688850297679845
+  text=1688850297679845 | �北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi� | 
+HIT table=idx_user_content id=1688854370770441
+  text=1688854370770441 | �北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi� | 
+summary idx_user_content hits=2
+TABLE idx_hot_user_content cols=['id', 'c0']
+HIT table=idx_hot_user_content id=1688850297679845
+  text=1688850297679845 | �北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi� | 
+HIT table=idx_hot_user_content id=1688854370770441
+  text=1688854370770441 | �北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi� | 
+summary idx_hot_user_content hits=2
+TABLE idx_conversation_content cols=['id', 'c0']
+summary idx_conversation_content hits=0
+TABLE idx_conversation_member_nickname_content cols=['id', 'c0']
+summary idx_conversation_member_nickname_content hits=0
+TABLE idx_wechat_contact_content cols=['id', 'c0']
+HIT table=idx_wechat_contact_content id=853
+  text=853 | �lanxin�laxin�lianglanxin�lianglaxin�llx�lx�xin�梁蓝欣� | 
+HIT table=idx_wechat_contact_content id=1400
+  text=1400 | �caizhaowanglianglanxin�caizhaowanglianglaxin�czwllx�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�wanglianglanxin�wanglianglaxin�wllx�xin�zhaowanglianglanxin�zhaowanglianglaxin�zwllx�采招网梁蓝欣� | 
+summary idx_wechat_contact_content hits=2
+TABLE filename_index_storage_v2_content cols=['docid', 'c0content']
+summary filename_index_storage_v2_content hits=0
+TOP frq_user []
+TOP frq_hot_user [(1688850297679845, 7204), (1688850297679843, 5568), (1688850297648251, 5025), (1688858002362468, 4502), (1688850297679743, 3812), (1688850297679711, 3483), (1688850297993661, 3272), (1688850297648316, 3062), (1688856292266587, 2764), (1688850297690412, 2532), (1688850297648252, 2310), (1688851123236027, 2162), (7881300364959309, 1888), (1688855596662212, 1870), (1688856480453759, 1763), (1688850044254950, 1732), (1688855031319247, 1675), (1688858439542283, 1564), (7881300505099670, 1501), (1688855221290967, 1361)]
+TOP frq_conversation []
+
+===== account 1688855031319247 =====
+TABLE idx_user_content cols=['id', 'c0']
+HIT table=idx_user_content id=1688850297679845
+  text=1688850297679845 | �北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi� | 
+summary idx_user_content hits=1
+TABLE idx_hot_user_content cols=['id', 'c0']
+HIT table=idx_hot_user_content id=1688850297679845
+  text=1688850297679845 | �北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi� | 
+summary idx_hot_user_content hits=1
+TABLE idx_conversation_content cols=['id', 'c0']
+summary idx_conversation_content hits=0
+TABLE idx_conversation_member_nickname_content cols=['id', 'c0']
+summary idx_conversation_member_nickname_content hits=0
+TABLE idx_wechat_contact_content cols=['id', 'c0']
+HIT table=idx_wechat_contact_content id=90
+  text=90 | �lanxin�laxin�lianglanxin�lianglaxin�llx�lx�xin�梁蓝欣� | 
+HIT table=idx_wechat_contact_content id=549
+  text=549 | �caizhaowanglianglanxin�caizhaowanglianglaxin�czwllx�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�wanglianglanxin�wanglianglaxin�wllx�xin�zhaowanglianglanxin�zhaowanglianglaxin�zwllx�采招网梁蓝欣� | 
+summary idx_wechat_contact_content hits=2
+TABLE filename_index_storage_v2_content cols=['docid', 'c0content']
+summary filename_index_storage_v2_content hits=0
+TOP frq_user []
+TOP frq_hot_user [(1688850297679845, 52), (1688855031319247, 52), (1688850297648251, 36), (1688856480453759, 32), (7881301941013146, 31), (1688850297685137, 25), (1688858002362468, 22), (1688858439542283, 22), (1688850297648252, 21), (1688850297679743, 21), (7881302148981941, 20), (7881302263153171, 20), (1688850297679718, 15), (1688850297679729, 15), (1688850297680189, 15), (1688850297685128, 15), (1688851088130827, 15), (1688856809440356, 15), (1688850297646570, 12), (1688850297648316, 12)]
+TOP frq_conversation []

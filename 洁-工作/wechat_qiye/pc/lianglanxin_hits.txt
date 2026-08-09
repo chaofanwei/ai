@@ -1,0 +1,255 @@
+search keyword: 梁蓝欣
+
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\announce_index_log.db tables=announce_include,announce_exclude
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\collection_index_log.db tables=collection_message_include,collection_message_excludeV2
+FILE C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\data_index.db size=10129408 hits=23
+--- hit 0 offset 157519 ---
+RAW_UTF8_REPLACE: ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||	V|4��ѸH|]�北京总公司-客服三部-梁蓝欣�	V|���
+|/�河北培训部������'|)�沧州一部������[|/�沧州分公司��������z|)�燕郊分部�����̰�n|)�燕郊一部��������/|/�北京直销部��������3|)�涿州六部��������5|)�客服五部�����в�>|/�中国采招网�����՘�$|)�河北六部��������|)�北分三部�
+--- hit 1 offset 490915 ---
+RAW_UTF8_REPLACE: ��一部-陈漫北京总公司-售前一部-陈漫北京总公司-售前一部-陈漫��北京总公司-售前一部-陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi��>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总�
+STRINGS:
+  * 猩遝
+  * 猩遚
+--- hit 2 offset 490953 ---
+RAW_UTF8_REPLACE: ��部-陈漫北京总公司-售前一部-陈漫��北京总公司-售前一部-陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi��>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总公司-客服三部-杜全敏北京总�
+STRINGS:
+  * 猩遝
+  * 猩遚
+--- hit 3 offset 490991 ---
+RAW_UTF8_REPLACE: ��-陈漫��北京总公司-售前一部-陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi��>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总公司-客服三部-杜全敏北京总公司-客服三部-杜全敏北京总�
+STRINGS:
+  * 猩遝
+  * 猩遚
+--- hit 4 offset 491031 ---
+RAW_UTF8_REPLACE: 陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi��>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总公司-客服三部-杜全敏北京总公司-客服三部-杜全敏北京总公司-客服三部-杜全敏��北京总�
+STRINGS:
+  * 猩遝
+  * 猩遚
+--- hit 5 offset 533045 ---
+RAW_UTF8_REPLACE: �硕��北京总公司-宁^�������y|�A�涿州-销售五部-刘琳琳涿州-销售五部-刘琳琳涿州-销售五部-刘琳琳��涿州-销售五部-刘琳琳�1067793782�bu�lin�linlin�liulinlin�ll�lll�shouwubu�swb�wb�wubu�xiaoshouwubu�xswb�zhou�zhuozhou�zz��>������	|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��'�����׊|�S�北京总�
+NEAR_IDS: 1067793782
+--- hit 6 offset 533083 ---
+RAW_UTF8_REPLACE: �涿州-销售五部-刘琳琳涿州-销售五部-刘琳琳涿州-销售五部-刘琳琳��涿州-销售五部-刘琳琳�1067793782�bu�lin�linlin�liulinlin�ll�lll�shouwubu�swb�wb�wubu�xiaoshouwubu�xswb�zhou�zhuozhou�zz��>������	|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��'�����׊|�S�北京总公司-客服五部-吴曼曼北京总�
+NEAR_IDS: 1067793782
+--- hit 7 offset 533121 ---
+RAW_UTF8_REPLACE: ��售五部-刘琳琳涿州-销售五部-刘琳琳��涿州-销售五部-刘琳琳�1067793782�bu�lin�linlin�liulinlin�ll�lll�shouwubu�swb�wb�wubu�xiaoshouwubu�xswb�zhou�zhuozhou�zz��>������	|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��'�����׊|�S�北京总公司-客服五部-吴曼曼北京总公司-客服五部-吴曼曼北京总�
+NEAR_IDS: 1067793782
+--- hit 8 offset 533161 ---
+RAW_UTF8_REPLACE: -刘琳琳��涿州-销售五部-刘琳琳�1067793782�bu�lin�linlin�liulinlin�ll�lll�shouwubu�swb�wb�wubu�xiaoshouwubu�xswb�zhou�zhuozhou�zz��>������	|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��'�����׊|�S�北京总公司-客服五部-吴曼曼北京总公司-客服五部-吴曼曼北京总公司-客服五部-吴曼曼��北京总�
+NEAR_IDS: 1067793782
+--- hit 9 offset 912466 ---
+RAW_UTF8_REPLACE: �曼北京总公司-客服五部-吴曼曼北京总公司-客服五部-吴曼曼��北京总公司-客服五部-吴曼曼�beijingzonggongsi�bjzgs�bu�fuwubu�fwb�gongsi�gs�jingzonggongsi�jzgs�kefuwubu�kfwb�man�manman�mm�si�wb�wmm�wubu�wumanman�zgs�zonggongsi��>������	|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��F�������|��北京总�
+--- hit 10 offset 912504 ---
+RAW_UTF8_REPLACE: �曼北京总公司-客服五部-吴曼曼��北京总公司-客服五部-吴曼曼�beijingzonggongsi�bjzgs�bu�fuwubu�fwb�gongsi�gs�jingzonggongsi�jzgs�kefuwubu�kfwb�man�manman�mm�si�wb�wmm�wubu�wumanman�zgs�zonggongsi��>������	|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��F�������|��北京总部-客服二部-张巍巍小号北京�
+--- hit 11 offset 912542 ---
+RAW_UTF8_REPLACE: �曼��北京总公司-客服五部-吴曼曼�beijingzonggongsi�bjzgs�bu�fuwubu�fwb�gongsi�gs�jingzonggongsi�jzgs�kefuwubu�kfwb�man�manman�mm�si�wb�wmm�wubu�wumanman�zgs�zonggongsi��>������	|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��F�������|��北京总部-客服二部-张巍巍小号北京总部-客服二部-张巍巍小号北�
+--- hit 12 offset 912582 ---
+RAW_UTF8_REPLACE: �曼�beijingzonggongsi�bjzgs�bu�fuwubu�fwb�gongsi�gs�jingzonggongsi�jzgs�kefuwubu�kfwb�man�manman�mm�si�wb�wmm�wubu�wumanman�zgs�zonggongsi��>������	|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��F�������|��北京总部-客服二部-张巍巍小号北京总部-客服二部-张巍巍小号北京总部-客服二部-张巍巍小号���
+--- hit 13 offset 1595015 ---
+RAW_UTF8_REPLACE: �漫北京总公司-售前一部-陈漫��北京总公司-售前一部-陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi�	������|�C�邢台分公司-河北一部-侄"�������e|�I�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欃H�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京�>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁�
+STRINGS:
+  * 猩遝
+  * 猩遝
+  * 猩遝
+--- hit 14 offset 1595105 ---
+RAW_UTF8_REPLACE: nggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi�	������|�C�邢台分公司-河北一部-侄"�������e|�I�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欃H�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京�>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi
+STRINGS:
+  * 猩遝
+  * 猩遝
+  * 猩遝
+--- hit 15 offset 1595143 ---
+RAW_UTF8_REPLACE: �jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi�	������|�C�邢台分公司-河北一部-侄"�������e|�I�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欃H�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京�>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb
+STRINGS:
+  * 猩遝
+  * 猩遝
+  * 猩遝
+--- hit 16 offset 1595181 ---
+RAW_UTF8_REPLACE: shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi�	������|�C�邢台分公司-河北一部-侄"�������e|�I�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欃H�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京�>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�l
+STRINGS:
+  * 猩遝
+  * 猩遝
+  * 猩遝
+--- hit 17 offset 1595243 ---
+RAW_UTF8_REPLACE: 台分公司-河北一部-侄"�������e|�I�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欃H�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京�>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��H�������q|��邢台分�
+STRINGS:
+  * 猩遝
+  * 猩遝
+  * 猩遝
+  * 猩遯
+--- hit 18 offset 1595281 ---
+RAW_UTF8_REPLACE: |�I�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欃H�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京�>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��H�������q|��邢台分公司-河北三部-朱伟华邢台分�
+STRINGS:
+  * 猩遝
+  * 猩遝
+  * 猩遯
+--- hit 19 offset 1595319 ---
+RAW_UTF8_REPLACE: ��欣北京总公司-客服三部-梁蓝欃H�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京�>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��H�������q|��邢台分公司-河北三部-朱伟华邢台分公司-河北三部-朱伟华邢台分�
+STRINGS:
+  * 猩遝
+  * 猩遝
+  * 猩遯
+--- hit 20 offset 1595359 ---
+RAW_UTF8_REPLACE: 欃H�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京�>�������e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��H�������q|��邢台分公司-河北三部-朱伟华邢台分公司-河北三部-朱伟华邢台分公司-河北三部-朱伟华��邢台分�
+STRINGS:
+  * 猩遝
+  * 猩遝
+  * 猩遯
+--- hit 21 offset 1773339 ---
+RAW_UTF8_REPLACE: zhuanhu�chuanhu�czh�hu�zh�zhuanhu�陈传虎13607221510�,�Y|_�hjj�huangjinjia�jia�jinjia�jj�黄金甲�K�X|��gg�gh�gong�guogong�guohong�hong�wgg�wgh�wuguogong�wuguohong�吴国红�>�W|��fengshaohui�fsh�hui�pingshaohui�psh�sh�shaohui�冯绍慧�>�U|��lanxin�laxin�lianglanxin�lianglaxin�llx�lx�xin�梁蓝欣��W�T|�3�chenyiyuan�cyy�hss�huishisuo�kss�kuaishisuo�shisuo�ss�suo�taihuishisuo�taikuaishisuo�thss�tkss�yiyuan�ythss�ytkss�yuan�yutaihuishisuo�yutaikuaishisuo�yvtaihuishisuo�yvtaikuaishisuo�yy�陈义远-渝泰会师所�U|4|��9��	��b%��m2%��T5�
+�
+�
+	�	�	�	I��wk�V
+NEAR_IDS: 13607221510
+--- hit 22 offset 2013223 ---
+RAW_UTF8_REPLACE: gchen�haiguangtongchen�heguangtongchen�hgtc�huguangtongchen�huoguangtongchen�tc�tongchen�和光同尘��L�x|��caizhaowanglianglanxin�caizhaowanglianglaxin�czwllx�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�wanglianglanxin�wanglianglaxin�wllx�xin�zhaowanglianglanxin�zhaowanglianglaxin�zwllx�采招网梁蓝欣�	R||�-�gtq�guotianqi?�k|��weixiaowuxin�wuxin�wx�wxwx�xiaowuxin�xin�xwx�微笑吾心��||;�dm�dumian�mian�独眠�	�{|�LLLP��z|=�ran�shiran�sr�释然Ab��y|?�feng�lf�lianfeng�莲风�	�|	3|�l|�Zz.��v|=�chen�yc�youchen�宥琛��d|-�💓chrisa🍒��r|;�fan�pf�pingfan�平凡�
+	�||�*�
+
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\data_index.db tables=tencent_document_include,tencent_document_exclude,spm_party_v2_include,spm_party_v2_exclude,spm_student_v2_include,spm_student_v2_exclude,govern_grid_include,govern_grid_exclude,file_index_include,file_index_exclude,out_contact_v2_include,out_contact_v2_exclude,company_index_include,company_index_exclude,filename_index_storage_v2,filename_index_storage_v2_content,filename_index_storage_v2_segments,filename_index_storage_v2_segdir,frq_user,idx_user,idx_user_data,idx_user_idx,idx_user_content,idx_user_docsize,idx_user_config,frq_hot_user,idx_hot_user,idx_hot_user_data,idx_hot_user_idx,idx_hot_user_content,idx_hot_user_docsize,idx_hot_user_config,frq_department,idx_department,idx_department_data,idx_department_idx,idx_department_content,idx_department_docsize,idx_department_config,frq_conversation,idx_conversation,idx_conversation_data,idx_conversation_idx,idx_conversation_content,idx_conversation_docsize,idx_conversation_config,frq_conversation_member_nickname,idx_conversation_member_nickname,idx_conversation_member_nickname_data,idx_conversation_member_nickname_idx,idx_conversation_member_nickname_content,idx_conversation_member_nickname_docsize,idx_conversation_member_nickname_config,frq_customer_relation,idx_customer_relation,idx_customer_relation_data,idx_customer_relation_idx,idx_customer_relation_content,idx_customer_relation_docsize,idx_customer_relation_config,frq_tencent_document,idx_tencent_document,idx_tencent_document_data,idx_tencent_document_idx,idx_tencent_document_content,idx_tencent_document_docsize,idx_tencent_document_config,tencent_document_id_mapping,frq_spm_party_v2,idx_spm_party_v2,idx_spm_party_v2_data,idx_spm_party_v2_idx,idx_spm_party_v2_content,idx_spm_party_v2_docsize,idx_spm_party_v2_config,frq_spm_student_v2,idx_spm_student_v2,idx_spm_student_v2_data,idx_spm_student_v2_idx,idx_spm_student_v2_content,idx_spm_student_v2_docsize,idx_spm_student_v2_config,frq_govern_grid,idx_govern_grid,idx_govern_grid_data,idx_govern_grid_idx,idx_govern_grid_content,idx_govern_grid_docsize,idx_govern_grid_config,frq_out_contact_v2,idx_out_contact_v2,idx_out_contact_v2_data,idx_out_contact_v2_idx,idx_out_contact_v2_content,idx_out_contact_v2_docsize,idx_out_contact_v2_config,frq_company_index,idx_company_index,idx_company_index_data,idx_company_index_idx,idx_company_index_content,idx_company_index_docsize,idx_company_index_config,frq_wechat_contact,idx_wechat_contact,idx_wechat_contact_data,idx_wechat_contact_idx,idx_wechat_contact_content,idx_wechat_contact_docsize,idx_wechat_contact_config,wechat_contact_id_mapping
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\index_master.db tables=data_version
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\message_index_log.db tables=message_include,message_excludeV2,general_kv
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\session_index_log.db tables=session_include,session_exclude_v2,conversation_member_nickname_include,conversation_member_nickname_exclude
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\sms_index.db tables=sms_msg_id_phone_num_index,sms_msg_id_receiver_index
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688850297679837\Index\userdept_index_log.db tables=user_include,user_exclude,external_user_include,external_user_exclude,dept_include,dept_exclude,wechat_contact_include,wechat_contact_exclude
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\announce_index_log.db tables=announce_include,announce_exclude
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\collection_index_log.db tables=collection_message_include,collection_message_excludeV2
+FILE C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\data_index.db size=3112960 hits=22
+--- hit 0 offset 539223 ---
+RAW_UTF8_REPLACE: ��一部-陈漫北京总公司-售前一部-陈漫北京总公司-售前一部-陈漫��北京总公司-售前一部-陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fs
+STRINGS:
+  * 猩遝
+--- hit 1 offset 539261 ---
+RAW_UTF8_REPLACE: ��部-陈漫北京总公司-售前一部-陈漫��北京总公司-售前一部-陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzg
+STRINGS:
+  * 猩遝
+--- hit 2 offset 539299 ---
+RAW_UTF8_REPLACE: ��-陈漫��北京总公司-售前一部-陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglan
+STRINGS:
+  * 猩遝
+--- hit 3 offset 539339 ---
+RAW_UTF8_REPLACE: 陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zg
+STRINGS:
+  * 猩遝
+--- hit 4 offset 539378 ---
+RAW_UTF8_REPLACE: henman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总�
+STRINGS:
+  * 猩遝
+  * 猩遚
+--- hit 5 offset 539416 ---
+RAW_UTF8_REPLACE: s�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总公司-客服三部-杜全敏北京总�
+STRINGS:
+  * 猩遝
+  * 猩遚
+--- hit 6 offset 539454 ---
+RAW_UTF8_REPLACE: b�yb�yibu�zgs�zonggongsi��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总公司-客服三部-杜全敏北京总公司-客服三部-杜全敏北京总�
+STRINGS:
+  * 猩遝
+  * 猩遚
+--- hit 7 offset 539493 ---
+RAW_UTF8_REPLACE: �北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总公司-客服三部-杜全敏北京总公司-客服三部-杜全敏北京总公司-客服三部-杜全敏��北京总�
+STRINGS:
+  * 猩遚
+--- hit 8 offset 557207 ---
+RAW_UTF8_REPLACE: 3	!"
+
+'	
+$		
+	3$A
+:
+	�		>
+	5			
+
+	
+E
+�||k|M�N|k	�PV���|^|^||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+�=�����|��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fs
+STRINGS:
+  * 猩遝
+--- hit 9 offset 557245 ---
+RAW_UTF8_REPLACE: 	
+	3$A
+:
+	�		>
+	5			
+
+	
+E
+�||k|M�N|k	�PV���|^|^||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+�=�����|��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzg
+STRINGS:
+  * 猩遝
+--- hit 10 offset 557283 ---
+RAW_UTF8_REPLACE: �		>
+	5			
+
+	
+E
+�||k|M�N|k	�PV���|^|^||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+�=�����|��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglan
+STRINGS:
+  * 猩遝
+--- hit 11 offset 557323 ---
+RAW_UTF8_REPLACE: 	
+
+	
+E
+�||k|M�N|k	�PV���|^|^||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+�=�����|��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zg
+STRINGS:
+  * 猩遝
+--- hit 12 offset 557362 ---
+RAW_UTF8_REPLACE: k|M�N|k	�PV���|^|^||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+�=�����|��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��D�������Y|��邢台分�
+STRINGS:
+  * 猩遝
+  * 猩遈
+--- hit 13 offset 557400 ---
+RAW_UTF8_REPLACE: ||||||||||||||||||||||||||||||||||||||||||||||||||
+�=�����|��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��D�������Y|��邢台分公司-河北三部-姚叶娟邢台分�
+STRINGS:
+  * 猩遝
+  * 猩遈
+--- hit 14 offset 557438 ---
+RAW_UTF8_REPLACE: ||||||||||||
+�=�����|��X�������e|�5�北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��D�������Y|��邢台分公司-河北三部-姚叶娟邢台分公司-河北三部-姚叶娟邢台分�
+STRINGS:
+  * 猩遝
+  * 猩遈
+--- hit 15 offset 557477 ---
+RAW_UTF8_REPLACE: �北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣北京总公司-客服总监-梁蓝欣�北京总公司-客服总监-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��D�������Y|��邢台分公司-河北三部-姚叶娟邢台分公司-河北三部-姚叶娟邢台分公司-河北三部-姚叶娟��邢台分�
+STRINGS:
+  * 猩遈
+--- hit 16 offset 559857 ---
+RAW_UTF8_REPLACE: ��一部-陈漫北京总公司-售前一部-陈漫北京总公司-售前一部-陈漫��北京总公司-售前一部-陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi�||H�����e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总�
+STRINGS:
+  * 猩遝
+  * 猩遚
+--- hit 17 offset 559895 ---
+RAW_UTF8_REPLACE: ��部-陈漫北京总公司-售前一部-陈漫��北京总公司-售前一部-陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi�||H�����e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总公司-客服三部-杜全敏北京总�
+STRINGS:
+  * 猩遝
+  * 猩遚
+--- hit 18 offset 559933 ---
+RAW_UTF8_REPLACE: ��-陈漫��北京总公司-售前一部-陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi�||H�����e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总公司-客服三部-杜全敏北京总公司-客服三部-杜全敏北京总�
+STRINGS:
+  * 猩遝
+  * 猩遚
+--- hit 19 offset 559973 ---
+RAW_UTF8_REPLACE: 陈漫�604�beijingzonggongsi�bjzgs�bu�chenman�cm�gongsi�gs�jingzonggongsi�jzgs�man�qianyibu�qyb�shouqianyibu�si�sqyb�yb�yibu�zgs�zonggongsi�||H�����e|��北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣北京总公司-客服三部-梁蓝欣��北京总公司-客服三部-梁蓝欣�beijingzonggongsi�bjzgs�bu�fsb�fusanbu�gongsi�gs�jingzonggongsi�jzgs�kefusanbu�kfsb�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�sanbu�sb�si�xin�zgs�zonggongsi��7�������c|�s�北京总公司-客服三部-杜全敏北京总公司-客服三部-杜全敏北京总公司-客服三部-杜全敏��北京总�
+STRINGS:
+  * 猩遝
+  * 猩遚
+--- hit 20 offset 875381 ---
+RAW_UTF8_REPLACE: ngtaojiehuoguojiguandian�qtghgjgad�qtjhgjgad�taoguhuoguojiguandian�taojiahuoguojiguandian�taojiehuoguojiguandian�tghgjgad�tjhgjgad�晴淘家火锅鸡固安店�U[|�/�juan�taoyujuan�taoyvjuan�tyj�yaoyujuan�yaoyvjuan�yj�yujuan�yvjuan�yyj�陶裕娟�>Z|��lanxin�laxin�lianglanxin�lianglaxin�llx�lx�xin�梁蓝欣��!Y|�G�chunjituan�cjt�hl�huangling�jituan�jt�ling�nachunjituan�nanchunjituan�ncjt�tuan�yannachunjituan�yannanchunjituan�yncjt�黄玲 ～燕南春集团13333068900�/X|e�ke�liuzike�lzk�zike�zk�刘自可🐔 ® AD��tW|�m�baozhuangxufei�baozhuangxvfei�bzxf�daibaozhuangxufei�daibaozhuangxvfei�dbzxf�f
+NEAR_IDS: 13333068900
+--- hit 21 offset 1713292 ---
+RAW_UTF8_REPLACE: �kefuhao�kfh�ngtkfh�nuangutoukefuhao�shanzhong�sz�tkfh�toukefuhao�zhong�暖骨头客服号(接单中)��L�%|��caizhaowanglianglanxin�caizhaowanglianglaxin�czwllx�lanxin�laxin�lianglanxin�lianglaxin�llx�lx�wanglianglanxin�wanglianglaxin�wllx�xin�zhaowanglianglanxin�zhaowanglianglaxin�zwllx�采招网梁蓝欣��$|9�fan�kf�kuofan�阔范���#|�9�aiying�ay�eryuan�ey�hay�huaaiying�hui�ph�puhui�ry�ryuan�yey�ying�youeryuan�youryuan�yry�yuan�zhay�zhihuaaiying�智华爱婴 普惠 幼儿园🇨🇳�O�"|�#�anshujing�asj�da�dai�fangda�fangdai�fd�jing�shujing�sj�方大～安淑敬�o�!|�c�geshei�geshui�gs�laotou
+
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\data_index.db tables=tencent_document_include,tencent_document_exclude,spm_party_v2_include,spm_party_v2_exclude,spm_student_v2_include,spm_student_v2_exclude,govern_grid_include,govern_grid_exclude,file_index_include,file_index_exclude,out_contact_v2_include,out_contact_v2_exclude,company_index_include,company_index_exclude,filename_index_storage_v2,filename_index_storage_v2_content,filename_index_storage_v2_segments,filename_index_storage_v2_segdir,frq_user,idx_user,idx_user_data,idx_user_idx,idx_user_content,idx_user_docsize,idx_user_config,frq_hot_user,idx_hot_user,idx_hot_user_data,idx_hot_user_idx,idx_hot_user_content,idx_hot_user_docsize,idx_hot_user_config,frq_department,idx_department,idx_department_data,idx_department_idx,idx_department_content,idx_department_docsize,idx_department_config,frq_conversation,idx_conversation,idx_conversation_data,idx_conversation_idx,idx_conversation_content,idx_conversation_docsize,idx_conversation_config,frq_conversation_member_nickname,idx_conversation_member_nickname,idx_conversation_member_nickname_data,idx_conversation_member_nickname_idx,idx_conversation_member_nickname_content,idx_conversation_member_nickname_docsize,idx_conversation_member_nickname_config,frq_customer_relation,idx_customer_relation,idx_customer_relation_data,idx_customer_relation_idx,idx_customer_relation_content,idx_customer_relation_docsize,idx_customer_relation_config,frq_tencent_document,idx_tencent_document,idx_tencent_document_data,idx_tencent_document_idx,idx_tencent_document_content,idx_tencent_document_docsize,idx_tencent_document_config,tencent_document_id_mapping,frq_spm_party_v2,idx_spm_party_v2,idx_spm_party_v2_data,idx_spm_party_v2_idx,idx_spm_party_v2_content,idx_spm_party_v2_docsize,idx_spm_party_v2_config,frq_spm_student_v2,idx_spm_student_v2,idx_spm_student_v2_data,idx_spm_student_v2_idx,idx_spm_student_v2_content,idx_spm_student_v2_docsize,idx_spm_student_v2_config,frq_govern_grid,idx_govern_grid,idx_govern_grid_data,idx_govern_grid_idx,idx_govern_grid_content,idx_govern_grid_docsize,idx_govern_grid_config,frq_out_contact_v2,idx_out_contact_v2,idx_out_contact_v2_data,idx_out_contact_v2_idx,idx_out_contact_v2_content,idx_out_contact_v2_docsize,idx_out_contact_v2_config,frq_company_index,idx_company_index,idx_company_index_data,idx_company_index_idx,idx_company_index_content,idx_company_index_docsize,idx_company_index_config,frq_wechat_contact,idx_wechat_contact,idx_wechat_contact_data,idx_wechat_contact_idx,idx_wechat_contact_content,idx_wechat_contact_docsize,idx_wechat_contact_config,wechat_contact_id_mapping
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\index_master.db tables=data_version
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\message_index_log.db tables=message_include,message_excludeV2,general_kv
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\session_index_log.db tables=session_include,session_exclude_v2,conversation_member_nickname_include,conversation_member_nickname_exclude
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\sms_index.db tables=sms_msg_id_phone_num_index,sms_msg_id_receiver_index
+SQLITE_OK C:\Users\xs0409\Documents\WXWork\1688855031319247\Index\userdept_index_log.db tables=user_include,user_exclude,external_user_include,external_user_exclude,dept_include,dept_exclude,wechat_contact_include,wechat_contact_exclude
+
+TOTAL_BINARY_HITS 45
