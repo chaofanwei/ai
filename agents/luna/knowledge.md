@@ -4,7 +4,7 @@
 
 - 需求：所有登录用户默认可访问 `/configApply`（Privilege 组 **55**，页面「功能申请」），无需单独申请。
 - 实现（方案 A，源码）：`Constants.DEFAULT_PRIVILEGE_GROUP_3=55`，统一列表 `DEFAULT_PRIVILEGE_GROUPS`（20/21/55）；登录菜单、`UserService` API 缓存、权限回填与申请/管理员改权时的剔除逻辑均使用该列表。
-- 分支：`luna-platform` → **`feature/default-privilege-config-apply`**，commit `9cbd98205`（未 push）。
+- 分支：`luna-platform` → **`default-privilege-config-apply`**，commit `9cbd98205`（已 push origin）。
 - 上线后：用户需**重新登录**刷新 `menuItems`；库表 `Privilege` 中组 55 记录保持不变，无需改库。
 - 备注：线上组 55 菜单 `httpUrl` 仍为 `/luna/config/listAll`，实际接口为 `/luna/configure/*`；Session 接口校验目前有兼容放行，若以后收紧拦截可单独 UPDATE `httpUrl`。
 
